@@ -1,0 +1,7 @@
+<Resource name="jdbc/MyDB" auth="Container"
+          type="javax.sql.DataSource" maxActive="100"
+          maxIdle="30" maxWait="10000"
+          username="sopg"
+          password="sopg"
+          driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+          url="jdbc:sqlserver://localhost:1433/SOPG"/>
