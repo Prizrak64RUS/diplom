@@ -11,17 +11,17 @@ import java.io.Serializable;
 public class Point implements Serializable{
     private String name;
     private String type;
-    private int x;
-    private int y;
-    private int size_w;
-    private int size_h;
+    private double x;
+    private double y;
+    private double size_w;
+    private double size_h;
     private String description;
     private int id_map;
     private boolean isBusy;
     private int id_user_Busy;
     private int id;
 
-    public Point(String name,String type, int x, int y, int size_w, int size_h, String description, int id_map, boolean isBusy, int id_user_Busy, int id){
+    public Point(String name,String type, double x, double y, double size_w, double size_h, String description, int id_map, boolean isBusy, int id_user_Busy, int id){
         this.name=name;
         this.type=type;
         this.description=description;
@@ -36,7 +36,7 @@ public class Point implements Serializable{
 
     }
 
-    public Point(String name,String type, int x, int y, int size_w, int size_h, String description, int id_map, int isBusy, int id_user_Busy, int id){
+    public Point(String name,String type, double x, double y, double size_w, double size_h, String description, int id_map, int isBusy, int id_user_Busy, int id){
         this.name=name;
         this.type=type;
         this.description=description;
@@ -75,10 +75,10 @@ public class Point implements Serializable{
         this.type = type;
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
-    public void setX(int x) {
+    public void setX(double x) {
         this.x = x;
     }
 
@@ -89,24 +89,24 @@ public class Point implements Serializable{
         this.id_map = id_map;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
-    public void setY(int y) {
+    public void setY(double y) {
         this.y = y;
     }
 
-    public int getSize_w() {
+    public double getSize_w() {
         return size_w;
     }
-    public void setSize_w(int size_w) {
+    public void setSize_w(double size_w) {
         this.size_w = size_w;
     }
 
-    public int getSize_h() {
+    public double getSize_h() {
         return size_h;
     }
-    public void setSize_h(int size_h) {
+    public void setSize_h(double size_h) {
         this.size_h = size_h;
     }
 

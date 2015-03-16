@@ -9,17 +9,19 @@ namespace Assets.myScript.entity
     {
         public String name { get; set; }
         public String type { get; set; }
-        public int x { get; set; }
-        public int y { get; set; }
-        public int size_w { get; set; }
-        public int size_h { get; set; }
+        public float x { get; set; }
+        public float y { get; set; }
+        public float size_w { get; set; }
+        public float size_h { get; set; }
         public String description { get; set; }
         public int id_map { get; set; }
         public bool isBusy { get; set; }
         public int id_user_Busy { get; set; }
         public int id { get; set; }
 
-        public Point(String name, String type, int x, int y, int size_w, int size_h, String description, int id_map, bool isBusy, int id_user_Busy, int id)
+        public Point() { }
+
+        public Point(String name, String type, float x, float y, float size_w, float size_h, String description, int id_map, bool isBusy, int id_user_Busy, int id)
         {
             this.name = name;
             this.type = type;

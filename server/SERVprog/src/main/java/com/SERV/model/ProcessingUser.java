@@ -1,35 +1,25 @@
 package com.SERV.model;
 
 import com.SERV.dataBase.ControllerConnections;
+import com.SERV.interfaceAbility.InterfaceUser;
 import com.SERV.view.entity.User;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
  * Created by prizrak on 25.11.2014.
  */
-public class ProcessingUser {
-    public static User getUser(int id){
+public class ProcessingUser  implements InterfaceUser {
 
-        return new User("Therru","sdfsdf");
-    }
+    public User isAutch(User user){return ControllerConnections.getUserController().isAutch(user);}
 
-    public static HashMap<String,String> isUser(String login, String password) {
-        HashMap<String,String> hm = new HashMap<String, String>();
-        hm.put("isUser", Boolean.toString(false));
-        return hm;
-    }
+    public void setUsers(ArrayList<User> user){ControllerConnections.getUserController().setUsers(user);}
 
-    public static HashMap<String,User> getUserRole(String role) {
+    public void updateUsers(ArrayList<User> user){ControllerConnections.getUserController().updateUsers(user);}
 
-        HashMap<String,User> hm = new HashMap<String, User>();
-        return hm;
-    }
+    public void deleteUsers(ArrayList<User> user){ControllerConnections.getUserController().deleteUsers(user);}
 
-    public User authentication(User user){
-
-        User usr_tmp = ControllerConnections.getUserController().isAuthentication(user.getLogin(),user.getPassword());
-
-        return usr_tmp;
-    }
+    public ArrayList<User> getUsers(){return ControllerConnections.getUserController().getUsers();}
+    public ArrayList<User> getUsers(int idEvent){return ControllerConnections.getUserController().getUsers(idEvent);}
 }

@@ -1,20 +1,26 @@
 package com.SERV.model;
 
 
-import com.SERV.dataBase.ControllerConnections;
-import com.SERV.view.entity.User;
-import com.SERV.view.entity.UserRole;
-import com.SERV.dataBase.ControllerConnections;
-
-import java.util.ArrayList;
-import java.util.HashMap;
+import com.SERV.interfaceAbility.*;
 
 public class DataProcessing {
-    public static ProcessingUser  getProcessingUser(){
+    public static InterfaceUser getProcessingUser(){
         return new ProcessingUser();
     }
-    public static ProcessingMap  getProcessingMap(){
+    public static InterfaceMaps  getProcessingMap(){
         return new ProcessingMap();
+    }
+    public static InterfaceLog getProcessingLog(){
+        return new ProcessingLog();
+    }
+    public static InterfaceChat  getProcessingChat(){
+        return new ProcessingChat();
+    }
+    public static InterfaceEvent getProcessingEvent(){
+        return new ProcessingEvent();
+    }
+    public static InterfacePoint  getProcessingPoint(){
+        return new ProcessingPoint();
     }
 
 }

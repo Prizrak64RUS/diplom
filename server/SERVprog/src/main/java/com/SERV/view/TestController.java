@@ -4,10 +4,7 @@ import com.SERV.dataBase.ControllerConnections;
 import com.SERV.model.DataProcessing;
 import com.SERV.view.entity.User;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by prizrak on 25.11.2014.
@@ -15,9 +12,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/test/")
 public class TestController {
-    @RequestMapping(value= "{test}")
+    @RequestMapping(method = RequestMethod.POST, value = "{idEvent}")
     @ResponseBody
-    public boolean test() {
+    public boolean test(@PathVariable int idEvent) {
         return true;
     }
 }

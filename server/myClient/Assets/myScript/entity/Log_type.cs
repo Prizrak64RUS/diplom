@@ -10,6 +10,8 @@ namespace Assets.myScript.entity
         public String description { get; set; }
         public int id { get; set; }
 
+        public Log_type() { }
+
         public Log_type(String description, int id)
         {
             this.description = description;

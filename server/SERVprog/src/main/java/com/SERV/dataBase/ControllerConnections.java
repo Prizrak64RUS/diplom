@@ -1,16 +1,13 @@
 package com.SERV.dataBase;
 
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
-import java.sql.*;
+import com.SERV.interfaceAbility.*;
 
 /**
  * Created by prizrak on 18.11.2014.
  */
 public class ControllerConnections {
+   private ControllerConnections(){}
   /*  public Connection getConnection() throws Exception{
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         InitialContext initContext = new InitialContext();
@@ -32,11 +29,27 @@ public class ControllerConnections {
         return null;
     }*/
 
-    public static UserController getUserController(){
+    public static InterfaceUser getUserController(){
         return new UserController();
     }
 
-    public static MapsController getMapsController(){
+    public static InterfaceMaps getMapsController(){
         return new MapsController();
+    }
+
+    public static InterfaceChat getChatController(){
+        return new ChatController();
+    }
+
+    public static InterfaceLog getLogController(){
+        return new LogController();
+    }
+
+    public static InterfacePoint getPointController(){
+        return new PointController();
+    }
+
+    public static InterfaceEvent getEventController(){
+        return new EventController();
     }
 }

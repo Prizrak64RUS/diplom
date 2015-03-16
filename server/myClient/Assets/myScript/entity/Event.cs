@@ -14,6 +14,8 @@ namespace Assets.myScript.entity
         public int id { get; set; }
         //private List<Maps> maps { get; set; }
 
+        public Event() { }
+
         public Event(String name, bool isActiv, String description, String date, int id)//, List<Maps> maps)
         {
             this.name = name;

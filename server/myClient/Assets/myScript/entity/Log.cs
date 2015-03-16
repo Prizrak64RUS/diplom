@@ -17,6 +17,8 @@ namespace Assets.myScript.entity
 
         // private List<Maps> maps;
 
+        public Log() { }
+
         public Log(String description, int id, int id_user, int id_log_type, int id_events, int id_point, String date)
         {
             this.description = description;
