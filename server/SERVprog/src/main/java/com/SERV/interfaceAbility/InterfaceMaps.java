@@ -11,8 +11,8 @@ import java.util.ArrayList;
 public interface InterfaceMaps {
     public ArrayList<Maps> getMaps(int idEvent);
     public void setMap(Maps map);
-    public void sendMapIn(File file);
-    public File sendMapOUT();
+    public void sendMapIn(byte[] file, String name);
+    public byte[] sendMapOUT(int id);
     public void delMap(int id);
 
 }

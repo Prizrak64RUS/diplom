@@ -52,4 +52,6 @@ public class ControllerConnections {
     public static InterfaceEvent getEventController(){
         return new EventController();
     }
+
+    public static InterfaceNews getNewsController(){return new NewsController();}
 }

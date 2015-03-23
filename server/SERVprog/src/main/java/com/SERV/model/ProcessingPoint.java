@@ -13,7 +13,7 @@ public class ProcessingPoint implements InterfacePoint{
 
     public ArrayList<Point> getPoints(int idMap){return ControllerConnections.getPointController().getPoints(idMap);}
 
-    public void setPoint(Point point){ControllerConnections.getPointController().setPoint(point);}
+    public void updPoint(ArrayList<Point> points){ControllerConnections.getPointController().updPoint(points);}
 
     public void setPoints(ArrayList<Point> points){ControllerConnections.getPointController().setPoints(points);}
 

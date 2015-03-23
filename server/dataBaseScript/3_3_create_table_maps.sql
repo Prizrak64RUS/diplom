@@ -20,7 +20,7 @@ CREATE TABLE [dbo].[maps](
 	[name] [nvarchar](50) NOT NULL,
 	[id_event] [int] NOT NULL,
 	[description] [nvarchar](500) NULL,
-	[path] [nvarchar](50) NOT NULL,
+	[image] [image] NOT NULL,
  CONSTRAINT [PK_maps] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Assets.myScript.entity
 {
-    class User
+    public class User
     {
 
         public String name { get; set; }
@@ -32,6 +32,7 @@ namespace Assets.myScript.entity
         {
             this.login = login;
             this.password = password;
+            this.role = "NONE";
 
         }
     }

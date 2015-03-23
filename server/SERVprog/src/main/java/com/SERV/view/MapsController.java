@@ -37,6 +37,30 @@ public class MapsController implements InterfaceMaps{
     public void delMap(@PathVariable int id){DataProcessing.getProcessingMap().delMap(id);}
 
 
-    public void sendMapIn(File file){}
-    public File sendMapOUT(){return null;}
+    public void sendMapIn(byte[] file, String name){DataProcessing.getProcessingMap().sendMapIn(file, name);}
+
+    public void sendMapInByte(Byte[] file, String name){DataProcessing.getProcessingMap().sendMapIn(byteReparser(file), name);}
+   // @RequestMapping(method = RequestMethod.GET, value= UrlController.mapsSendOut)
+   // @ResponseBody
+    public byte[] sendMapOUT(int id){return DataProcessing.getProcessingMap().sendMapOUT(id);}
+
+    @RequestMapping(method = RequestMethod.GET, value= UrlController.mapsSendOut)
+    @ResponseBody
+    public Byte[] sendMapOUTByte(@PathVariable int id){
+        return byteParser(sendMapOUT(id));
+    }
+    private Byte[] byteParser(byte[] b){
+        Byte[] bb = new Byte[b.length];
+        for(int i=0; i<b.length;i++){
+            bb[i]=b[i];
+        }
+        return bb;
+    }
+    private byte[] byteReparser(Byte[] b){
+        byte[] bb = new byte[b.length];
+        for(int i=0; i<b.length;i++){
+            bb[i]=b[i];
+        }
+        return bb;
+    }
 }

@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.*;
  * Created by prizrak on 25.11.2014.
  */
 @Controller
-@RequestMapping("/test/")
+@RequestMapping("/test")
 public class TestController {
-    @RequestMapping(method = RequestMethod.POST, value = "{idEvent}")
+    @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public boolean test(@PathVariable int idEvent) {
+    public boolean test() {
         return true;
     }
 }

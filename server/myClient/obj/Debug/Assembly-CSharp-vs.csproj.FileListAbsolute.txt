@@ -4,10 +4,12 @@ D:\googleDrive\Rabota\институт\diplom\server\myClient\Temp\bin\Debug\Res
 D:\googleDrive\Rabota\институт\diplom\server\myClient\Temp\bin\Debug\UnityEditor.dll
 D:\googleDrive\Rabota\институт\diplom\server\myClient\Temp\bin\Debug\UnityEngine.dll
 D:\googleDrive\Rabota\институт\diplom\server\myClient\Temp\bin\Debug\Mono.Cecil.dll
-D:\googleDrive\Rabota\институт\diplom\server\myClient\Temp\bin\Debug\nunit.framework.dll
 D:\googleDrive\Rabota\институт\diplom\server\myClient\Temp\bin\Debug\Unity.DataContract.dll
 D:\googleDrive\Rabota\институт\diplom\server\myClient\Temp\bin\Debug\ICSharpCode.NRefactory.dll
 D:\googleDrive\Rabota\институт\diplom\server\myClient\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
 D:\googleDrive\Rabota\институт\diplom\server\myClient\obj\Debug\Assembly-CSharp.dll
 D:\googleDrive\Rabota\институт\diplom\server\myClient\obj\Debug\Assembly-CSharp.pdb
 D:\googleDrive\Rabota\институт\diplom\server\myClient\Temp\bin\Debug\Newtonsoft.Json.dll
+D:\googleDrive\Rabota\институт\diplom\server\myClient\Temp\bin\Debug\UnityEngine.UI.dll
+D:\googleDrive\Rabota\институт\diplom\server\myClient\Temp\bin\Debug\Unity.SerializationLogic.dll
+D:\googleDrive\Rabota\институт\diplom\server\myClient\Temp\bin\Debug\Unity.CecilTools.dll

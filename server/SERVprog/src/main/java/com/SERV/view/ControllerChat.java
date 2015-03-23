@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 @Controller
 @RequestMapping(UrlController.chatObj)
-public class ControllerChat {
+public class ControllerChat implements InterfaceChat{
 
     @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.chatInsert)
     @ResponseBody

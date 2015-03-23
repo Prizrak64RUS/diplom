@@ -16,10 +16,11 @@ namespace Assets.myScript
             return data;
         }
         private Data() { url = "http://localhost:8080"; }
+        
         public string url { get; set; }
+        public User user { get; set; }
         public List<Maps> mapsList { get; set; }
         public Event ev { get; set; }
-        public User user{ get; set; }
         
     }
 }

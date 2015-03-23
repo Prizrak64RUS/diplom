@@ -113,6 +113,9 @@ public class Point implements Serializable{
     public boolean getIsBusy() {
         return isBusy;
     }
+    public int getBusy() {
+        return (isBusy)?1:0;
+    }
     public void setIsBusy(int isBusy) {
         this.isBusy=(isBusy==0)? false: true;
     }

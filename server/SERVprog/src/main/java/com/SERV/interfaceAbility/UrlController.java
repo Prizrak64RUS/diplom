@@ -6,6 +6,8 @@ package com.SERV.interfaceAbility;
 public interface UrlController {
     String userObj="/user/";
     String userInsert="insert";
+    String userUpdate="update";
+    String userDelete="delete";
     String userAll="allUser";
     String usersFromEvent="allUser/{idEvent}";
     String userAuth = "auth";
@@ -14,6 +16,7 @@ public interface UrlController {
     String mapFromEventAll="allMap/{idEvent}";
     String mapsInsert="insert";
     String mapsDelete="delete/{id}";
+    String mapsSendOut="sendOut/{id}";
 
     String eventObj="/event/";
     String eventGetActiv="getActiv";
@@ -22,7 +25,7 @@ public interface UrlController {
 
     String pointObj="/point/";
     String pointFromMap="allPoint/{idMap}";
-    String pointInsert="insert";
+    String pointUpdate="update";
     String pointsInsert="inserts";
     String pointDelete="delete";
 
@@ -35,4 +38,9 @@ public interface UrlController {
     String chatInsert="insert";
     String chatGetOf="getOf/{id}";
     String chatEndSevenMessage="endSevenMessage";
+
+    String newsObj="/news/";
+    String newsInsert="insert";
+    String newsGetOf="getOf/{id}";
+    String newsEndSeven="endSeven";
 }

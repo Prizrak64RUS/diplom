@@ -22,6 +22,7 @@ CREATE TABLE [dbo].[event](
 	[description] [nvarchar](500) NOT NULL,
 	[date] [datetime] NOT NULL,
 	[isActiv] [int] NOT NULL,
+	[isDelete] [int],
  CONSTRAINT [PK_event] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC

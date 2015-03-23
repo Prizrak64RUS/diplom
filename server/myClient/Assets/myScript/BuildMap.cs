@@ -8,24 +8,24 @@ using System.Collections.Generic;
 
 public class BuildMap : MonoBehaviour {
 	// Use this for initialization
-	void Start () {
-        var client = new RestClient(Data.getDataClass().url+InterfaceUrl.getDataClass().allMap+1);
-        var request = new RestRequest(Method.POST);
-        var response = client.Execute(request);
-        var content = response.Content;
-        Debug.Log(content);
-        var b= JsonConvert.DeserializeObject<List<Maps>>(content);
-        Data.getDataClass().mapsList = b;
-        client = new RestClient(Data.getDataClass().url + InterfaceUrl.getDataClass().allPoint + b[0].id);
-        request = new RestRequest(Method.POST);
-        response = client.Execute(request);
-        content = response.Content;
-        Debug.Log(content);
-        var c = JsonConvert.DeserializeObject<List<Point>>(content);
-        Data.getDataClass().mapsList[0].points = c;
-        CreateField(0);
+    //void Start () {
+    //    var client = new RestClient(Data.getDataClass().url+InterfaceUrl.getDataClass().allMap+1);
+    //    var request = new RestRequest(Method.POST);
+    //    var response = client.Execute(request);
+    //    var content = response.Content;
+    //    Debug.Log(content);
+    //    var b= JsonConvert.DeserializeObject<List<Maps>>(content);
+    //    Data.getDataClass().mapsList = b;
+    //    client = new RestClient(Data.getDataClass().url + InterfaceUrl.getDataClass().allPoint + b[0].id);
+    //    request = new RestRequest(Method.POST);
+    //    response = client.Execute(request);
+    //    content = response.Content;
+    //    Debug.Log(content);
+    //    var c = JsonConvert.DeserializeObject<List<Point>>(content);
+    //    Data.getDataClass().mapsList[0].points = c;
+    //    CreateField(0);
         
-	}
+    //}
 
     void CreateField(int id_map)
     {

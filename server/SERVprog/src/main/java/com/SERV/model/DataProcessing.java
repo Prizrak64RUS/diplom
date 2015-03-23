@@ -22,5 +22,6 @@ public class DataProcessing {
     public static InterfacePoint  getProcessingPoint(){
         return new ProcessingPoint();
     }
+    public static InterfaceNews getProcessingNews() {return new ProcessingNews();}
 
 }

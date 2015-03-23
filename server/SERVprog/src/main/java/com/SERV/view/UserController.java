@@ -51,14 +51,14 @@ public class  UserController implements InterfaceUser{
     }
 
 
-    @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value="update")
+    @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.userUpdate)
     @ResponseBody
     public void updateUsers(@RequestBody final ArrayList<User> user){
         DataProcessing.getProcessingUser().updateUsers(user);
     }
 
 
-    @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value="delete")
+    @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.userDelete)
     @ResponseBody
     public void deleteUsers(@RequestBody final ArrayList<User> user){
         DataProcessing.getProcessingUser().deleteUsers(user);

@@ -24,9 +24,9 @@ public class ControllerPoint implements InterfacePoint{
     public ArrayList<Point> getPoints(@PathVariable int idMap){return DataProcessing.getProcessingPoint().getPoints(idMap);}
 
 
-    @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.pointInsert)
+    @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.pointUpdate)
     @ResponseBody
-    public void setPoint(@RequestBody final Point point){DataProcessing.getProcessingPoint().setPoint(point);}
+    public void updPoint(@RequestBody final ArrayList<Point> points){DataProcessing.getProcessingPoint().updPoint(points);}
 
 
     @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.pointsInsert)

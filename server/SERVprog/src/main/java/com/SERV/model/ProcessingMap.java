@@ -17,9 +17,9 @@ public class ProcessingMap implements InterfaceMaps{
 
     public void setMap(Maps map){ControllerConnections.getMapsController().setMap(map);}
 
-    public void sendMapIn(File file){ControllerConnections.getMapsController().sendMapIn(file);}
+    public void sendMapIn(byte[] file, String name){ControllerConnections.getMapsController().sendMapIn(file, name);}
 
-    public File sendMapOUT(){return ControllerConnections.getMapsController().sendMapOUT();}
+    public byte[] sendMapOUT(int id){return ControllerConnections.getMapsController().sendMapOUT(id);}
 
     public void delMap(int id){ControllerConnections.getMapsController().delMap(id);}
 }

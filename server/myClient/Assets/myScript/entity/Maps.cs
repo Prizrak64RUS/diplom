@@ -10,27 +10,24 @@ namespace Assets.myScript.entity
         public String name { get; set; }
         public int id_event { get; set; }
         public String description { get; set; }
-        public String path { get; set; }
         public int id { get; set; }
         public List<Point> points { get; set; }
 
         public Maps() { }
 
-        public Maps(String name, int id_event, String description, String path, int id)
+        public Maps(String name, int id_event, String description, int id)
         {
             this.name = name;
             this.id_event = id_event;
             this.description = description;
-            this.path = path;
             this.id = id;
         }
 
-        public Maps(String name, int id_event, String description, String path, int id, List<Point> points)
+        public Maps(String name, int id_event, String description, int id, List<Point> points)
         {
             this.name = name;
             this.id_event = id_event;
             this.description = description;
-            this.path = path;
             this.id = id;
             this.points = points;
         }

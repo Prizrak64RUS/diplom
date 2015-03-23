@@ -19,7 +19,7 @@ public class PointController implements InterfacePoint {
             Connection conn =  ConnectionPool.getConnectionPool().retrieve();
 
             Statement statement = conn.createStatement();
-            ResultSet result = statement.executeQuery("SELECT * FROM point where id_map="+idMap+";");
+            ResultSet result = statement.executeQuery("SELECT * FROM SOPG.dbo.point where id_map="+idMap+";");
             ArrayList<Point> pointList = new ArrayList<Point>();
             while (result.next()) {
                 Point point = new Point(result.getString("name"), result.getString("type"), result.getFloat("x"), result.getFloat("y"),
@@ -34,7 +34,56 @@ public class PointController implements InterfacePoint {
         }
         return null;
     }
-    public void setPoint(Point point){}
-    public void setPoints(ArrayList<Point> points){}
-    public void delPoints(Integer[] ids){}
+    public void updPoint(ArrayList<Point> points){
+        for(Point point:points){
+            try {
+                Connection conn =  ConnectionPool.getConnectionPool().retrieve();
+                Statement statement = conn.createStatement();
+                ResultSet result = statement.executeQuery("UPDATE SOPG.[dbo].[point]" +
+                        "   SET [name] = " +"'"+point.getName()+"'"+
+                        "      ,[type] = " +"'"+point.getType()+"'"+
+                        "      ,[x] = " + point.getX() +
+                        "      ,[y] = " + point.getY() +
+                        "      ,[size_w] = " + point.getSize_w() +
+                        "      ,[size_h] = " + point.getSize_h() +
+                        "      ,[description] = " +"'"+point.getDescription()+"'"+
+                        "      ,[id_map] = " + point.getId_map() +
+                        "      ,[isBusy] = " + point.getBusy() +
+                        "      ,[id_user_Busy] = " + point.getId_user_Busy() +
+                        " WHERE id="+point.getId());
+                ConnectionPool.getConnectionPool().putback(conn);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    public void setPoints(ArrayList<Point> points){
+        for(Point point:points){
+        try {
+                Connection conn =  ConnectionPool.getConnectionPool().retrieve();
+                Statement statement = conn.createStatement();
+                ResultSet result = statement.executeQuery("insert into SOPG.dbo.point values ('"+point.getName()+"', '"+
+                        point.getType()+"', "+point.getX()+", "+point.getY()+", "+point.getSize_w()+", "+
+                        point.getSize_h()+", '"+point.getDescription()+"', "+point.getId_map()+", "+
+                        point.getBusy()+", "+point.getId_user_Busy()+");");
+                ConnectionPool.getConnectionPool().putback(conn);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void delPoints(Integer[] ids){
+        for(Integer id: ids){
+            try {
+                Connection conn =  ConnectionPool.getConnectionPool().retrieve();
+
+                Statement statement = conn.createStatement();
+                ResultSet result = statement.executeQuery("DELETE FROM SOPG.dbo.point where id="+id+";");
+                ConnectionPool.getConnectionPool().putback(conn);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

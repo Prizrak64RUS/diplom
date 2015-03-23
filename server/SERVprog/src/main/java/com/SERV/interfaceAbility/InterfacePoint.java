@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public interface InterfacePoint {
     public ArrayList<Point> getPoints(int idMap);
-    public void setPoint(Point point);
+    public void updPoint(ArrayList<Point> points);
     public void setPoints(ArrayList<Point> points);
     public void delPoints(Integer[] ids);
 
