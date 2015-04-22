@@ -8,15 +8,15 @@ namespace Assets.myScript.entity
     public class User
     {
 
-        public String name { get; set; }
-        public String role { get; set; }
-        public String description { get; set; }
-        public String login { get; set; }
+        public string name { get; set; }
+        public string role { get; set; }
+        public string description { get; set; }
+        public string login { get; set; }
         public int id { get; set; }
-        public String password { get; set; }
+        public string password { get; set; }
         public int gradebook { get; set; }
 
-        public User(String name, String role, String description, String login, int id, int gradebook)
+        public User(string name, string role, string description, string login, int id, int gradebook, string password)
         {
             this.name = name;
             this.role = role;
@@ -24,11 +24,30 @@ namespace Assets.myScript.entity
             this.login = login;
             this.id = id;
             this.gradebook = gradebook;
+            this.password = password;
         }
 
-        public User() { }
+        public User(string name, string role, string description, string login, int gradebook, string password)
+        {
+            this.name = name;
+            this.role = role;
+            this.description = description;
+            this.login = login;
+            this.gradebook = gradebook;
+            this.password = password;
+        }
 
-        public User(String login, String password)
+        public User() {
+            this.name = "";
+            this.role = "NONE";
+            this.description = "";
+            this.login = "";
+            this.password = "";
+            this.id = 0;
+            this.gradebook = 0;
+        }
+
+        public User(string login, string password)
         {
             this.login = login;
             this.password = password;

@@ -23,7 +23,7 @@ CREATE TABLE [dbo].[users](
 	[description] [nvarchar](500) NOT NULL,
 	[login] [nvarchar](50) NOT NULL,
 	[password] [nvarchar](50) NOT NULL,
-	[id_event] [int] NOT NULL,
+	[id_event] [int],
  CONSTRAINT [PK_users] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC

@@ -19,7 +19,7 @@ public class NewsController implements InterfaceNews{
         try {
             Connection conn =  ConnectionPool.getConnectionPool().retrieve();
             Statement statement = conn.createStatement();
-            ResultSet result = statement.executeQuery("insert into SOPG.dbo.news values ("+news.getId_event()+", '"+news.getDescription()+"', "+news.getDate_write()+");");
+            statement.execute("insert into SOPG.dbo.news values ("+news.getId_event()+", '"+news.getDescription()+"', "+news.getDate_write()+");");
             ConnectionPool.getConnectionPool().putback(conn);
         } catch (SQLException e) {
             e.printStackTrace();

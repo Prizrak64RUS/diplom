@@ -1,10 +1,13 @@
 package com.SERV.view.entity;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+
 import java.io.Serializable;
 
 /**
  * Created by prizrak on 20.01.2015.
  */
+@JsonAutoDetect
 public class Message implements Serializable{
     int id;
     String message;

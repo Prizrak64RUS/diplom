@@ -17,5 +17,5 @@ public class ProcessingPoint implements InterfacePoint{
 
     public void setPoints(ArrayList<Point> points){ControllerConnections.getPointController().setPoints(points);}
 
-    public void delPoints(Integer[] ids){ControllerConnections.getPointController().delPoints(ids);}
+    public void delPoints(ArrayList<Point> points){ControllerConnections.getPointController().delPoints(points);}
 }

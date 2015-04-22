@@ -39,7 +39,7 @@ public class PointController implements InterfacePoint {
             try {
                 Connection conn =  ConnectionPool.getConnectionPool().retrieve();
                 Statement statement = conn.createStatement();
-                ResultSet result = statement.executeQuery("UPDATE SOPG.[dbo].[point]" +
+                statement.execute("UPDATE SOPG.[dbo].[point]" +
                         "   SET [name] = " +"'"+point.getName()+"'"+
                         "      ,[type] = " +"'"+point.getType()+"'"+
                         "      ,[x] = " + point.getX() +
@@ -62,7 +62,7 @@ public class PointController implements InterfacePoint {
         try {
                 Connection conn =  ConnectionPool.getConnectionPool().retrieve();
                 Statement statement = conn.createStatement();
-                ResultSet result = statement.executeQuery("insert into SOPG.dbo.point values ('"+point.getName()+"', '"+
+                statement.execute("insert into SOPG.dbo.point values ('"+point.getName()+"', '"+
                         point.getType()+"', "+point.getX()+", "+point.getY()+", "+point.getSize_w()+", "+
                         point.getSize_h()+", '"+point.getDescription()+"', "+point.getId_map()+", "+
                         point.getBusy()+", "+point.getId_user_Busy()+");");
@@ -73,13 +73,13 @@ public class PointController implements InterfacePoint {
         }
     }
 
-    public void delPoints(Integer[] ids){
-        for(Integer id: ids){
+    public void delPoints(ArrayList<Point> points){
+        for(Point p: points){
             try {
                 Connection conn =  ConnectionPool.getConnectionPool().retrieve();
 
                 Statement statement = conn.createStatement();
-                ResultSet result = statement.executeQuery("DELETE FROM SOPG.dbo.point where id="+id+";");
+                statement.execute("DELETE FROM SOPG.dbo.point where id="+p.getId()+";");
                 ConnectionPool.getConnectionPool().putback(conn);
             } catch (SQLException e) {
                 e.printStackTrace();

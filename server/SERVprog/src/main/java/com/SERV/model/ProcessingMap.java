@@ -14,12 +14,15 @@ import java.util.List;
 public class ProcessingMap implements InterfaceMaps{
 
     public ArrayList<Maps> getMaps(int idEvent){return ControllerConnections.getMapsController().getMaps(idEvent);}
+    public ArrayList<Maps> getMaps(){return ControllerConnections.getMapsController().getMaps();}
 
-    public void setMap(Maps map){ControllerConnections.getMapsController().setMap(map);}
+    public void setMap(ArrayList<Maps> map){ControllerConnections.getMapsController().setMap(map);}
 
     public void sendMapIn(byte[] file, String name){ControllerConnections.getMapsController().sendMapIn(file, name);}
 
     public byte[] sendMapOUT(int id){return ControllerConnections.getMapsController().sendMapOUT(id);}
 
-    public void delMap(int id){ControllerConnections.getMapsController().delMap(id);}
+    public void delMap(ArrayList<Maps> map){ControllerConnections.getMapsController().delMap(map);}
+    public void updMap(ArrayList<Maps> map){ControllerConnections.getMapsController().updMap(map);}
+
 }

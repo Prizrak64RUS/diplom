@@ -6,7 +6,6 @@ import com.SERV.model.DataProcessing;
 import com.SERV.view.entity.Event;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,7 +19,8 @@ public class EventController implements InterfaceEvent{
 
     @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.eventInsert)
     @ResponseBody
-    public void setEvent(@RequestBody final ArrayList<Event> event){DataProcessing.getProcessingEvent().setEvent(event);}
+    public void setEvents(@RequestBody final ArrayList<Event> event){
+        DataProcessing.getProcessingEvent().setEvents(event);}
 
     @RequestMapping(method = RequestMethod.POST, value=UrlController.eventGetActiv)
     @ResponseBody
@@ -29,4 +29,8 @@ public class EventController implements InterfaceEvent{
     @RequestMapping(method = RequestMethod.POST, value=UrlController.eventAll)
     @ResponseBody
     public ArrayList<Event> getEvents(){return DataProcessing.getProcessingEvent().getEvents();}
+
+    @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.eventUpd)
+    @ResponseBody
+    public void updEvents(@RequestBody final ArrayList<Event> event){DataProcessing.getProcessingEvent().updEvents(event);}
 }

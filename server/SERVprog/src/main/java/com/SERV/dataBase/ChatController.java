@@ -21,7 +21,7 @@ public class ChatController implements InterfaceChat{
             Connection conn =  ConnectionPool.getConnectionPool().retrieve();
 
             Statement statement = conn.createStatement();
-            ResultSet result = statement.executeQuery("insert into SOPG.dbo.message values ("+ms.getIdUserTo()+", '"+ms.getMessage()+"', "+ms.getIdUser()+", GETDATE())");
+            statement.execute("insert into SOPG.dbo.message values ("+ms.getIdUserTo()+", '"+ms.getMessage()+"', "+ms.getIdUser()+", GETDATE())");
             ConnectionPool.getConnectionPool().putback(conn);
         } catch (SQLException e) {
             e.printStackTrace();

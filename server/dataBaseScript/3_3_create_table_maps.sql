@@ -19,8 +19,8 @@ CREATE TABLE [dbo].[maps](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[name] [nvarchar](50) NOT NULL,
 	[id_event] [int] NOT NULL,
-	[description] [nvarchar](500) NULL,
-	[image] [image] NOT NULL,
+	[description] [nvarchar](500) NOT NULL,
+	[image] [image] NULL,
  CONSTRAINT [PK_maps] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC

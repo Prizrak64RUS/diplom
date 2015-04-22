@@ -42,16 +42,49 @@ public class UserController implements InterfaceUser {
             try {
                 Connection conn =  ConnectionPool.getConnectionPool().retrieve();
                 Statement statement = conn.createStatement();
-                ResultSet result = statement.executeQuery("insert into SOPG.dbo.users values ("+us.getGradebook()+", '"+us.getName()+"', '"+us.getRole()+"', '"+
-                        us.getDescription()+"', '"+us.getLogin()+"', '"+us.getPassword()+"';");
+                statement.execute("insert into SOPG.dbo.users (Gradebook, name, role, description, login, password)" +
+                        " values (" + us.getGradebook() + ", '" + us.getName() + "', '" + us.getRole().name() + "', '" +
+                        us.getDescription() + "', '" + us.getLogin() + "', '" + us.getPassword() + "');");
                 ConnectionPool.getConnectionPool().putback(conn);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
     }
-    public void updateUsers(ArrayList<User> user){}
-    public void deleteUsers(ArrayList<User> user){}
+    public void updateUsers(ArrayList<User> user){
+        for(User us: user){
+            try {
+                Connection conn =  ConnectionPool.getConnectionPool().retrieve();
+                Statement statement = conn.createStatement();
+                statement.execute("UPDATE SOPG.dbo.users" +
+                        "   SET [Gradebook] =" + us.getGradebook() + " " +
+                        "      ,[name] ='" + us.getName() + "' " +
+                        "      ,[role] ='" + us.getRole().name() + "' " +
+                        "      ,[description] ='" + us.getDescription() + "' " +
+                        "      ,[login] ='" + us.getLogin() + "' " +
+                        "      ,[password] ='" + us.getPassword() + "' " +
+                        //                "      ,[id_event] ="+us.get()+" \n" +
+                        " WHERE id=" + us.getId());
+                ConnectionPool.getConnectionPool().putback(conn);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+    public void deleteUsers(ArrayList<User> user){
+        for(User usr: user) {
+            try {
+                Connection conn = ConnectionPool.getConnectionPool().retrieve();
+                Statement statement = conn.createStatement();
+                statement.execute("DELETE FROM SOPG.dbo.users WHERE id=" + usr.getId() + ";");
+                ConnectionPool.getConnectionPool().putback(conn);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
     public ArrayList<User> getUsers(){
         try {
         Connection conn =  ConnectionPool.getConnectionPool().retrieve();

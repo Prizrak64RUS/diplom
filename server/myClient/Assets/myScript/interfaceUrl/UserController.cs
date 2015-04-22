@@ -16,9 +16,8 @@ namespace Assets.myScript.interfaceUrl
             var client = new RestClient(url);
             var request = new RestRequest(Method.POST);
             request.AddJsonBody(user);
-            client.Timeout = 2000;
+            client.Timeout = 5000;
             var response = client.Execute(request);
-            var content = response.Content;
         }
         public void updateUsers(List<User> user)
         {
@@ -28,7 +27,6 @@ namespace Assets.myScript.interfaceUrl
             request.AddJsonBody(user);
             client.Timeout = 2000;
             var response = client.Execute(request);
-            var content = response.Content;
         }
         public void deleteUsers(List<User> user)
         {
@@ -38,7 +36,6 @@ namespace Assets.myScript.interfaceUrl
             request.AddJsonBody(user);
             client.Timeout = 2000;
             var response = client.Execute(request);
-            var content = response.Content;
         }
         public User isAutch(User user)
         {
@@ -61,7 +58,7 @@ namespace Assets.myScript.interfaceUrl
             string url = Data.getDataClass().url + InterfaceUrl.userAll;
             var client = new RestClient(url);
             var request = new RestRequest(Method.POST);
-            client.Timeout = 2000;
+            client.Timeout = 5000;
             var response = client.Execute(request);
             var content = response.Content;
             try
@@ -76,7 +73,7 @@ namespace Assets.myScript.interfaceUrl
             string url = Data.getDataClass().url + InterfaceUrl.usersFromEvent_ + idEvent;
             var client = new RestClient(url);
             var request = new RestRequest(Method.POST);
-            client.Timeout = 2000;
+            client.Timeout = 5000;
             var response = client.Execute(request);
             var content = response.Content;
             try

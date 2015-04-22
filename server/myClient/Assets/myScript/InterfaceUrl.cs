@@ -20,20 +20,23 @@ namespace Assets.myScript
         public static string test = "/test";
 
         public static string userInsert = "/user/insert";
-        public static string userUpdate = "update";
-        public static string userDelete = "delete";
+        public static string userUpdate = "/user/update";
+        public static string userDelete = "/user/delete";
         public static string userAll = "/user/allUser";
         public static string usersFromEvent_ = "/user/allUser/";
         public static string userAuth = "/user/auth";
 
         public static string mapFromEventAll_ = "/maps/allMap/";
+        public static string mapAll = "/maps/allMap";
         public static string mapsInsert = "/maps/insert";
-        public static string mapsDelete_ = "/maps/delete/";
+        public static string mapsDelete = "/maps/delete";
+        public static string mapsUpdate = "/maps/update";
         public static string mapsSendOut_ = "/maps/sendOut/";
 
         public static string eventGetActiv = "/event/getActiv";
         public static string eventInsert = "/event/insert";
         public static string eventAll = "/event/allEvent";
+        public static string eventUpd = "/event/upd";
 
         public static string pointFromMap_ = "/point/allPoint/";
         public static string pointUpdate = "/point/update";

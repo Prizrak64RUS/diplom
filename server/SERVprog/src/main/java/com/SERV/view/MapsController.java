@@ -28,13 +28,23 @@ public class MapsController implements InterfaceMaps{
         return DataProcessing.getProcessingMap().getMaps(idEvent);
     }
 
+    @RequestMapping(method = RequestMethod.POST, value= UrlController.mapFromEventAll)
+    @ResponseBody
+    public ArrayList<Maps> getMaps() {
+        return DataProcessing.getProcessingMap().getMaps();
+    }
+
     @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.mapsInsert)
     @ResponseBody
-    public void setMap(@RequestBody final Maps map){DataProcessing.getProcessingMap().setMap(map);}
+    public void setMap(@RequestBody final ArrayList<Maps> map){DataProcessing.getProcessingMap().setMap(map);}
 
     @RequestMapping(method = RequestMethod.POST, value= UrlController.mapsDelete)
     @ResponseBody
-    public void delMap(@PathVariable int id){DataProcessing.getProcessingMap().delMap(id);}
+    public void delMap(@RequestBody final ArrayList<Maps> map){DataProcessing.getProcessingMap().delMap(map);}
+
+    @RequestMapping(method = RequestMethod.POST, value= UrlController.mapsUpdate)
+    @ResponseBody
+    public void updMap(@RequestBody final ArrayList<Maps> map){DataProcessing.getProcessingMap().updMap(map);}
 
 
     public void sendMapIn(byte[] file, String name){DataProcessing.getProcessingMap().sendMapIn(file, name);}

@@ -11,26 +11,29 @@ import java.util.List;
 @JsonAutoDetect
 public class Event implements Serializable{
     private String name;
-    private boolean isActiv;
+    private int isActiv;
     private String description;
     private String date;
     private int id;
+    private int isDelete;
    // private List<Maps> maps;
 
-    public Event(String name, boolean isActiv, String description, String date, int id){
+    public Event(String name, int isActiv, String description, String date, int id, int isDelete){
         this.name=name;
         this.isActiv=isActiv;
         this.description=description;
         this.date=date;
         this.id=id;
+        this.isDelete=isDelete;
     }
 
     public Event(String name, int isActiv, String description, String date, int id){
         this.name=name;
-        this.isActiv=(isActiv==0)? false: true;
+        this.isActiv=isActiv;
         this.description=description;
         this.date=date;
         this.id=id;
+        this.isDelete=0;
     }
 
  /*   public Event(String name, int isActiv, String description, String date, int id, List<Maps> maps){
@@ -61,14 +64,18 @@ public class Event implements Serializable{
         this.name = name;
     }
 
-    public boolean getIsActiv() {
+    public int getIsActiv() {
         return isActiv;
     }
-    public void setIsActiv(boolean isActiv) {
+    public void setIsActiv(int isActiv) {
         this.isActiv = isActiv;
     }
-    public void setIsActiv(int isActiv) {
-        this.isActiv = (isActiv==0)? false: true;
+
+    public int getIsDelete() {
+        return isDelete;
+    }
+    public void setIsDelete(int isDelete) {
+        this.isDelete = isDelete;
     }
 
     public String getDescription() {
@@ -99,7 +106,7 @@ public class Event implements Serializable{
         if (getClass() != obj.getClass())
             return false;
         Event other = (Event) obj;
-        if (id!=((Event) obj).id)
+        if (id!=((Event) obj).id||!name.equals(((Event) obj).name))
             return false;
         return true;
     }

@@ -13,9 +13,8 @@ public class Maps implements Serializable{
     private String name;
     private int id_event;
     private String description;
-    //private String path;
     private int id;
-    private List<Point> points;
+    //private List<Point> points;
 
     public Maps(String name, int id_event, String description,/* String path,*/ int id){
         this.name=name;
@@ -25,23 +24,23 @@ public class Maps implements Serializable{
         this.id=id;
     }
 
-    public Maps(String name, int id_event, String description, /*String path,*/ int id, List<Point> points){
+    public Maps(String name, int id_event, String description /*String path,*/ ){//int id, List<Point> points){
         this.name=name;
         this.id_event=id_event;
         this.description=description;
         //this.path=path;
         this.id=id;
-        this.points=points;
+        //this.points=points;
     }
 
     public Maps(){}
 
-    public List<Point> getPoints() {
-        return points;
-    }
-    public void setPoints(List<Point> name) {
-        this.points = points;
-    }
+   // public List<Point> getPoints() {
+   //     return points;
+   // }
+   // public void setPoints(List<Point> name) {
+   ///     this.points = points;
+   // }
 
     public String getName() {
         return name;

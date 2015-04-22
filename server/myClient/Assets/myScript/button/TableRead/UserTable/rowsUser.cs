@@ -5,6 +5,7 @@ public class rowsUser : MonoBehaviour {
 
     public UnityEngine.UI.InputField greadebook;
     public UnityEngine.UI.InputField name;
+    public UnityEngine.UI.Text type;
     public GameObject thisRows;
 
     public void ButtonRead() {
@@ -13,6 +14,6 @@ public class rowsUser : MonoBehaviour {
 
     public void ButtonDell()
     {
-        rootUserClass.CallUserDeleteChanged(this.gameObject);
+        rootUserClass.CallUserDeleteChanged(this);
     }
 }

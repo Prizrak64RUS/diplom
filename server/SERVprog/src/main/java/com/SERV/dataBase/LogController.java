@@ -17,7 +17,7 @@ public class LogController implements InterfaceLog {
         try {
             Connection conn =  ConnectionPool.getConnectionPool().retrieve();
             Statement statement = conn.createStatement();
-            ResultSet result = statement.executeQuery("insert into SOPG.dbo.event values ("+log.getId_user()+", "+log.getId_log_type()+", "+
+            statement.execute("insert into SOPG.dbo.event values ("+log.getId_user()+", "+log.getId_log_type()+", "+
                     log.getId_event()+", '"+log.getDescription()+"', "+log.getId_point()+", '"+log.getDate()+"');");
             ConnectionPool.getConnectionPool().putback(conn);
         } catch (SQLException e) {

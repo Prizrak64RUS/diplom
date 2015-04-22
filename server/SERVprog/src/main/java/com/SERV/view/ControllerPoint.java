@@ -36,5 +36,5 @@ public class ControllerPoint implements InterfacePoint{
 
     @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.pointDelete)
     @ResponseBody
-    public void delPoints(@RequestBody final Integer[] ids){DataProcessing.getProcessingPoint().delPoints(ids);}
+    public void delPoints(@RequestBody final ArrayList<Point> points){DataProcessing.getProcessingPoint().delPoints(points);}
 }

@@ -8,7 +8,8 @@ import java.util.ArrayList;
  * Created by prizrak on 20.01.2015.
  */
 public interface InterfaceEvent {
-    public void setEvent(ArrayList<Event> event);
+    public void setEvents(ArrayList<Event> event);
     public Event getEventActiv();
     public ArrayList<Event> getEvents();
+    public void updEvents(ArrayList<Event> event);
 }

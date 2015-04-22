@@ -20,7 +20,7 @@ CREATE TABLE [dbo].[event](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[name] [nvarchar](50) NOT NULL,
 	[description] [nvarchar](500) NOT NULL,
-	[date] [datetime] NOT NULL,
+	[date] [date] NOT NULL,
 	[isActiv] [int] NOT NULL,
 	[isDelete] [int],
  CONSTRAINT [PK_event] PRIMARY KEY CLUSTERED 

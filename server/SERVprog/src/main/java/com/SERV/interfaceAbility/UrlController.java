@@ -14,13 +14,16 @@ public interface UrlController {
 
     String mapsObj="/maps/";
     String mapFromEventAll="allMap/{idEvent}";
+    String mapAll="allMap";
     String mapsInsert="insert";
-    String mapsDelete="delete/{id}";
+    String mapsDelete="delete";
+    String mapsUpdate="update";
     String mapsSendOut="sendOut/{id}";
 
     String eventObj="/event/";
     String eventGetActiv="getActiv";
     String eventInsert="insert";
+    String eventUpd="upd";
     String eventAll="allEvent";
 
     String pointObj="/point/";

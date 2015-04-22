@@ -17,24 +17,9 @@ public class Point implements Serializable{
     private double size_h;
     private String description;
     private int id_map;
-    private boolean isBusy;
+    private int isBusy;
     private int id_user_Busy;
     private int id;
-
-    public Point(String name,String type, double x, double y, double size_w, double size_h, String description, int id_map, boolean isBusy, int id_user_Busy, int id){
-        this.name=name;
-        this.type=type;
-        this.description=description;
-        this.x=x;
-        this.id_map=id_map;
-        this.id=id;
-        this.y=y;
-        this.isBusy=isBusy;
-        this.id_user_Busy=id_user_Busy;
-        this.size_w=size_w;
-        this.size_h=size_h;
-
-    }
 
     public Point(String name,String type, double x, double y, double size_w, double size_h, String description, int id_map, int isBusy, int id_user_Busy, int id){
         this.name=name;
@@ -44,7 +29,7 @@ public class Point implements Serializable{
         this.id_map=id_map;
         this.id=id;
         this.y=y;
-        this.isBusy=(isBusy==0)? false: true;
+        this.isBusy=isBusy;
         this.id_user_Busy=id_user_Busy;
         this.size_w=size_w;
         this.size_h=size_h;
@@ -110,16 +95,8 @@ public class Point implements Serializable{
         this.size_h = size_h;
     }
 
-    public boolean getIsBusy() {
-        return isBusy;
-    }
-    public int getBusy() {
-        return (isBusy)?1:0;
-    }
+    public int getBusy() {return isBusy;}
     public void setIsBusy(int isBusy) {
-        this.isBusy=(isBusy==0)? false: true;
-    }
-    public void setIsBusy(boolean isBusy) {
         this.isBusy=isBusy;
     }
 

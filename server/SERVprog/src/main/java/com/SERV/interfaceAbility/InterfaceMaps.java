@@ -10,9 +10,11 @@ import java.util.ArrayList;
  */
 public interface InterfaceMaps {
     public ArrayList<Maps> getMaps(int idEvent);
-    public void setMap(Maps map);
+    public ArrayList<Maps> getMaps();
+    public void setMap(ArrayList<Maps> map);
     public void sendMapIn(byte[] file, String name);
     public byte[] sendMapOUT(int id);
-    public void delMap(int id);
+    public void delMap(ArrayList<Maps> map);
+    public void updMap(ArrayList<Maps> map);
 
 }

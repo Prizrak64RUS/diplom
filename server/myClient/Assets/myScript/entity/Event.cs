@@ -5,24 +5,33 @@ using System.Text;
 
 namespace Assets.myScript.entity
 {
-    class Event
+    public class Event
     {
-        public String name { get; set; }
-        public bool isActiv { get; set; }
-        public String description { get; set; }
-        public String date { get; set; }
+        public string name { get; set; }
+        public int isActiv { get; set; }
+        public int isDelete { get; set; }
+        public string description { get; set; }
+        public string date { get; set; }
         public int id { get; set; }
         //private List<Maps> maps { get; set; }
 
         public Event() { }
 
-        public Event(String name, bool isActiv, String description, String date, int id)//, List<Maps> maps)
+        public Event(string name, int isActiv, string description, string date, int id)//, List<Maps> maps)
         {
             this.name = name;
             this.isActiv = isActiv;
             this.description = description;
             this.date = date;
             this.id = id;
+        }
+        public Event(string name, int isActiv, string description, string date)//, List<Maps> maps)
+        {
+            this.name = name;
+            this.isActiv = isActiv;
+            this.description = description;
+            this.date = date;
+            this.isDelete = 0;
         }
     }
 }
