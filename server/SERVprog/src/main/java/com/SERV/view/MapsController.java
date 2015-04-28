@@ -3,6 +3,7 @@ package com.SERV.view;
 import com.SERV.interfaceAbility.InterfaceMaps;
 import com.SERV.interfaceAbility.UrlController;
 import com.SERV.model.DataProcessing;
+import com.SERV.view.entity.Event;
 import com.SERV.view.entity.Maps;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -24,11 +25,17 @@ public class MapsController implements InterfaceMaps{
         }*/
     @RequestMapping(method = RequestMethod.POST, value= UrlController.mapFromEventAll)
     @ResponseBody
-    public ArrayList<Maps> getMaps(@PathVariable int idEvent) {
-        return DataProcessing.getProcessingMap().getMaps(idEvent);
+    public ArrayList<Maps> getMaps(@RequestBody Event ev) {
+        return DataProcessing.getProcessingMap().getMaps(ev);
     }
 
-    @RequestMapping(method = RequestMethod.POST, value= UrlController.mapFromEventAll)
+    @RequestMapping(method = RequestMethod.POST, value= UrlController.mapActivEventAll)
+    @ResponseBody
+    public ArrayList<Maps> getMapsFromActivEvent(){
+        return DataProcessing.getProcessingMap().getMapsFromActivEvent();
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value= UrlController.mapAll)
     @ResponseBody
     public ArrayList<Maps> getMaps() {
         return DataProcessing.getProcessingMap().getMaps();

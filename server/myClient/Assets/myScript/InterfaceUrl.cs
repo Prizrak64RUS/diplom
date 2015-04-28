@@ -26,7 +26,8 @@ namespace Assets.myScript
         public static string usersFromEvent_ = "/user/allUser/";
         public static string userAuth = "/user/auth";
 
-        public static string mapFromEventAll_ = "/maps/allMap/";
+        public static string mapFromEventAll = "/maps/allMap/in/";
+        public static string mapActivEventAll = "/maps/allMap/selected/";
         public static string mapAll = "/maps/allMap";
         public static string mapsInsert = "/maps/insert";
         public static string mapsDelete = "/maps/delete";

@@ -10,11 +10,12 @@ namespace Assets.myScript.interfaceUrl
 {
     class MapsController
     {
-        public List<Maps> getMaps(int idEvent) 
+        public List<Maps> getMaps(Event ev) 
         {
-            string url = Data.getDataClass().url + InterfaceUrl.mapFromEventAll_+idEvent;
+            string url = Data.getDataClass().url + InterfaceUrl.mapFromEventAll;
             var client = new RestClient(url);
             var request = new RestRequest(Method.POST);
+            request.AddJsonBody(ev);
             client.Timeout = 5000;
             var response = client.Execute(request);
             var content = response.Content;
@@ -40,6 +41,23 @@ namespace Assets.myScript.interfaceUrl
             }
             catch (Exception e) { return null; }
         }
+
+        public List<Maps> getMapsFromActivEvent()
+        {
+            string url = Data.getDataClass().url + InterfaceUrl.mapActivEventAll;
+            var client = new RestClient(url);
+            var request = new RestRequest(Method.POST);
+            client.Timeout = 5000;
+            var response = client.Execute(request);
+            var content = response.Content;
+            try
+            {
+                var b = JsonConvert.DeserializeObject<List<Maps>>(content);
+                return b;
+            }
+            catch (Exception e) { return null; }
+        }
+
         public void setMap(List<Maps> map) 
         {
             string url = Data.getDataClass().url + InterfaceUrl.mapsInsert;

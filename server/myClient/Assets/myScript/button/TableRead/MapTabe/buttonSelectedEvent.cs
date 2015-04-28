@@ -3,6 +3,9 @@ using System.Collections;
 
 public class buttonSelectedEvent : MonoBehaviour {
 
+    public UnityEngine.UI.Text text;
+    public static UnityEngine.UI.Text textSelectedView; 
+
     public void ButtonUnSelectedPanel()
     {
         panelSelectedEvent.CallmapTypeEventSelectedChanged(false);
@@ -10,10 +13,11 @@ public class buttonSelectedEvent : MonoBehaviour {
 
     public void ButtonSelectedPanel()
     {
+        textSelectedView = text;
         panelSelectedEvent.CallmapTypeEventSelectedChanged(true);
     }
     public void ButtonSetName()
     {
-        rowsMaps.CallmapTypeEventSetNameChanged(this.gameObject.GetComponentInChildren<UnityEngine.UI.Text>().text);
+        textSelectedView.text = text.text;
     }
 }

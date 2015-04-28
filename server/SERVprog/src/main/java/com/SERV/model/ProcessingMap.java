@@ -13,8 +13,12 @@ import java.util.List;
  */
 public class ProcessingMap implements InterfaceMaps{
 
-    public ArrayList<Maps> getMaps(int idEvent){return ControllerConnections.getMapsController().getMaps(idEvent);}
+    public ArrayList<Maps> getMaps(Event ev){return ControllerConnections.getMapsController().getMaps(ev);}
     public ArrayList<Maps> getMaps(){return ControllerConnections.getMapsController().getMaps();}
+    public ArrayList<Maps> getMapsFromActivEvent(){
+        return ControllerConnections.getMapsController().getMapsFromActivEvent();
+    }
+
 
     public void setMap(ArrayList<Maps> map){ControllerConnections.getMapsController().setMap(map);}
 

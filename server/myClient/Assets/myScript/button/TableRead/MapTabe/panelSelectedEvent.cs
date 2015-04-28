@@ -3,6 +3,7 @@ using System.Collections;
 
 public class panelSelectedEvent : MonoBehaviour {
 
+    public static UnityEngine.UI.Text textSelectedView; 
 
     public delegate void mapTypeEventSelectedDelegate(bool val);
     public static event mapTypeEventSelectedDelegate EventMapTypeEventSelected;
@@ -15,6 +16,7 @@ public class panelSelectedEvent : MonoBehaviour {
         }
     }
     void Start() {
+        SelectedPanel(false);
         EventMapTypeEventSelected += SelectedPanel;
     }
     public void SelectedPanel(bool val) {

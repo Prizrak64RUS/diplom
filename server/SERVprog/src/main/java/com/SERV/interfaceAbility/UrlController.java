@@ -13,7 +13,8 @@ public interface UrlController {
     String userAuth = "auth";
 
     String mapsObj="/maps/";
-    String mapFromEventAll="allMap/{idEvent}";
+    String mapFromEventAll="allMap/in/";
+    String mapActivEventAll="allMap/selected/";
     String mapAll="allMap";
     String mapsInsert="insert";
     String mapsDelete="delete";

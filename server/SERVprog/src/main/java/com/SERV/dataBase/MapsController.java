@@ -1,6 +1,7 @@
 package com.SERV.dataBase;
 
 import com.SERV.interfaceAbility.InterfaceMaps;
+import com.SERV.view.entity.Event;
 import com.SERV.view.entity.Maps;
 import com.SERV.view.entity.Point;
 
@@ -31,16 +32,36 @@ public class MapsController implements InterfaceMaps{
     }
  */
 
-
-    public ArrayList<Maps> getMaps(int idEvent){
+    public ArrayList<Maps> getMapsFromActivEvent(){
         try {
             Connection conn =  ConnectionPool.getConnectionPool().retrieve();
 
             Statement statement = conn.createStatement();
-            ResultSet result = statement.executeQuery("SELECT * FROM SOPG.dbo.maps where id_event="+idEvent+";");
+            ResultSet result = statement.executeQuery("SELECT maps.id, maps.name, maps.id_event, maps.description  " +
+                    "FROM SOPG.dbo.maps, SOPG.dbo.event WHERE maps.id_event = event.id AND event.isActiv=1;");
             ArrayList<Maps> mapsList = new ArrayList<Maps>();
             while (result.next()) {
-                Maps maps = new Maps(result.getString("name"), idEvent, result.getString("description"), result.getInt("id"));
+                Maps maps = new Maps(result.getString("name"), result.getInt("id_event"), result.getString("description"), result.getInt("id"));
+                mapsList.add(maps);
+            }
+            ConnectionPool.getConnectionPool().putback(conn);
+            return mapsList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    public ArrayList<Maps> getMaps(Event ev){
+        try {
+            Connection conn =  ConnectionPool.getConnectionPool().retrieve();
+
+            Statement statement = conn.createStatement();
+            ResultSet result = statement.executeQuery("SELECT * FROM SOPG.dbo.maps where id_event="+ev.getId()+";");
+            ArrayList<Maps> mapsList = new ArrayList<Maps>();
+            while (result.next()) {
+                Maps maps = new Maps(result.getString("name"), ev.getId(), result.getString("description"), result.getInt("id"));
                 mapsList.add(maps);
             }
             ConnectionPool.getConnectionPool().putback(conn);
