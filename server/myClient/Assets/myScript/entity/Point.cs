@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Assets.myScript.entity
 {
-    class Point
+    public class Point
     {
         public String name { get; set; }
         public String type { get; set; }

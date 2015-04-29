@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Assets.myScript.entity
 {
-    class Maps
+    public class Maps
     {
         public String name { get; set; }
         public int id_event { get; set; }

@@ -4,10 +4,17 @@ using System.Collections;
 public class rowsMaps : MonoBehaviour {
 
     public UnityEngine.UI.InputField description;
-    public UnityEngine.UI.Button type;
+    public UnityEngine.UI.Text type;
     public UnityEngine.UI.InputField name;
+    public Assets.myScript.entity.Maps map;
+    public GameObject thisR;
 
 	// Use this for initialization
 	void Start () {
+        map=null;
 	}
+
+    public void ButtonDelete() {
+        MapsRoot.CallMapsDeleteChanged(this, thisR);
+    }
 }
