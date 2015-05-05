@@ -54,18 +54,21 @@ public class MapsController implements InterfaceMaps{
     public void updMap(@RequestBody final ArrayList<Maps> map){DataProcessing.getProcessingMap().updMap(map);}
 
 
-    public void sendMapIn(byte[] file, String name){DataProcessing.getProcessingMap().sendMapIn(file, name);}
+    public void sendMapIn(byte[] file, int id){DataProcessing.getProcessingMap().sendMapIn(file, id);}
 
-    public void sendMapInByte(Byte[] file, String name){DataProcessing.getProcessingMap().sendMapIn(byteReparser(file), name);}
+    @RequestMapping(method = RequestMethod.POST, value= UrlController.mapsSendIn)
+    @ResponseBody
+    public void sendMapInByte(@RequestBody final Byte[] file,@PathVariable  int id){DataProcessing.getProcessingMap().sendMapIn(byteReparser(file), id);}
    // @RequestMapping(method = RequestMethod.GET, value= UrlController.mapsSendOut)
    // @ResponseBody
     public byte[] sendMapOUT(int id){return DataProcessing.getProcessingMap().sendMapOUT(id);}
 
-    @RequestMapping(method = RequestMethod.GET, value= UrlController.mapsSendOut)
+    @RequestMapping(method = RequestMethod.POST, value= UrlController.mapsSendOut)
     @ResponseBody
     public Byte[] sendMapOUTByte(@PathVariable int id){
         return byteParser(sendMapOUT(id));
     }
+
     private Byte[] byteParser(byte[] b){
         Byte[] bb = new Byte[b.length];
         for(int i=0; i<b.length;i++){

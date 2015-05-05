@@ -46,8 +46,16 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\controlMy\CameraMove.cs" />
+     <Compile Include="Assets\controlMy\CrossPlatformInputManager.cs" />
+     <Compile Include="Assets\controlMy\Joy2.cs" />
+     <Compile Include="Assets\controlMy\Joystick.cs" />
+     <Compile Include="Assets\controlMy\MobileInput.cs" />
+     <Compile Include="Assets\controlMy\StandaloneInput.cs" />
+     <Compile Include="Assets\controlMy\VirtualInput.cs" />
      <Compile Include="Assets\myScript\BuildMap.cs" />
      <Compile Include="Assets\myScript\Data.cs" />
+     <Compile Include="Assets\myScript\DataReader.cs" />
      <Compile Include="Assets\myScript\InterfaceUrl.cs" />
      <Compile Include="Assets\myScript\button\ButtonClass.cs" />
      <Compile Include="Assets\myScript\button\OldButton.cs" />
@@ -65,6 +73,7 @@
      <Compile Include="Assets\myScript\button\TableRead\UserTable\rootUserClass.cs" />
      <Compile Include="Assets\myScript\button\TableRead\UserTable\rowsUser.cs" />
      <Compile Include="Assets\myScript\button\adminButton.cs" />
+     <Compile Include="Assets\myScript\button\pointReader\settingButton.cs" />
      <Compile Include="Assets\myScript\entity\Event.cs" />
      <Compile Include="Assets\myScript\entity\Log.cs" />
      <Compile Include="Assets\myScript\entity\Log_type.cs" />
@@ -78,6 +87,10 @@
      <Compile Include="Assets\myScript\interfaceUrl\PointController.cs" />
      <Compile Include="Assets\myScript\interfaceUrl\TestController.cs" />
      <Compile Include="Assets\myScript\interfaceUrl\UserController.cs" />
+     <Compile Include="Assets\myScript\programRoot\mapWriter.cs" />
+     <Compile Include="Assets\myScript\programRoot\pointObj.cs" />
+     <Compile Include="Assets\myScript\programRoot\reader\buttonSelectedMap.cs" />
+     <Compile Include="Assets\myScript\programRoot\reader\panelSelectedMap.cs" />
      <Compile Include="Assets\myScript\test.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

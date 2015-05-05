@@ -10,11 +10,8 @@ public class rowsMaps : MonoBehaviour {
     public GameObject thisR;
 
 	// Use this for initialization
-	void Start () {
-        map=null;
-	}
 
     public void ButtonDelete() {
-        MapsRoot.CallMapsDeleteChanged(this, thisR);
+        MapsRoot.CallMapsDeleteChanged(this);
     }
 }

@@ -30,14 +30,14 @@ public class BuildMap : MonoBehaviour {
     void CreateField(int id_map)
     {
         //Тело поля
-        GameObject field = this.gameObject;
-        foreach (var point in Data.getDataClass().mapsList[id_map].points)
-        {
-            GameObject obj = (GameObject)Instantiate(Resources.Load(("objButtInMap")));
-            obj.name = "point " + point.name;
-            obj.transform.parent = field.transform;
-            obj.transform.localPosition = new Vector3(point.x, point.y, 0);
-            obj.transform.localScale = new Vector3(point.size_h, point.size_w, (float)1.2);
-        }
+        //GameObject field = this.gameObject;
+        //foreach (var point in Data.getDataClass().mapsList[id_map].points)
+        //{
+        //    GameObject obj = (GameObject)Instantiate(Resources.Load(("objButtInMap")));
+        //    obj.name = "point " + point.name;
+        //    obj.transform.parent = field.transform;
+        //    obj.transform.localPosition = new Vector3(point.x, point.y, 0);
+        //    obj.transform.localScale = new Vector3(point.size_h, point.size_w, (float)1.2);
+        //}
     }
 }

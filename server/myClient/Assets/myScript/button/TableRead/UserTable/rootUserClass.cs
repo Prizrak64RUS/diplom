@@ -7,17 +7,19 @@ using Assets.myScript.button.TableRead;
 using System;
 using Assets.myScript.interfaceUrl;
 public class rootUserClass : MonoBehaviour {
-    public List<GameObject> objList;
-
-    public List<User> usrList;
-    public List<User> setUsrList;
-    public List<User> updUsrList;
-    public List<User> delUsrList;
+    List<GameObject> objList;
+    List<rowsUser> rowsList;
+    List<User> delList;
+    //public List<User> usrList;
+    //public List<User> setUsrList;
+    //public List<User> updUsrList;
+    //public List<User> delUsrList;
 
     public GameObject Content;
 
     public RectTransform rootPanel;
     public RectTransform readPanel;
+
 
     public UnityEngine.UI.InputField greadebook;
     public UnityEngine.UI.InputField name;
@@ -25,7 +27,6 @@ public class rootUserClass : MonoBehaviour {
     public UnityEngine.UI.InputField description;
     public UnityEngine.UI.InputField login;
     public UnityEngine.UI.InputField password;
-    public UnityEngine.UI.InputField type;
 
 
     UserController uc;
@@ -52,9 +53,10 @@ public class rootUserClass : MonoBehaviour {
     }
    
     void Start(){
-
+        objList = new List<GameObject>();
+        rowsList=new List<rowsUser>();
+        delList=new List<User>();
         uc = new UserController();
-        //usrList = new List<User>();
         EventUserRead += startReader;
         EventUserDelete += DeleteRows;
     }
@@ -63,43 +65,8 @@ public class rootUserClass : MonoBehaviour {
     private rowsUser rows;
     public void startReader(rowsUser ru) {
         ButtonClass.exchange(rootPanel, readPanel);
-        greadebook.text = ru.greadebook.text;
-        name.text = ru.name.text;
+        writeField(ru.user);
         rows = ru;
-        switch (Convert.ToInt32(ru.type.text)) {
-            case (int)EnumType.NULL:
-                writeField(new User(), (int)EnumType.NULL);
-                break;
-            case (int)EnumType.READ:
-                foreach(User usr in updUsrList){
-                    if(greadebook.text.Equals(usr.gradebook+"")){
-                        writeField(usr, (int)EnumType.READ);
-                   break;
-                    }
-                }
-                break;
-            case (int)EnumType.REAL:
-                foreach (User usr in usrList)
-                {
-                    if (greadebook.text.Equals(usr.gradebook+""))
-                    {
-
-                        writeField(usr, (int)EnumType.REAL);
-                        break;
-                    }
-                }
-                break;
-            case (int)EnumType.SET:
-                foreach (User usr in setUsrList)
-                {
-                    if (greadebook.text.Equals(usr.gradebook+""))
-                    {
-                        writeField(usr, (int)EnumType.SET);
-                        break;
-                    }
-                }
-                break;
-        }
     }
     
     public void ButtonReaderBreak(){
@@ -109,87 +76,9 @@ public class rootUserClass : MonoBehaviour {
     public void ButtonReaderOk()
     {
         if(description.text!=""&&login.text !=""&& password.text !=""&&
-            role.text != "NONE" && greadebook.text != ""&&name.text!="")
+            role.text != "NONE" && greadebook.text != "" && greadebook.text != "0" && name.text != "")
         {
-            string tmpR="";
-            switch (role.text)
-            {
-                case "Администратор":
-                    tmpR = "ADMIN";
-                    break;
-                case "Управлящий":
-                    tmpR = "HEAD";
-                    break;
-                case "Гид":
-                    tmpR = "GIDES";
-                    break;
-                case "Встречающий":
-                    tmpR = "PORTER";
-                    break;
-            }
-            User us = new User(name.text, tmpR, description.text, login.text, Convert.ToInt32(greadebook.text), password.text);
-            Debug.Log("ok");
-        switch (Convert.ToInt32(type.text)) {
-            case (int)EnumType.NULL:
-                {
-                    rows.type.text = "" + (int)EnumType.SET;
-                    setUsrList.Add(us);
-                    break;
-                }
-            case (int)EnumType.READ:
-                {
-                    rows.type.text = "" + (int)EnumType.READ;
-                    User del = null;
-                    foreach (User tmp in updUsrList)
-                    {
-                        if (tmp.gradebook == Convert.ToInt32(rows.greadebook.text))
-                        {
-                            del = tmp;
-                        }
-                    }
-                   Debug.Log(del.id+"   2");
-                    us.id = del.id;
-                    updUsrList.Remove(del);
-                    updUsrList.Add(us);
-                    break;
-                }
-            case (int)EnumType.REAL:
-                {
-                    rows.type.text = "" + (int)EnumType.READ;
-                    User del = null;
-                    foreach (User tmp in usrList)
-                    {
-                        if (tmp.gradebook == Convert.ToInt32(rows.greadebook.text))
-                        {
-                            del = tmp;
-
-                        }
-                    }
-                    Debug.Log(del.id);
-                    us.id = del.id;
-                    updUsrList.Add(us);
-                    usrList.Remove(del);
-                    break;
-                }
-            case (int)EnumType.SET:
-                {
-                    rows.type.text = "" + (int)EnumType.SET;
-                    User del = null;
-                    foreach (User tmp in setUsrList)
-                    {
-                        if (tmp.gradebook == Convert.ToInt32(rows.greadebook.text))
-                        {
-                            del = tmp;
-                        }
-                    }
-
-                    setUsrList.Remove(del);
-                    setUsrList.Add(us);
-                    break;
-                }
-            
-        }
-            
+        writeUser(rows.user);       
         rows.greadebook.text = greadebook.text;
         rows.name.text = name.text;
         ButtonClass.exchange(rootPanel, readPanel);
@@ -197,28 +86,32 @@ public class rootUserClass : MonoBehaviour {
     }
 
     public void ButtonSend() {
-        uc.deleteUsers(delUsrList);
-        uc.updateUsers(updUsrList);
-        uc.setUsers(setUsrList);
-        usrList = null;
-        setUsrList = null;
-        updUsrList = null;
-        delUsrList = null;
-        foreach (GameObject o in objList)
-            Destroy(o);
-        objList = null;
+        List<User>setList=new List<User>();
+        List<User> updList=new List<User>();
+        foreach (rowsUser rows in rowsList)
+        {
+            if (rows.user.id == 0)
+            {
+                Debug.Log(1);
+                if (rows.greadebook.text != 0 + "")
+                {
+                    Debug.Log(2);
+                    setList.Add(rows.user);
+                }
+            }
+            else
+            {
+                updList.Add(rows.user);
+            }
+        }
+        uc.deleteUsers(delList);
+        uc.updateUsers(updList);
+        uc.setUsers(setList);
+        destroyAll();
     }
     public void ButtonGet() {
-        if (objList != null)
-        {
-            foreach (GameObject o in objList)
-                Destroy(o);
-        }
-         setUsrList=new List<User>();
-         updUsrList=new List<User>();
-         delUsrList = new List<User>();
-         objList = new List<GameObject>();
-         usrList=uc.getUsers();
+         destroyAll();
+         List<User> usrList = uc.getUsers();
          if (usrList == null) {
              return;
          }
@@ -227,69 +120,68 @@ public class rootUserClass : MonoBehaviour {
              rowsUser script = rows.GetComponent<rowsUser>();
              script.greadebook.text =""+ usr.gradebook;
              script.name.text = usr.name;
-             script.type.text = ""+(int)EnumType.REAL;
+             script.user = usr;
+             rowsList.Add(script);
              rows.transform.parent = Content.transform;
              objList.Add(rows);
          }
     }
 
-    private void writeField(User usr, int type) {
+    private void writeField(User usr) {
         description.text = usr.description;
         login.text = usr.login;
         password.text = usr.password;
+        name.text = usr.name;
+        greadebook.text = usr.gradebook + "";
+        
         switch (usr.role) { 
             case "ADMIN":
                 role.text = "Администратор";
                 break;
             case "HEAD":
-                role.text = "Управлящий";
+                role.text = "Управляющий";
                 break;
-            case "GIDES":
+            case "GUIDES":
                 role.text = "Гид";
                 break;
             case "PORTER":
                 role.text = "Встречающий";
                 break;
         }
-//        role.text = usr.role;
-        this.type.text =""+ type;
     }
+    private void writeUser(User usr)
+    {
+         usr.description = description.text;
+        usr.login=login.text ;
+        usr.password=password.text;
+         usr.name = name.text;
+         usr.gradebook =Int32.Parse(greadebook.text);
+
+         switch (role.text)
+         {
+             case "Администратор":
+                 usr.role = "ADMIN";
+                 break;
+             case "Управляющий":
+                 usr.role = "HEAD";
+                 break;
+             case "Гид":
+                 usr.role = "GUIDES";
+                 break;
+             case "Встречающий":
+                 usr.role = "PORTER";
+                 break;
+         }
+    }
+
 
     public void DeleteRows(rowsUser rows)
     {
-        switch(Convert.ToInt32(rows.type.text))
+        if (rows.user.id != 0) 
         {
-            case (int)EnumType.REAL:
-                {
-                    User del = null;
-                    foreach (User tmp in usrList)
-                    {
-                        if (tmp.gradebook == Convert.ToInt32(rows.greadebook.text))
-                        {
-                            del = tmp;
-
-                        }
-                    }
-                    usrList.Remove(del);
-                    delUsrList.Add(del);
-                    break;
-                }
-            case (int)EnumType.READ:
-                {
-                    User del = null;
-                    foreach (User tmp in updUsrList)
-                    {
-                        if (tmp.gradebook == Convert.ToInt32(rows.greadebook.text))
-                        {
-                            del = tmp;
-
-                        }
-                    }
-                    updUsrList.Remove(del);
-                    delUsrList.Add(del);
-                    break;
-                }
+            delList.Add(rows.user);
         }
+        rowsList.Remove(rows);
         objList.Remove(rows.thisRows);
         Destroy(rows.thisRows);
     }
@@ -298,8 +190,24 @@ public class rootUserClass : MonoBehaviour {
     {
 
         GameObject rows = (GameObject)Instantiate(Resources.Load(("rowsUser")));
+        rowsUser script = rows.GetComponent<rowsUser>();
+        script.user = new User();
+        rowsList.Add(script);
         rows.transform.parent=Content.transform;
         objList.Add(rows);
+    }
+
+
+    public void destroyAll()
+    {
+        foreach (GameObject o in objList)
+        {
+            Destroy(o);
+        }
+        objList.Clear();
+        rowsList.Clear();
+        delList.Clear();
+
     }
 
 }

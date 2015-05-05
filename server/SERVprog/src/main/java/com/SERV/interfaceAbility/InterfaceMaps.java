@@ -14,7 +14,7 @@ public interface InterfaceMaps {
     public ArrayList<Maps> getMapsFromActivEvent();
     public ArrayList<Maps> getMaps();
     public void setMap(ArrayList<Maps> map);
-    public void sendMapIn(byte[] file, String name);
+    public void sendMapIn(byte[] file, int id);
     public byte[] sendMapOUT(int id);
     public void delMap(ArrayList<Maps> map);
     public void updMap(ArrayList<Maps> map);

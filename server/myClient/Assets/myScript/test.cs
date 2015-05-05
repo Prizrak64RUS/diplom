@@ -13,9 +13,8 @@ public class test : MonoBehaviour {
         foreach (string s in sss)
             Debug.Log(s);
     }
-    public void ButtonVVVV()
-    { 
 
-
+    public static void Log(string s) {
+        Debug.Log(s);
     }
 }

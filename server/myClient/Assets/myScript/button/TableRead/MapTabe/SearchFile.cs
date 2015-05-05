@@ -6,6 +6,7 @@ using Assets.myScript;
 
 public class SearchFile : MonoBehaviour {
     public GameObject Content;
+    public GameObject thisObject;
     private List<GameObject> objList;
     private List<string> patch;
     private string[] arrPatch;
@@ -23,13 +24,13 @@ public class SearchFile : MonoBehaviour {
     }
 
     public delegate void mapFileOkDelegate(string val);
-    public static event mapFileOkDelegate MapFileOkDelete;
+    public static event mapFileOkDelegate MapFileOkDelegate;
     public static void CallMapFileOkChanged(string val)
     {
-        var handler = MapFileOkDelete;
-        if (MapFileOkDelete != null) // если есть подписчики
+        var handler = MapFileOkDelegate;
+        if (MapFileOkDelegate != null) // если есть подписчики
         {
-            MapFileOkDelete(val);
+            MapFileOkDelegate(val);
         }
     }
 
@@ -39,10 +40,11 @@ public class SearchFile : MonoBehaviour {
     void Start()
     {
         MapFileNextDelete += ButtonNext;
-        MapFileOkDelete += ButtonOK;
+        MapFileOkDelegate += ButtonOK;
         patch = new List<string>();
         objList = new List<GameObject>();
         separator = new char[1];
+        
         loadRoot();
 
     }
@@ -98,7 +100,10 @@ public class SearchFile : MonoBehaviour {
     }
     public void ButtonOK(string val)
     {
-        
+        string p = getPatch();
+        val=p + val;
+        ButtonDestroyThis();
+        mapWriter.CallMapBuildChanged(val, null);
     }
 
     private void loadRoot() {
@@ -126,14 +131,47 @@ public class SearchFile : MonoBehaviour {
     }
     private void loadOld()
     {
+        string p = getPatch();
+        
+        try
+        {
+            string[] sss = Directory.GetDirectories(p);
+
+            foreach (string s in sss)
+            {
+                GameObject element = (GameObject)Instantiate(Resources.Load(("elementSearch")));
+                ElementFile ef = element.GetComponent<ElementFile>();
+                ef.isFile = false;
+                string[] size = s.Split(separator);
+                element.GetComponentInChildren<UnityEngine.UI.Text>().text = size[size.Length - 1];
+                element.transform.parent = Content.transform;
+                objList.Add(element);
+            }
+            sss = Directory.GetFiles(p, "*.png");
+            foreach (string s in sss)
+            {
+                GameObject element = (GameObject)Instantiate(Resources.Load(("elementSearch")));
+                ElementFile ef = element.GetComponent<ElementFile>();
+                ef.isFile = true;
+                string[] size = s.Split(separator);
+                element.GetComponentInChildren<UnityEngine.UI.Text>().text = size[size.Length - 1];
+                element.transform.parent = Content.transform;
+                objList.Add(element);
+            }
+        }
+        catch (System.Exception e) { patch.Clear(); arrPatch = null; loadRoot(); }
+    }
+
+    private string getPatch() {
         string p = "";
+        if (arrPatch.Length < 1) return "1";
 #if UNITY_STANDALONE_WIN
         p += arrPatch[0];
         for (int i = 1; i < arrPatch.Length; i++)
         {
 #endif
 #if UNITY_ANDROID
-        p += arrPatch[0] + arrPatch[1]+separator;
+        p += arrPatch[0] + arrPatch[1];
         for (int i = 2; i < arrPatch.Length; i++) {
 #endif
 
@@ -141,28 +179,17 @@ public class SearchFile : MonoBehaviour {
 
             p += arrPatch[i] + separator[0].ToString();
         }
-        string[] sss = Directory.GetDirectories(p);
-        foreach (string s in sss)
-        {
-            GameObject element = (GameObject)Instantiate(Resources.Load(("elementSearch")));
-            ElementFile ef = element.GetComponent<ElementFile>();
-            ef.isFile = false;
-            string[] size = s.Split(separator);
-            element.GetComponentInChildren<UnityEngine.UI.Text>().text = size[size.Length - 1];
-            element.transform.parent = Content.transform;
-            objList.Add(element);
-        }
-        sss = Directory.GetFiles(p);
-        foreach (string s in sss)
-        {
-            GameObject element = (GameObject)Instantiate(Resources.Load(("elementSearch")));
-            ElementFile ef = element.GetComponent<ElementFile>();
-            ef.isFile = true;
-            string[] size = s.Split(separator);
-            element.GetComponentInChildren<UnityEngine.UI.Text>().text = size[size.Length - 1];
-            element.transform.parent = Content.transform;
-            objList.Add(element);
-        }
+        return p;
+    }
+
+    public void ButtonDestroyThis() 
+    {
+        DestroyList();
+        patch = new List<string>();
+        objList = new List<GameObject>();
+        separator = new char[1];
+        thisObject.SetActive(false);
+        loadRoot();
     }
 
     private void DestroyList() {

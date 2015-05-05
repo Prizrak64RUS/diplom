@@ -11,7 +11,7 @@ public class rootEventClass : MonoBehaviour
 {
     public List<GameObject> objList;
 
-    public List<rowsEvent> rowstList;
+    public List<rowsEvent> rowsList;
     public List<Assets.myScript.entity.Event> delList;
 
     public GameObject Content;
@@ -30,18 +30,22 @@ public class rootEventClass : MonoBehaviour
         }
     }
 
-    public delegate void eventSelectedDelegate(rowsEvent rows);
+    public delegate void eventSelectedDelegate(rowsEvent rows, bool val);
     public static event eventSelectedDelegate EventEventSelected;
-    public static void CallEventSelectedChanged(rowsEvent rows)
+    public static void CallEventSelectedChanged(rowsEvent rows, bool val)
     {
         var handler = EventEventSelected;
         if (EventEventSelected != null) // если есть подписчики
         {
-            EventEventSelected(rows);
+            EventEventSelected(rows, val);
         }
     }
 
     void Start(){
+        rowsList = new List<rowsEvent>();
+        objList = new List<GameObject>();
+        delList = new List<Assets.myScript.entity.Event>();
+
         EventEventDelete += DeleteRows;
         EventEventSelected += SelectedRows;
         ec = new EventController();
@@ -53,7 +57,7 @@ public class rootEventClass : MonoBehaviour
         }
         List<Assets.myScript.entity.Event> setList = new List<Assets.myScript.entity.Event>();
         List<Assets.myScript.entity.Event> updList = new List<Assets.myScript.entity.Event>();
-        foreach (rowsEvent re in rowstList)
+        foreach (rowsEvent re in rowsList)
         {
             if (re.events.id == 0)
             {
@@ -65,44 +69,46 @@ public class rootEventClass : MonoBehaviour
             }
             else 
             {
-                if (re.events.name.Equals(re.name.text) &&
-                    (re.events.isActiv==1)?true:false == re.isActiv.isOn &&
-                re.events.description.Equals(re.description.text) &&
-                re.events.date.Equals(re.date.text))
-                {
-                    continue;
-                }
-                else
-                {
+                //if (re.events.name.Equals(re.name.text) &&
+                //    (re.events.isActiv==1)?true:false == re.isActiv.isOn &&
+                //    re.events.description.Equals(re.description.text) &&
+                //    re.events.date.Equals(re.date.text))
+                //{
+                //    continue;
+                //}
+                //else
+                //{
                     re.events.name = re.name.text;
                     re.events.isActiv = (re.isActiv.isOn) ? 1 : 0;
                     re.events.description = re.description.text;
                     re.events.date = re.date.text;
                     updList.Add(re.events);
-                }
+                //}
             }
 
         }
         ec.updEvents(delList);
         ec.updEvents(updList);
-        if (objList != null)
-        {
-            foreach (GameObject o in objList)
-                Destroy(o);
-        }
-        rowstList = null; 
-        delList = null;
-        objList = null;
+        ec.setEvent(setList);
+        destroyAll();
     }
-    public void ButtonGet() {
-        if (objList != null)
+
+
+    public void destroyAll()
+    {
+        foreach (GameObject o in objList)
         {
-            foreach (GameObject o in objList)
-                Destroy(o);
+            Destroy(o);
         }
-         rowstList = new List<rowsEvent>();
-         objList = new List<GameObject>();
-         delList = new List<Assets.myScript.entity.Event>();
+        objList.Clear();
+        rowsList.Clear();
+        delList.Clear();
+
+    }
+
+    public void ButtonGet() {
+         destroyAll();
+         
          List<Assets.myScript.entity.Event> thisEvtList = ec.getEvents();
          if (thisEvtList == null) {
              return;
@@ -119,7 +125,7 @@ public class rootEventClass : MonoBehaviour
 
              rows.transform.parent = Content.transform;
              objList.Add(rows);
-             rowstList.Add(script);
+             rowsList.Add(script);
          }
     }
 
@@ -142,16 +148,19 @@ public class rootEventClass : MonoBehaviour
         script.events.id = 0;
         script.isActiv.isOn = false;
         rows.transform.parent=Content.transform;
-        rowstList.Add(script);
+        rowsList.Add(script);
         objList.Add(rows);
     }
 
-    public void SelectedRows(rowsEvent rows)
+    public void SelectedRows(rowsEvent rows, bool val)
     {
-        foreach (rowsEvent rw in rowstList)
+        if (val)
         {
-            if(!rows.Equals(rw)&&rw.isActiv.isOn==true)
-                rw.isActiv.isOn = false;
+            foreach (rowsEvent rw in rowsList)
+            {
+                if (!rows.Equals(rw))
+                    rw.isActiv.isOn = false;
+            }
         }
         //rows.isActiv.isOn = true;
     }
@@ -159,7 +168,7 @@ public class rootEventClass : MonoBehaviour
 
     private bool validData() {
 
-        foreach (rowsEvent re in rowstList) {
+        foreach (rowsEvent re in rowsList) {
             if (!re.name.text.Equals("") &&
                 !re.description.text.Equals("") &&
                 validDate(re.date.text))

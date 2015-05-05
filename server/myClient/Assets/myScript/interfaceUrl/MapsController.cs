@@ -67,11 +67,48 @@ namespace Assets.myScript.interfaceUrl
             client.Timeout = 5000;
             var response = client.Execute(request);
         }
-        public void sendMapIn(byte[] file, String name) { }
-        public byte[] sendMapOUT(int id) { return null; }
+        public void sendMapIn(byte[] file, int id)
+        {
+            string url = Data.getDataClass().url + InterfaceUrl.mapsSendIn_+id;
+            var client = new RestClient(url);
+            var request = new RestRequest(Method.POST);
+            request.AddJsonBody(file);
+            client.Timeout = 5000;
+            var response = client.Execute(request);
+        }
+        public byte[] sendMapOUT(int id) 
+        {
+            string url = Data.getDataClass().url + InterfaceUrl.mapsSendOut_+id;
+            var client = new RestClient(url);
+            var request = new RestRequest(Method.POST);
+            client.Timeout = 7000;
+            var response = client.Execute(request);
+            var content = response.Content;
+            try
+            {
+                Int32[] bi = JsonConvert.DeserializeObject<Int32[]>(content);
+                byte[] b = new byte[bi.Length];
+                for (int i = 0; i < bi.Length; i++)
+                {
+                    b[i] = (byte)bi[i];
+                }
+                    return b;
+            }
+            catch (Exception e) { test.Log(e.ToString()); return null; }
+        }
         public void delMap(List<Maps> map) 
         {
             string url = Data.getDataClass().url + InterfaceUrl.mapsDelete;
+            var client = new RestClient(url);
+            var request = new RestRequest(Method.POST);
+            request.AddJsonBody(map);
+            client.Timeout = 5000;
+            var response = client.Execute(request);
+        }
+
+        public void updMap(List<Maps> map)
+        {
+            string url = Data.getDataClass().url + InterfaceUrl.mapsUpdate;
             var client = new RestClient(url);
             var request = new RestRequest(Method.POST);
             request.AddJsonBody(map);

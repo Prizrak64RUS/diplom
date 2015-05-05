@@ -3,15 +3,10 @@ package com.SERV.dataBase;
 import com.SERV.interfaceAbility.InterfaceMaps;
 import com.SERV.view.entity.Event;
 import com.SERV.view.entity.Maps;
-import com.SERV.view.entity.Point;
 
-import java.io.File;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.io.*;
+import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by prizrak on 25.11.2014.
@@ -96,7 +91,7 @@ public class MapsController implements InterfaceMaps{
             try {
                 Connection conn = ConnectionPool.getConnectionPool().retrieve();
                 Statement statement = conn.createStatement();
-                statement.execute("insert into SOPG.dbo.maps values ('" + m.getName() + "', " + m.getId_event() + ", '" +
+                statement.execute("insert into SOPG.dbo.maps (name, id_event, description) values ('" + m.getName() + "', " + m.getId_event() + ", '" +
                         m.getDescription() + "');");
                 ConnectionPool.getConnectionPool().putback(conn);
             } catch (SQLException e) {
@@ -104,31 +99,33 @@ public class MapsController implements InterfaceMaps{
             }
         }
     }
-    public void sendMapIn(byte[] file, String name){
-        try {
-            Connection conn =  ConnectionPool.getConnectionPool().retrieve();
-            Statement statement = conn.createStatement();
-            statement.execute("UPDATE SOPG.dbo.maps set image="+file+" WHERE name='"+name+"'");
-            ConnectionPool.getConnectionPool().putback(conn);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    public void sendMapIn(byte[] file, int id){
+        saveFile(file,id);
+       // try {
+            //Connection conn =  ConnectionPool.getConnectionPool().retrieve();
+            //Statement statement = conn.createStatement();
+           // statement.execute("UPDATE SOPG.dbo.maps set image="+arr+" WHERE id="+id+";");
+            //ConnectionPool.getConnectionPool().putback(conn);
+       //} catch (SQLException e) {
+      //      e.printStackTrace();
+      //  }
     }
     public byte[] sendMapOUT(int id){
-        try {
-            Connection conn =  ConnectionPool.getConnectionPool().retrieve();
-
-            Statement statement = conn.createStatement();
-            ResultSet result = statement.executeQuery("SELECT * FROM SOPG.dbo.maps where id="+id+";");
-            while (result.next()) {
-                byte[] b = result.getBytes("image");
-                return b;
-            }
-            ConnectionPool.getConnectionPool().putback(conn);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return getFile(id);
+//        try {
+//            Connection conn =  ConnectionPool.getConnectionPool().retrieve();
+//
+//            Statement statement = conn.createStatement();
+//            ResultSet result = statement.executeQuery("SELECT * FROM SOPG.dbo.maps where id="+id+";");
+//            while (result.next()) {
+//                byte[] b = result.getBytes("image");
+//                return b;
+//            }
+//            ConnectionPool.getConnectionPool().putback(conn);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        return null;
     }
 
     public void delMap(ArrayList<Maps> map){
@@ -153,11 +150,39 @@ public class MapsController implements InterfaceMaps{
                         "   SET [name] = '"+m.getName()+"'" +
                         "      ,[id_event] = "+m.getId_event()+
                         "      ,[description] = '"+m.getDescription()+"'"+
-                        " WHERE id"+m.getId()+";");
+                        " WHERE id="+m.getId()+";");
                 ConnectionPool.getConnectionPool().putback(conn);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+
+
+    private  void saveFile(byte[] file, int id){
+        String patch = System.getProperty("user.home");
+        patch+="\\sopg\\";
+        try {
+            File myPath = new File(patch);
+            myPath.mkdirs();
+            patch+=id;
+            FileOutputStream fos = new FileOutputStream(patch);
+            fos.write(file);
+            fos.close();
+        } catch (Exception e){e.printStackTrace();}
+    }
+    private   byte[] getFile(int id){
+        String patch = System.getProperty("user.home");
+        patch+="\\sopg\\";
+        try {
+            patch+=id;
+            FileInputStream fin =  new FileInputStream(patch);
+            byte[] buffer = new byte[fin.available()];
+            fin.read(buffer, 0, fin.available());
+            fin.close();
+            return buffer;
+        } catch (Exception e){e.printStackTrace();}
+        return new byte[0];
     }
 }

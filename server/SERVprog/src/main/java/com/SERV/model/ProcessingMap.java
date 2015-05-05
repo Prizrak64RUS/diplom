@@ -22,7 +22,7 @@ public class ProcessingMap implements InterfaceMaps{
 
     public void setMap(ArrayList<Maps> map){ControllerConnections.getMapsController().setMap(map);}
 
-    public void sendMapIn(byte[] file, String name){ControllerConnections.getMapsController().sendMapIn(file, name);}
+    public void sendMapIn(byte[] file, int id){ControllerConnections.getMapsController().sendMapIn(file, id);}
 
     public byte[] sendMapOUT(int id){return ControllerConnections.getMapsController().sendMapOUT(id);}
 

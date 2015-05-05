@@ -20,6 +20,7 @@ public interface UrlController {
     String mapsDelete="delete";
     String mapsUpdate="update";
     String mapsSendOut="sendOut/{id}";
+    String mapsSendIn="sendIn/{id}";
 
     String eventObj="/event/";
     String eventGetActiv="getActiv";

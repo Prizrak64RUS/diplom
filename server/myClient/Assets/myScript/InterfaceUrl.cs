@@ -33,6 +33,7 @@ namespace Assets.myScript
         public static string mapsDelete = "/maps/delete";
         public static string mapsUpdate = "/maps/update";
         public static string mapsSendOut_ = "/maps/sendOut/";
+        public static string mapsSendIn_ = "/maps/sendIn/";
 
         public static string eventGetActiv = "/event/getActiv";
         public static string eventInsert = "/event/insert";

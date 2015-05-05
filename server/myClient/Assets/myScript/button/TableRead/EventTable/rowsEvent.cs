@@ -18,6 +18,6 @@ public class rowsEvent : MonoBehaviour {
 
     public void ButtonSelected()
     {
-        rootEventClass.CallEventSelectedChanged(this);
+       rootEventClass.CallEventSelectedChanged(this, isActiv.isOn);
     }
 }

@@ -9,30 +9,34 @@ public class MapsRoot : MonoBehaviour {
 
     public RectTransform mapsTablePanel;
     public RectTransform mapsPanel;
-    public List<GameObject> objList;
-    public List<GameObject> objListEvent;
+     List<GameObject> objList;
+     List<GameObject> objListEvent;
 
-    public List<rowsMaps> rowsList;
+     List<rowsMaps> rowsList;
+     List<Assets.myScript.entity.Event> events;
+     List<Maps> delList;
 
     public GameObject Content;
     public GameObject ContentEvent;
     public UnityEngine.UI.Text error;
 
     void Start() {
-        rowsList = new List<rowsMaps>();
-        objListEvent = new List<GameObject>();
+        events = new List<Assets.myScript.entity.Event>();
         objList = new List<GameObject>();
+        objListEvent = new List<GameObject>();
+        rowsList = new List<rowsMaps>();
+        delList = new List<Maps>();
         EventMapsDelete += ButtonDelete;
     }
 
-    public delegate void mapsDeeteDelegate(rowsMaps rows, GameObject o);
+    public delegate void mapsDeeteDelegate(rowsMaps rows);
     public static event mapsDeeteDelegate EventMapsDelete;
-    public static void CallMapsDeleteChanged(rowsMaps ru, GameObject o)
+    public static void CallMapsDeleteChanged(rowsMaps rows)
     {
         var handler = EventMapsDelete;
         if (EventMapsDelete != null) // если есть подписчики
         {
-            EventMapsDelete(ru, o);
+            EventMapsDelete(rows);
         }
     }
 
@@ -49,22 +53,18 @@ public class MapsRoot : MonoBehaviour {
     public void ButtonAdd() {
         GameObject rows = (GameObject)Instantiate(Resources.Load(("rowsMap")));
         rowsMaps script = rows.GetComponent<rowsMaps>();
-        //script.events = new Assets.myScript.entity.Event();
-        //script.events.id = 0;
-        //script.isActiv.isOn = false;
         rows.transform.parent = Content.transform;
-        //rowstList.Add(script);
         objList.Add(rows);
-        
+        script.map = new Maps("", 0, "", 0);
         rowsList.Add(script);
-        script.map = new Maps("",0,"",0);
+
     }
 
     public void ButtonGet() {
         destroyAll();
         EventController ec = new EventController();
         MapsController mc = new MapsController();
-        List<Assets.myScript.entity.Event> events = ec.getEvents();
+        events = ec.getEvents();
         foreach (Assets.myScript.entity.Event e in events) {
             GameObject rows = (GameObject)Instantiate(Resources.Load(("selectedEvent")));
             rows.GetComponentInChildren<UnityEngine.UI.Text>().text = e.name;
@@ -76,24 +76,66 @@ public class MapsRoot : MonoBehaviour {
         {
             GameObject rows = (GameObject)Instantiate(Resources.Load(("rowsMap")));
             rowsMaps script = rows.GetComponent<rowsMaps>();
-            foreach (Assets.myScript.entity.Event e in events)
-            {
-                if(e.id==m.id_event)
-                    script.type.text = e.name;
-                    
-            }
+
+            script.type.text = GetNameForId(events, m.id_event);
             script.name.text = m.name;
             script.description.text = m.description;
             rows.transform.parent = Content.transform;
             objList.Add(rows);
-
-            rowsList.Add(script);
             script.map = m;
+            rowsList.Add(script);
         }
     }
 
-    public void ButtonSend() { 
+    public void ButtonSend() {
+        List<Maps> updList = new List<Maps>();
+        List<Maps> setList = new List<Maps>();
+        foreach (rowsMaps rows in rowsList)
+        {
+            if (rows.map.id == 0)
+            {
+                rows.map.id_event = GetIdForName(events, rows.type.text);
+                rows.map.name = rows.name.text;
+                rows.map.description = rows.description.text;
+                setList.Add(rows.map);
+            }
+            else 
+            {
+                rows.map.id_event = GetIdForName(events, rows.type.text);
+                rows.map.name = rows.name.text;
+                rows.map.description = rows.description.text;
+                updList.Add(rows.map);
+            }
+        }
+        MapsController mc = new MapsController();
+        mc.delMap(delList);
+        mc.setMap(setList);
+        mc.updMap(updList);
+        destroyAll();
     
+    }
+
+
+    private string GetNameForId(List<Assets.myScript.entity.Event> events, int id)
+    {
+        foreach (Assets.myScript.entity.Event e in events)
+        {
+            if (e.id == id)
+                return e.name;
+
+        }
+        return null;
+    }
+
+    private int GetIdForName(List<Assets.myScript.entity.Event> events, string name)
+    {
+        foreach (Assets.myScript.entity.Event e in events)
+        {
+            if (e.name == name)
+                return e.id;
+
+        }
+        return 0;
     }
 
 
@@ -107,12 +149,22 @@ public class MapsRoot : MonoBehaviour {
         {
             Destroy(o);
         }
-        rowsList=new List<rowsMaps>();
+        objList.Clear();
+        objListEvent.Clear();
+        rowsList.Clear();
+        delList.Clear();
+        events.Clear();
+
     }
 
-    public void ButtonDelete(rowsMaps rm, GameObject o)
+    public void ButtonDelete(rowsMaps rows)
     {
-        objList.Remove(o);
-        Destroy(o);
+        if (rows.map.id != 0)
+        {
+            delList.Add(rows.map);
+        }
+        rowsList.Remove(rows);
+        objList.Remove(rows.thisR);
+        Destroy(rows.thisR);
     }
 }
