@@ -11,15 +11,12 @@ using System.Collections.Generic;
 public class mapWriter : MonoBehaviour {
 
     List<GameObject> objList;
-    List<pointObj> pointList;
 
 
-    GameObject selectedObj;
+    static GameObject selectedObj;
 
-	// Use this for initialization
 	void Start () {
         dataReader = new DataReader();
-        pointList = new List<pointObj>();
         objList = new List<GameObject>();
 
         EventMapBuild += CreateField;
@@ -33,6 +30,10 @@ public class mapWriter : MonoBehaviour {
 
     public GameObject joystick;
     DataReader dataReader;
+
+    public static bool isSelectedObj() { if (selectedObj == null) return false; else return true; }
+
+    public static GameObject GetSelectedObj() { return selectedObj; }
 
     public delegate void mapBuildDelegate(string patch, Maps map);
     public static event mapBuildDelegate EventMapBuild;
@@ -102,9 +103,7 @@ public class mapWriter : MonoBehaviour {
 
     void UpOrDownSizePoint(bool isUp, bool isHorizontal) 
     {
-        Debug.Log(2);
         if (selectedObj == null) return;
-        Debug.Log(3);
         float x, y;
         x= selectedObj.transform.localScale.x;
         y= selectedObj.transform.localScale.y;
@@ -149,7 +148,6 @@ public class mapWriter : MonoBehaviour {
         else 
         {
             pointObj script = selectedObj.GetComponent<pointObj>();
-            pointList.Remove(script);
             objList.Remove(selectedObj);
             Destroy(selectedObj);
         }
@@ -159,8 +157,8 @@ public class mapWriter : MonoBehaviour {
     {
         GameObject point = (GameObject)Instantiate(Resources.Load(("point")));
         pointObj script = point.GetComponent<pointObj>();
+        script.point = new Point();
         objList.Add(point);
-        pointList.Add(script);
 
         point.transform.parent = this.gameObject.transform;
         point.transform.localScale = new Vector3((float)0.02, (float)0.02, (float)2);
@@ -174,21 +172,6 @@ public class mapWriter : MonoBehaviour {
         Joy2.point = selectedObj;
     }
 
-    //void UpOrDownSizePointMap(bool isUp)
-    //{
-    //    if(isUp)
-    //    {
-
-    //    } 
-    //    else
-    //    {
-
-    //    }
-    //}
-    //void OkOrCancelMap(bool isOk)
-    //{
-    //    selectedObj = null;
-    //}
 
     void CreateField(string patch, Maps map)
     {
@@ -196,6 +179,7 @@ public class mapWriter : MonoBehaviour {
 
         byte[] pngBytes;
         if(patch==null){
+            DestroyThisData();
             pngBytes = getMap(map.id);
             dataReader.patch = null;
             dataReader.selectedMap = map;
@@ -222,6 +206,13 @@ public class mapWriter : MonoBehaviour {
         //}
     }
 
+    private void DestroyThisData() {
+        foreach (GameObject go in objList) {
+            Destroy(go);
+        }
+        objList.Clear();
+    }
+
     private void saveMap() 
     {
         if (dataReader.selectedMap == null) return;
@@ -229,6 +220,12 @@ public class mapWriter : MonoBehaviour {
         {
             byte[] pngBytes = File.ReadAllBytes(dataReader.patch);
             sendMap(pngBytes, dataReader.selectedMap.id);
+        }
+        List<Point> listPointUpd = new List<Point>();
+        List<Point> listPointSet = new List<Point>();
+        List<Point> listPointDel = new List<Point>();
+        foreach (GameObject obj in objList) { 
+            
         }
     }
 

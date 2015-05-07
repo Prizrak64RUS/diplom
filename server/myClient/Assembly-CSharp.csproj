@@ -73,6 +73,7 @@
      <Compile Include="Assets\myScript\button\TableRead\UserTable\rootUserClass.cs" />
      <Compile Include="Assets\myScript\button\TableRead\UserTable\rowsUser.cs" />
      <Compile Include="Assets\myScript\button\adminButton.cs" />
+     <Compile Include="Assets\myScript\button\pointReader\PanelReadDataPoint.cs" />
      <Compile Include="Assets\myScript\button\pointReader\settingButton.cs" />
      <Compile Include="Assets\myScript\entity\Event.cs" />
      <Compile Include="Assets\myScript\entity\Log.cs" />
@@ -87,6 +88,7 @@
      <Compile Include="Assets\myScript\interfaceUrl\PointController.cs" />
      <Compile Include="Assets\myScript\interfaceUrl\TestController.cs" />
      <Compile Include="Assets\myScript\interfaceUrl\UserController.cs" />
+     <Compile Include="Assets\myScript\programRoot\dontActivButton.cs" />
      <Compile Include="Assets\myScript\programRoot\mapWriter.cs" />
      <Compile Include="Assets\myScript\programRoot\pointObj.cs" />
      <Compile Include="Assets\myScript\programRoot\reader\buttonSelectedMap.cs" />

@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
+using Assets.myScript.entity;
 
 public class pointObj : MonoBehaviour {
 
+    public Point point { get; set; }
     //bool isDown = false;
 	// Use this for initialization
 	void Start () {
@@ -25,7 +27,7 @@ public class pointObj : MonoBehaviour {
 
     void OnMouseDown()
     {
-        mapWriter.CallSelectedPointChanged(this.gameObject);
+        mapWriter.CallSelectedPointChanged(gameObject);
     }
 
     //void OnMouseUp()

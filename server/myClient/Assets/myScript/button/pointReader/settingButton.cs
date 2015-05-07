@@ -10,15 +10,18 @@ public class settingButton : MonoBehaviour {
     public RectTransform rootPanel;
     public RectTransform settingPanel;
     public RectTransform searchFile;
+    public RectTransform addData;
+    PanelReadDataPoint scriptAddData;
 
     public GameObject buttonAdd;
+    public GameObject buttonRead;
     public GameObject buttonOk;
     public GameObject buttonBreak;
     public GameObject buttonUpHorizontal;
     public GameObject buttonDownHorizontal;
     public GameObject buttonUpVertikal;
     public GameObject buttonDownVertikal;
-
+    public GameObject buttonAddData;
 
     public GameObject ContentMap;
     public List<GameObject> objMapList;
@@ -26,8 +29,28 @@ public class settingButton : MonoBehaviour {
         Assets.myScript.button.ButtonClass.exchange(rootPanel, settingPanel);
     }
 
+    public void ButtonPanelReadActiv() 
+    {
+        scriptAddData.setPoint(mapWriter.GetSelectedObj().GetComponent<pointObj>().point);
+        ReadDataPoint();
+    }
+
+    public void ButtonPanelReadUnActiv() 
+    {
+        Point point = scriptAddData.getPoint();
+        if(point==null) return;
+        mapWriter.GetSelectedObj().GetComponent<pointObj>().point=point;
+        ReadDataPoint();
+    }
+
+    public void ReadDataPoint()
+    {
+        Assets.myScript.button.ButtonClass.exchange(rootPanel, addData);
+    }
+
     void Start() 
     {
+        scriptAddData = addData.GetComponent<PanelReadDataPoint>();
         objMapList = new List<GameObject>();
     }
 
@@ -78,7 +101,6 @@ public class settingButton : MonoBehaviour {
             default:
                 break;
         }
-        Debug.Log(1);
         mapWriter.CallUpOrDownSizePointMapChanged(isUp, isHorizontal);
     }
 
@@ -95,11 +117,13 @@ public class settingButton : MonoBehaviour {
 
     public void ButtonActivPoint(bool val) { 
         buttonAdd.SetActive(!val);
+        buttonRead.SetActive(!val);
         buttonOk.SetActive(val);
         buttonBreak.SetActive(val);
         buttonUpHorizontal.SetActive(val);
         buttonDownHorizontal.SetActive(val);
         buttonUpVertikal.SetActive(val);
         buttonDownVertikal.SetActive(val);
+        buttonAddData.SetActive(val);
     }
 }
