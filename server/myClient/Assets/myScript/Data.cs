@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Assets.myScript
-{
+//namespace Assets.myScript
+//{
     class Data
     {
         static Data data;
@@ -20,8 +20,9 @@ namespace Assets.myScript
         public string url { get; set; }
         public User user { get; set; }
         public List<Maps> mapsList { get; set; }
+        public Maps selectedMap { get; set; }
         public List<Point> selectedMapPoint { get; set; }
         public Event ev { get; set; }
         
     }
-}
+//}

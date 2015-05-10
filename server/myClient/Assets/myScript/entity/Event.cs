@@ -33,5 +33,10 @@ namespace Assets.myScript.entity
             this.date = date;
             this.isDelete = 0;
         }
+
+        public Event(int id)//, List<Maps> maps)
+        {
+            this.id = id;
+        }
     }
 }

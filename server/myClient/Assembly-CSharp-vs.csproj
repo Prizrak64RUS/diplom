@@ -53,7 +53,6 @@
      <Compile Include="Assets\controlMy\MobileInput.cs" />
      <Compile Include="Assets\controlMy\StandaloneInput.cs" />
      <Compile Include="Assets\controlMy\VirtualInput.cs" />
-     <Compile Include="Assets\myScript\BuildMap.cs" />
      <Compile Include="Assets\myScript\Data.cs" />
      <Compile Include="Assets\myScript\DataReader.cs" />
      <Compile Include="Assets\myScript\InterfaceUrl.cs" />
@@ -88,7 +87,7 @@
      <Compile Include="Assets\myScript\interfaceUrl\PointController.cs" />
      <Compile Include="Assets\myScript\interfaceUrl\TestController.cs" />
      <Compile Include="Assets\myScript\interfaceUrl\UserController.cs" />
-     <Compile Include="Assets\myScript\programRoot\dontActivButton.cs" />
+     <Compile Include="Assets\myScript\programRoot\mapController.cs" />
      <Compile Include="Assets\myScript\programRoot\mapWriter.cs" />
      <Compile Include="Assets\myScript\programRoot\pointObj.cs" />
      <Compile Include="Assets\myScript\programRoot\reader\buttonSelectedMap.cs" />

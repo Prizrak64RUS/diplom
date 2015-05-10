@@ -14,6 +14,7 @@ public interface UrlController {
 
     String mapsObj="/maps/";
     String mapFromEventAll="allMap/in/";
+    String mapFromId_ = "allMap/id/{id}";
     String mapActivEventAll="allMap/selected/";
     String mapAll="allMap";
     String mapsInsert="insert";

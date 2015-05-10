@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * Created by prizrak on 20.01.2015.
  */
 public interface InterfaceMaps {
+    public Maps getMap(int id);
     public ArrayList<Maps> getMaps(Event ev);
     public ArrayList<Maps> getMapsFromActivEvent();
     public ArrayList<Maps> getMaps();

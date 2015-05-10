@@ -13,6 +13,12 @@ public class buttonSelectedMap : MonoBehaviour {
         mapWriter.CallMapBuildChanged(null, map);
     }
 
+    public void ButtonDataReadOk()
+    {
+        panelSelectedMap.CallMapNameSelectedChanged(false);
+        PanelReadDataPoint.CallMapSelect(map);
+    }
+
 
     //public void ButtonSelectedPanel()
     //{

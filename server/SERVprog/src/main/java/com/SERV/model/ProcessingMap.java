@@ -19,6 +19,7 @@ public class ProcessingMap implements InterfaceMaps{
         return ControllerConnections.getMapsController().getMapsFromActivEvent();
     }
 
+    public Maps getMap(int id){ return ControllerConnections.getMapsController().getMap(id);}
 
     public void setMap(ArrayList<Maps> map){ControllerConnections.getMapsController().setMap(map);}
 

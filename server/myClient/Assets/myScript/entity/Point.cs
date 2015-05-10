@@ -7,19 +7,19 @@ namespace Assets.myScript.entity
 {
     public class Point
     {
-        public String name { get; set; }
-        public String type { get; set; }
+        public string name { get; set; }
+        public string type { get; set; }
         public float x { get; set; }
         public float y { get; set; }
         public float size_w { get; set; }
         public float size_h { get; set; }
-        public String description { get; set; }
+        public string description { get; set; }
         public int id_map { get; set; }
         public int isBusy { get; set; }
         public int id_user_Busy { get; set; }
         public int id { get; set; }
 
-        public Point(String name, String type, float x, float y, float size_w, float size_h, String description, int id_map, int isBusy, int id_user_Busy, int id)
+        public Point(string name, string type, float x, float y, float size_w, float size_h, string description, int id_map, int isBusy, int id_user_Busy, int id)
         {
             this.name = name;
             this.type = type;
@@ -35,17 +35,17 @@ namespace Assets.myScript.entity
 
         }
 
-        public Point(String name, String type,  String description)
+        public Point(string name, string type,  string description, int id, int id_user_Busy)
         {
             this.name = name;
             this.type = type;
             this.description = description;
+            this.id = id;
+            this.id_user_Busy = id_user_Busy;
             this.x = 0;
             this.id_map = 0;
-            this.id = 0;
             this.y = 0;
             this.isBusy = 0;
-            this.id_user_Busy = 0;
             this.size_w = 0;
             this.size_h = 0;
 
@@ -54,7 +54,7 @@ namespace Assets.myScript.entity
         public Point()
         {
             this.name = "";
-            this.type = "";
+            this.type = "ACTIV";
             this.description = "";
             this.x = 0;
             this.id_map = 0;

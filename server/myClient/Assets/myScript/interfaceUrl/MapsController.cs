@@ -10,6 +10,22 @@ namespace Assets.myScript.interfaceUrl
 {
     class MapsController
     {
+
+        public Maps getMap(int id)
+        {
+            string url = Data.getDataClass().url + InterfaceUrl.mapFromId_+id;
+            var client = new RestClient(url);
+            var request = new RestRequest(Method.POST);
+            client.Timeout = 5000;
+            var response = client.Execute(request);
+            var content = response.Content;
+            try
+            {
+                var b = JsonConvert.DeserializeObject<Maps>(content);
+                return b;
+            }
+            catch (Exception e) { return null; }
+        }
         public List<Maps> getMaps(Event ev) 
         {
             string url = Data.getDataClass().url + InterfaceUrl.mapFromEventAll;

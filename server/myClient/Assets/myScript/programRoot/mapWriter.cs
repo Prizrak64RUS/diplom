@@ -11,25 +11,27 @@ using System.Collections.Generic;
 public class mapWriter : MonoBehaviour {
 
     List<GameObject> objList;
-
+    List<Point> delList;
 
     static GameObject selectedObj;
 
 	void Start () {
-        dataReader = new DataReader();
+        DataReader.Clear();
         objList = new List<GameObject>();
-
+        delList = new List<Point>();
         EventMapBuild += CreateField;
         EventSaveMap += saveMap;
         EventAddPointMap += AddPointMap;
         EventSelectedPoint += SelectedPoint;
         EventOkOrCancelPointMap += OkOrCancelPoint;
         EventUpOrDownSizePointMap += UpOrDownSizePoint;
-
+        EventActivJoystick += ActivJoystick;
+        EventActivField += ActivField;
 	}
 
     public GameObject joystick;
-    DataReader dataReader;
+    public GameObject PointYoystick;
+    
 
     public static bool isSelectedObj() { if (selectedObj == null) return false; else return true; }
 
@@ -101,6 +103,33 @@ public class mapWriter : MonoBehaviour {
         }
     }
 
+    public delegate void activJoystickDelegate(bool val);
+    public static event activJoystickDelegate EventActivJoystick;
+    public static void CallActivJoystickChanged(bool val)
+    {
+        var handler = EventActivJoystick;
+        if (EventActivJoystick != null) // если есть подписчики
+        {
+            EventActivJoystick(val);
+        }
+    }
+
+    public delegate void activFieldDelegate();
+    public static event activFieldDelegate EventActivField;
+    public static void CallActivFieldChanged()
+    {
+        var handler = EventActivField;
+        if (EventActivField != null) // если есть подписчики
+        {
+            EventActivField();
+        }
+    }
+
+    void ActivField()
+    {
+        gameObject.SetActive(!gameObject.activeSelf);
+    }
+
     void UpOrDownSizePoint(bool isUp, bool isHorizontal) 
     {
         if (selectedObj == null) return;
@@ -140,14 +169,20 @@ public class mapWriter : MonoBehaviour {
 
     }
 
+    void ActivJoystick(bool val) {
+        PointYoystick.SetActive(val);
+    }
+
     void OkOrCancelPoint(bool isOk)
     {
         if (selectedObj == null) return;
         if (isOk) 
-        { } 
+        {
+        } 
         else 
         {
             pointObj script = selectedObj.GetComponent<pointObj>();
+            delList.Add(script.GetPoint());
             objList.Remove(selectedObj);
             Destroy(selectedObj);
         }
@@ -157,7 +192,7 @@ public class mapWriter : MonoBehaviour {
     {
         GameObject point = (GameObject)Instantiate(Resources.Load(("point")));
         pointObj script = point.GetComponent<pointObj>();
-        script.point = new Point();
+        script.SetPoint(new Point());
         objList.Add(point);
 
         point.transform.parent = this.gameObject.transform;
@@ -170,6 +205,7 @@ public class mapWriter : MonoBehaviour {
     {
         selectedObj = obj;
         Joy2.point = selectedObj;
+        ActivJoystick(true);
     }
 
 
@@ -181,13 +217,13 @@ public class mapWriter : MonoBehaviour {
         if(patch==null){
             DestroyThisData();
             pngBytes = getMap(map.id);
-            dataReader.patch = null;
-            dataReader.selectedMap = map;
+            DataReader.GetDataReader().patch = null;
+            DataReader.GetDataReader().selectedMap = map;
         }
         else
         {
             pngBytes = File.ReadAllBytes(patch);
-            dataReader.patch = patch;
+            DataReader.GetDataReader().patch = patch;
         }
         if (pngBytes == null) return;
         tex.LoadImage(pngBytes);
@@ -196,14 +232,24 @@ public class mapWriter : MonoBehaviour {
 
         Joystick joy = joystick.GetComponent<Joystick>();
         joy.Camera.transform.position = new Vector3(0, 0, -tex.height + (tex.height / 7));
-        //foreach (var point in Data.getDataClass().mapsList[id_map].points)
-        //{
-        //    GameObject obj = (GameObject)Instantiate(Resources.Load(("objButtInMap")));
-        //    obj.name = "point " + point.name;
-        //    obj.transform.parent = field.transform;
-        //    obj.transform.localPosition = new Vector3(point.x, point.y, 0);
-        //    obj.transform.localScale = new Vector3(point.size_h, point.size_w, (float)1.2);
-        //}
+        var maps =DataReader.GetDataReader().selectedMap;
+        if (map != null) 
+        {
+            PointController pc = new PointController();
+            var list = pc.getPoints(map.id);
+            foreach (var pointObj in list)
+            {
+                GameObject point = (GameObject)Instantiate(Resources.Load(("point")));
+                pointObj script = point.GetComponent<pointObj>();
+                script.SetPoint(pointObj);
+                objList.Add(point);
+
+                point.transform.parent = this.gameObject.transform;
+                point.transform.localScale = new Vector3(pointObj.size_w, pointObj.size_h, (float)2);
+                point.transform.localPosition = new Vector3(pointObj.x, pointObj.y, (float)0);
+            }
+        }
+
     }
 
     private void DestroyThisData() {
@@ -211,22 +257,35 @@ public class mapWriter : MonoBehaviour {
             Destroy(go);
         }
         objList.Clear();
+        delList.Clear();
     }
 
     private void saveMap() 
     {
-        if (dataReader.selectedMap == null) return;
-        if (dataReader.patch != null) 
+        if (DataReader.GetDataReader().selectedMap == null) return;
+        int mapId = DataReader.GetDataReader().selectedMap.id;
+        if (DataReader.GetDataReader().patch != null) 
         {
-            byte[] pngBytes = File.ReadAllBytes(dataReader.patch);
-            sendMap(pngBytes, dataReader.selectedMap.id);
+            byte[] pngBytes = File.ReadAllBytes(DataReader.GetDataReader().patch);
+            sendMap(pngBytes, mapId);
         }
         List<Point> listPointUpd = new List<Point>();
         List<Point> listPointSet = new List<Point>();
-        List<Point> listPointDel = new List<Point>();
         foreach (GameObject obj in objList) { 
-            
+            var p = obj.GetComponent<pointObj>();
+            var point = p.GetPoint();
+            point.id_map = mapId;
+            point.size_h = obj.transform.localScale.y;
+            point.size_w = obj.transform.localScale.x;
+            point.x = obj.transform.localPosition.x;
+            point.y = obj.transform.localPosition.y;
+            if (point.id == 0) { listPointSet.Add(point); } else { listPointUpd.Add(point); }
         }
+        PointController pc = new PointController();
+        pc.delPoints(delList);
+        pc.setPoints(listPointSet);
+        pc.updPoint(listPointUpd);
+        CreateField(null, DataReader.GetDataReader().selectedMap);
     }
 
     private void sendMap(byte[] pngBytes, int id)

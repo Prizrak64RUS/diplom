@@ -23,6 +23,11 @@ public class MapsController implements InterfaceMaps{
         public List<Point> getMapData(@PathVariable int idMap) {
             return DataProcessing.getProcessingMap().getPoint(idMap);
         }*/
+
+    @RequestMapping(method = RequestMethod.POST, value= UrlController.mapFromId_)
+    @ResponseBody
+    public Maps getMap(@PathVariable  int id){return DataProcessing.getProcessingMap().getMap(id);}
+
     @RequestMapping(method = RequestMethod.POST, value= UrlController.mapFromEventAll)
     @ResponseBody
     public ArrayList<Maps> getMaps(@RequestBody Event ev) {

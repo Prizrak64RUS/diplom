@@ -5,11 +5,26 @@ using Assets.myScript.entity;
 
 public class pointObj : MonoBehaviour {
 
-    public Point point { get; set; }
+    Material material;
+    Texture texturePrev;
+    Point point { get; set; }
+
+    public void SetPoint(Point point) {
+        this.point = point;
+        string type = "material/" +point.type;
+        var tex = Resources.Load<Texture2D>(type);
+        if (material == null) { material = GetComponent<Renderer>().material;  }
+        material.mainTexture = tex;
+    }
+
+    public Point GetPoint()
+    {
+        return point;
+    }
     //bool isDown = false;
 	// Use this for initialization
 	void Start () {
-	
+        material = GetComponent<Renderer>().material;
 	}
 
     void Update()
@@ -27,13 +42,17 @@ public class pointObj : MonoBehaviour {
 
     void OnMouseDown()
     {
+        if (DataReader.GetDataReader().isRead) return;
+        var tex = Resources.Load<Texture2D>("material/SELECTED");
+        texturePrev = material.mainTexture;
+        material.mainTexture = tex;
         mapWriter.CallSelectedPointChanged(gameObject);
     }
 
-    //void OnMouseUp()
-    //{
-    //    isDown = false;
-    //    //mapWriter.CallSelectedPointChanged(null);
-    //}
+    void OnMouseUp()
+    {
+        if (DataReader.GetDataReader().isRead) return;
+        material.mainTexture = texturePrev;
+    }
 
 }

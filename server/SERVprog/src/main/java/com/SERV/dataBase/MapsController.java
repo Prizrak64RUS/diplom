@@ -47,6 +47,26 @@ public class MapsController implements InterfaceMaps{
         return null;
     }
 
+    public Maps getMap(int id){
+
+    try {
+        Connection conn =  ConnectionPool.getConnectionPool().retrieve();
+
+        Statement statement = conn.createStatement();
+        ResultSet result = statement.executeQuery("SELECT * FROM SOPG.dbo.maps where id="+id+";");
+        Maps maps=null;
+        while (result.next()) {
+            maps = new Maps(result.getString("name"), result.getInt("id_event"), result.getString("description"), result.getInt("id"));
+            break;
+        }
+        ConnectionPool.getConnectionPool().putback(conn);
+        return  maps;
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+        return null;
+    }
+
 
     public ArrayList<Maps> getMaps(Event ev){
         try {

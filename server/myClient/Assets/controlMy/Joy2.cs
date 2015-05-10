@@ -30,6 +30,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         void Start()
         {
             m_StartPos = transform.position;
+            gameObject.SetActive(false);
         }
         void OnEnable()
         {
@@ -98,8 +99,9 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         void Update()
         {
-            if (point == null) return;
-            //if(deltaX>0 && point.transform.localPosition.x<0.5)
+            if (point == null) { /*gameObject.SetActive(false); */return; }
+            //else { gameObject.SetActive(true); }
+
             point.transform.position += point.transform.right * deltaX * Time.deltaTime * Camera.transform.position.z * -1 / 200;
 
             point.transform.position += point.transform.up * deltaY * Time.deltaTime * Camera.transform.position.z * -1 / 200; ;

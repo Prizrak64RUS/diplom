@@ -26,12 +26,13 @@ public class settingButton : MonoBehaviour {
     public GameObject ContentMap;
     public List<GameObject> objMapList;
     public void ButtonSetting() {
+        mapWriter.CallActivFieldChanged();
         Assets.myScript.button.ButtonClass.exchange(rootPanel, settingPanel);
     }
 
     public void ButtonPanelReadActiv() 
     {
-        scriptAddData.setPoint(mapWriter.GetSelectedObj().GetComponent<pointObj>().point);
+        scriptAddData.setPoint(mapWriter.GetSelectedObj().GetComponent<pointObj>().GetPoint());
         ReadDataPoint();
     }
 
@@ -39,12 +40,13 @@ public class settingButton : MonoBehaviour {
     {
         Point point = scriptAddData.getPoint();
         if(point==null) return;
-        mapWriter.GetSelectedObj().GetComponent<pointObj>().point=point;
+        mapWriter.GetSelectedObj().GetComponent<pointObj>().SetPoint(point);
         ReadDataPoint();
     }
 
     public void ReadDataPoint()
     {
+        mapWriter.CallActivFieldChanged();
         Assets.myScript.button.ButtonClass.exchange(rootPanel, addData);
     }
 
@@ -54,25 +56,25 @@ public class settingButton : MonoBehaviour {
         objMapList = new List<GameObject>();
     }
 
-    public void ButtonSelectedMapPanel() {
-        foreach (GameObject g in objMapList)
-        {
-            Destroy(g);
-        }
-        objMapList.Clear();
+    //public void ButtonSelectedMapPanel() {
+    //    foreach (GameObject g in objMapList)
+    //    {
+    //        Destroy(g);
+    //    }
+    //    objMapList.Clear();
 
-        MapsController mc = new MapsController();
-        List<Maps> mapsList = mc.getMaps();
-        foreach (Assets.myScript.entity.Maps m in mapsList)
-        {
-            GameObject rows = (GameObject)Instantiate(Resources.Load(("selectedMap")));
-            buttonSelectedMap script = rows.GetComponent<buttonSelectedMap>();
-            script.text.text = m.name;
-            script.map = m;
-            rows.transform.parent = ContentMap.transform;
-            objMapList.Add(rows);
-        }
-    }
+    //    MapsController mc = new MapsController();
+    //    List<Maps> mapsList = mc.getMaps();
+    //    foreach (Assets.myScript.entity.Maps m in mapsList)
+    //    {
+    //        GameObject rows = (GameObject)Instantiate(Resources.Load(("selectedMap")));
+    //        buttonSelectedMap script = rows.GetComponent<buttonSelectedMap>();
+    //        script.text.text = m.name;
+    //        script.map = m;
+    //        rows.transform.parent = ContentMap.transform;
+    //        objMapList.Add(rows);
+    //    }
+    //}
 
     public void ButtonSelectedMapImage()
     {
@@ -106,16 +108,27 @@ public class settingButton : MonoBehaviour {
 
     public void ButtonOkOrCancel(bool isOk)
     {
+        DataReader.GetDataReader().isRead = false;
         mapWriter.CallOkOrCancelPointMapChanged(isOk);
     }
 
     public void ButtonAddPoint()
     {
+        DataReader.GetDataReader().isRead = true;
         mapWriter.CallAddPointMapChanged();
+        ButtonPanelReadActiv();
     }
 
 
-    public void ButtonActivPoint(bool val) { 
+    public void ButtonActivPointRead(bool val) 
+    {
+        if (mapWriter.GetSelectedObj() == null) return;
+        DataReader.GetDataReader().isRead = true;
+        ButtonActivPoint(val);
+    }
+
+    public void ButtonActivPoint(bool val) {
+        mapWriter.CallActivJoystickChanged(val);
         buttonAdd.SetActive(!val);
         buttonRead.SetActive(!val);
         buttonOk.SetActive(val);
