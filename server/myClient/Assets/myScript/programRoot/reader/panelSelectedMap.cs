@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Assets.myScript.entity;
 using Assets.myScript.interfaceUrl;
+using System;
 
 public class panelSelectedMap : MonoBehaviour {
 
@@ -73,6 +74,48 @@ public class panelSelectedMap : MonoBehaviour {
             script.map = m;
             rows.transform.parent = Content.transform;
             objMapList.Add(rows);
+        }
+    }
+
+
+    public void ButtonContentProgram()
+    {
+        mapController.CallActivFieldChanged();
+        gameObject.SetActive(true);
+        foreach (GameObject g in objMapList)
+        {
+            Destroy(g);
+        }
+        objMapList.Clear();
+        var d = Data.getDataClass();
+        if (d.eventThis == null) 
+        { 
+            EventController ec = new EventController();
+            d.eventThis = ec.getEventActiv();
+        }
+        if (d.mapsList == null)
+        {
+            MapsController mc = new MapsController();
+            d.mapsList = mc.getMapsFromActivEvent();
+        }
+        List<Maps> mapsList = d.mapsList;
+        try
+        {
+            foreach (Assets.myScript.entity.Maps m in mapsList)
+            {
+                if (d.selectedMap != null && m.id == d.selectedMap.id) continue;
+                GameObject rows = (GameObject)Instantiate(Resources.Load(("selectedMapProgram")));
+                buttonSelectedMap script = rows.GetComponent<buttonSelectedMap>();
+                script.text.text = m.name;
+                script.map = m;
+                rows.transform.parent = Content.transform;
+                objMapList.Add(rows);
+            }
+        }
+        catch (Exception e) 
+        {
+            mapController.CallActivFieldChanged();
+            gameObject.SetActive(false);
         }
     }
 

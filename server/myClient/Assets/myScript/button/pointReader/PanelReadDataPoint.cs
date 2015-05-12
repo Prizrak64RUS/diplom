@@ -41,7 +41,7 @@ public class PanelReadDataPoint : MonoBehaviour {
     public void SelectedToggle(string type) {
         switch (type) 
         {
-            case "ACTIV":
+            case PointType.ACTION:
                 if (isActiv.isOn)
                 {
                     map.gameObject.SetActive(false);
@@ -49,7 +49,7 @@ public class PanelReadDataPoint : MonoBehaviour {
                     isInfo.isOn = false;
                 }
                 break;
-            case "NEXT":
+            case PointType.NEXT:
                 map.gameObject.SetActive(false);
                 if (isNext.isOn)
                 {
@@ -58,7 +58,7 @@ public class PanelReadDataPoint : MonoBehaviour {
                     map.gameObject.SetActive(true);
                 }
                 break;
-            case "INFO":
+            case PointType.INFO:
                 if (isInfo.isOn)
                 {
                     map.gameObject.SetActive(false);
@@ -72,11 +72,11 @@ public class PanelReadDataPoint : MonoBehaviour {
     public Point getPoint() {
         string type="";
         if (isActiv.isOn)
-            type = "ACTIV";
+            type = PointType.ACTION;
         if (isNext.isOn)
-            type = "NEXT";
+            type =PointType.NEXT;
         if (isInfo.isOn)
-            type = "INFO";
+            type = PointType.INFO;
         if (isNext.isOn && mapText.text.Equals("NONE")) return null;
         if (name.text.Equals("") || type.Equals("") || description.text.Equals(""))
             return null;
@@ -95,15 +95,15 @@ public class PanelReadDataPoint : MonoBehaviour {
         {
             switch (p.type)
             {
-                case "ACTIV":
+                case PointType.ACTION:
                     isActiv.isOn = true;
                     break;
-                case "NEXT":
+                case PointType.NEXT:
                     isNext.isOn = true;
                     MapsController mc = new MapsController();
                     mapText.text = mc.getMap(id_user_Busy).name;
                     break;
-                case "INFO":
+                case PointType.INFO:
                     isInfo.isOn = true;
                     break;
             }

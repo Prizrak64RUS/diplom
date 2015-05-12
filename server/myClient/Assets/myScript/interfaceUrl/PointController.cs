@@ -26,6 +26,33 @@ namespace Assets.myScript.interfaceUrl
             catch (Exception e) { return null; }
         }
 
+        public List<Point> getPointsFromUserRole(string role, int idMap)
+        {
+            var list = getPoints(idMap);
+            if (list == null) return null;
+            if (UserRole.HEAD.Equals(role) || UserRole.PORTER.Equals(role)) return list;
+            List<Point> lp = new List<Point>();
+            foreach(var el in list)
+            {
+                switch (role) 
+                {
+                    case UserRole.GUIDES:
+                        {
+                        if (PointType.isTypeGUIDES(el.type))
+                            lp.Add(el);
+                        break;
+                        }
+                    case UserRole.WATCHING:
+                        {
+                        if(PointType.isTypeStandart(el.type)) 
+                            lp.Add(el);
+                        break;
+                        }
+                }
+            }
+            return lp;
+            
+        }
         public void updPoint(List<Point> points) 
         {
             string url = Data.getDataClass().url + InterfaceUrl.pointUpdate;

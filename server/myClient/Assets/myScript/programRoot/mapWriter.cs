@@ -191,6 +191,7 @@ public class mapWriter : MonoBehaviour {
     void AddPointMap() 
     {
         GameObject point = (GameObject)Instantiate(Resources.Load(("point")));
+        point.AddComponent<pointObj>();
         pointObj script = point.GetComponent<pointObj>();
         script.SetPoint(new Point());
         objList.Add(point);
@@ -240,6 +241,7 @@ public class mapWriter : MonoBehaviour {
             foreach (var pointObj in list)
             {
                 GameObject point = (GameObject)Instantiate(Resources.Load(("point")));
+                point.AddComponent<pointObj>();
                 pointObj script = point.GetComponent<pointObj>();
                 script.SetPoint(pointObj);
                 objList.Add(point);

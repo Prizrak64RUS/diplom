@@ -13,13 +13,27 @@ namespace Assets.myScript.entity
         public int id { get; set; }
         //public List<Point> points { get; set; }
 
-        public Maps() { }
+        public Maps() 
+        {
+            this.name = "";
+            this.id_event = 0;
+            this.description = "";
+            this.id = 0;
+        }
 
         public Maps(String name, int id_event, String description, int id)
         {
             this.name = name;
             this.id_event = id_event;
             this.description = description;
+            this.id = id;
+        }
+
+        public Maps(int id)
+        {
+            this.name = "";
+            this.id_event = 0;
+            this.description = "";
             this.id = id;
         }
 

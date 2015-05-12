@@ -67,5 +67,19 @@ namespace Assets.myScript.entity
 
         }
 
+        public bool Equals(Object obj) 
+        {
+            if (this == obj)
+                return true;
+            if (obj == null)
+                return false;
+            Point other = (Point)obj;
+            if (id != other.id)
+                return false;
+            if (isBusy != other.isBusy && id_user_Busy != other.id_user_Busy)
+                return false;
+            return true;
+        }
+
     }
 }

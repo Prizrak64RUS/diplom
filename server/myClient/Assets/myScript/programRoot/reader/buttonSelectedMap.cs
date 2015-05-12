@@ -19,6 +19,13 @@ public class buttonSelectedMap : MonoBehaviour {
         PanelReadDataPoint.CallMapSelect(map);
     }
 
+    public void ButtonSelectedMapOkInProgram()
+    {
+        mapController.CallActivFieldChanged();
+        panelSelectedMap.CallMapNameSelectedChanged(false);
+        mapController.CallMapBuildChanged(map);
+    }
+
 
     //public void ButtonSelectedPanel()
     //{

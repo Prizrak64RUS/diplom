@@ -12,6 +12,7 @@ import java.util.ArrayList;
 /**
  * Created by prizrak on 20.01.2015.
  */
+
 public class EventController implements InterfaceEvent{
     public void setEvents(ArrayList<Event> event){
         for(Event ev: event){
@@ -24,6 +25,7 @@ public class EventController implements InterfaceEvent{
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+            NewsController.event=null;
         }
     }
     public Event getEventActiv(){

@@ -3,6 +3,7 @@ using System.Collections;
 using System.IO;
 using System.Collections.Generic;
 using Assets.myScript;
+using UnityEngine.UI;
 
 public class SearchFile : MonoBehaviour {
     public GameObject Content;
@@ -54,15 +55,15 @@ public class SearchFile : MonoBehaviour {
         patch.Add(val);
         arrPatch = patch.ToArray();
         loadOld();
-#if UNITY_STANDALONE_WIN   
-#endif
-#if UNITY_ANDROID
-#endif
+//#if UNITY_STANDALONE_WIN   
+//#endif
+//#if UNITY_ANDROID
+//#endif
     }
     public void ButtonBreak()
     {
         DestroyList();
-#if UNITY_STANDALONE_WIN
+//#if UNITY_STANDALONE_WIN
         if (patch.Count <= 1)
         {
             if (patch.Count == 0) { loadRoot(); }
@@ -78,24 +79,24 @@ public class SearchFile : MonoBehaviour {
             arrPatch = patch.ToArray();
             loadOld();
         }
-#endif
-#if UNITY_ANDROID
-        if (patch.Count <= 2)
-        {
-            if (patch.Count == 1) { loadRoot(); }
-            else
-            {
-                patch.Remove(arrPatch[arrPatch.Length - 1]);
-                arrPatch = patch.ToArray();
-                loadRoot();
-            }
-        }
-        else {
-            patch.Remove(arrPatch[arrPatch.Length - 1]);
-            arrPatch = patch.ToArray();
-            loadOld();
-        }
-#endif
+//#endif
+//#if UNITY_ANDROID
+//        if (patch.Count <= 2)
+//        {
+//            if (patch.Count == 1) { loadRoot(); }
+//            else
+//            {
+//                patch.Remove(arrPatch[arrPatch.Length - 1]);
+//                arrPatch = patch.ToArray();
+//                loadRoot();
+//            }
+//        }
+//        else {
+//            patch.Remove(arrPatch[arrPatch.Length - 1]);
+//            arrPatch = patch.ToArray();
+//            loadOld();
+//        }
+//#endif
 
     }
     public void ButtonOK(string val)
@@ -115,9 +116,9 @@ public class SearchFile : MonoBehaviour {
 #if UNITY_ANDROID
         sss = Directory.GetDirectories("/");
         separator[0]='/';
-        if(patch.Count==0){
-            patch.Add("/");
-        }
+        //if(patch.Count==0){
+        //    patch.Add("/");
+        //}
 #endif
         foreach (string s in sss)
         {
@@ -164,20 +165,20 @@ public class SearchFile : MonoBehaviour {
 
     private string getPatch() {
         string p = "";
-        if (arrPatch.Length < 1) return "1";
-#if UNITY_STANDALONE_WIN
+//#if UNITY_STANDALONE_WIN
         p += arrPatch[0];
         for (int i = 1; i < arrPatch.Length; i++)
         {
-#endif
+//#endif
 #if UNITY_ANDROID
-        p += arrPatch[0] + arrPatch[1];
-        for (int i = 2; i < arrPatch.Length; i++) {
+//        p += arrPatch[0] + arrPatch[1];
+//        for (int i = 2; i < arrPatch.Length; i++) {
+            p += separator[0];
 #endif
 
 
 
-            p += arrPatch[i] + separator[0].ToString();
+            p += arrPatch[i] + separator[0];
         }
         return p;
     }

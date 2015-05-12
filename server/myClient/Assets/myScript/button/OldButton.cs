@@ -4,6 +4,7 @@ using System;
 using Assets.myScript;
 using Assets.myScript.entity;
 using Assets.myScript.interfaceUrl;
+using System.Collections.Generic;
 
 public class OldButton : MonoBehaviour {
 
@@ -19,14 +20,60 @@ public class OldButton : MonoBehaviour {
         User user = new User(login.text, password.text);
         UserController uc = new UserController();
         user = uc.isAutch(user);
-        if (!user.role.Equals("NONE")) {
+        if (!user.role.Equals("NONE")) 
+        {
+            Data.getDataClass().user = user;
+
             if (user.role.Equals("ADMIN"))
             {
                 Application.LoadLevel("admin");
             }
+            else
+            {
+                if (loadData())
+                {
+                    Application.LoadLevel("program");
+
+                }
+                else
+                {
+                    errorAuth.text = "Сервер в режиме ожидания";
+                }
+            }
         } else { errorAuth.text = "Неправильный логин или пароль"; }
     }
 
+    private bool loadData() 
+    {
+        try
+        {
+            var ec = new EventController();
+            var ev = ec.getEventActiv();
+            if (ev == null) return false;
+            var mc = new MapsController();
+            List<Maps> mapList = mc.getMapsFromActivEvent();
+            var data = Data.getDataClass();
+            data.eventThis = ev;
+            data.mapsList = mapList;
+            data.selectedMap = mapList.ToArray()[0];
+            return true;
+        }
+        catch (Exception e) { return false; }
+    }
+
+    public void ButtonWATCHINGAuth()
+    {
+        if (loadData())
+        {
+            Application.LoadLevel("program");
+
+        }
+        else
+        {
+            errorAuth.text = "Сервер в режиме ожидания";
+        }
+    }
+    
     public void ButtonAuthDataClear() {
         login.text="";
         password.text="";

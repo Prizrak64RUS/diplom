@@ -15,14 +15,24 @@ using System.Text;
             }
             return data;
         }
-        private Data() { url = "http://localhost:8080"; }
-        
+        private Data() 
+        { 
+            isRead = false;
+            url = "http://localhost:8080";
+            user = new User("testUsr", "WATCHING", "NONE", "NONE", 0, "NONE");
+        }
+
+
+        public bool isRead { get; set; }
+        public bool isBusy { get; set; } 
+
+
         public string url { get; set; }
         public User user { get; set; }
         public List<Maps> mapsList { get; set; }
         public Maps selectedMap { get; set; }
         public List<Point> selectedMapPoint { get; set; }
-        public Event ev { get; set; }
+        public Event eventThis { get; set; }
         
     }
 //}
