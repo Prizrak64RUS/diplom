@@ -67,6 +67,22 @@ namespace Assets.myScript.entity
 
         }
 
+        public Point(string type)
+        {
+            this.name = "";
+            this.type = type;
+            this.description = "";
+            this.x = 0;
+            this.id_map = 0;
+            this.id = 0;
+            this.y = 0;
+            this.isBusy = 0;
+            this.id_user_Busy = 0;
+            this.size_w = 0;
+            this.size_h = 0;
+
+        }
+
         public bool Equals(Object obj) 
         {
             if (this == obj)

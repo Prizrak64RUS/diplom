@@ -8,7 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -21,21 +20,32 @@ public class ChatController implements InterfaceChat{
             Connection conn =  ConnectionPool.getConnectionPool().retrieve();
 
             Statement statement = conn.createStatement();
-            statement.execute("insert into SOPG.dbo.message values ("+ms.getIdUserTo()+", '"+ms.getMessage()+"', "+ms.getIdUser()+", GETDATE())");
+            statement.execute("INSERT INTO [SOPG].[dbo].[message]" +
+                    "           ([idUserTo]" +
+                    "           ,[message]" +
+                    "           ,[idUser]" +
+                    "           ,[idEvent]" +
+                    "           ,[Date])" +
+                    "     VALUES" +
+                    "           ("+ms.getIdUserTo() +
+                    "           ,'"+ms.getMessage()+"'"+
+                    "           ,"+ms.getIdUser()+
+                    "           ,"+ms.getIdEvent()+
+                    "           ,GETDATE());");
             ConnectionPool.getConnectionPool().putback(conn);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    public ArrayList<Message> getChatOf(int id){
+    public ArrayList<Message> getChatOf(Integer[] val){
         try {
             Connection conn =  ConnectionPool.getConnectionPool().retrieve();
 
             Statement statement = conn.createStatement();
-            ResultSet result = statement.executeQuery("SELECT * FROM SOPG.dbo.message where id>"+id+";");
+            ResultSet result = statement.executeQuery("SELECT * FROM SOPG.dbo.message where id>"+val[0]+" AND idEvent = "+val[1]+" AND (idUserTo=0 OR idUserTo="+val[2]+" OR idUser="+val[2]+");");
             ArrayList<Message> ms = new ArrayList<Message>();
             while (result.next()) {
-                Message m = new Message(result.getInt("id"), result.getString("message"), result.getInt("idUser"), result.getInt("idUserTo"), result.getString("Date"));
+                Message m = new Message(result.getInt("id"), result.getString("message"), result.getInt("idUser"), result.getInt("idUserTo"), result.getString("Date"), result.getInt("idEvent"));
                 ms.add(m);
             }
             ConnectionPool.getConnectionPool().putback(conn);
@@ -47,15 +57,15 @@ public class ChatController implements InterfaceChat{
     }
 
 
-    public ArrayList<Message> getEndSevenMessage(){
+    public ArrayList<Message> getEndSevenMessage(Integer[] val){
         try {
             Connection conn =  ConnectionPool.getConnectionPool().retrieve();
 
             Statement statement = conn.createStatement();
-            ResultSet result = statement.executeQuery("Select top(7) * from [SOPG].[dbo].[message] order by id desc;");
+            ResultSet result = statement.executeQuery("Select top(7) * from [SOPG].[dbo].[message] where idEvent = "+val[1]+" AND (idUserTo=0 OR idUserTo="+val[2]+" OR idUser="+val[2]+") order by id desc;");
             ArrayList<Message> ms = new ArrayList<Message>();
             while (result.next()) {
-                Message m = new Message(result.getInt("id"), result.getString("message"), result.getInt("idUser"), result.getInt("idUserTo"), result.getString("Date"));
+                Message m = new Message(result.getInt("id"), result.getString("message"), result.getInt("idUser"), result.getInt("idUserTo"), result.getString("Date"), result.getInt("idEvent"));
                 ms.add(m);
             }
 

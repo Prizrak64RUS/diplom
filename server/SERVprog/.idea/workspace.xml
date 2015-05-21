@@ -32,76 +32,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ChatController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/ChatController.java">
+      <file leaf-file-name="BusyController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/BusyController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="1275">
-              <caret line="23" column="142" selection-start-line="23" selection-start-column="133" selection-end-line="23" selection-end-column="142" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1258">
+              <caret line="45" column="55" selection-start-line="45" selection-start-column="55" selection-end-line="45" selection-end-column="55" />
               <folding>
-                <marker date="1430812437367" expanded="true" signature="668:780" placeholder="insert into ..." />
-                <marker date="1430812437367" expanded="true" signature="1185:1225" placeholder="SELECT * FRO..message..." />
-                <marker date="1430812437367" expanded="true" signature="1994:2054" placeholder="Select top(7..." />
+                <marker date="1432222926220" expanded="true" signature="594:958" placeholder="INSERT INTO ..." />
+                <marker date="1432222926220" expanded="true" signature="1362:1546" placeholder="SELECT [id] ..." />
+                <marker date="1432222926220" expanded="true" signature="1362:1583" placeholder="SELECT [id] ..." />
+                <marker date="1432222926220" expanded="true" signature="1362:1589" placeholder="SELECT [id] ..." />
+                <marker date="1432222926220" expanded="true" signature="1362:1606" placeholder="SELECT [id] ..." />
+                <marker date="1432222926220" expanded="true" signature="1362:1645" placeholder="SELECT [id] ..." />
+                <marker date="1432222926220" expanded="true" signature="2328:2399" placeholder="DELETE FROM ..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Message.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/entity/Message.java">
+      <file leaf-file-name="Busy.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/entity/Busy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="1071">
-              <caret line="75" column="21" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1088">
+              <caret line="54" column="24" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="News.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/entity/News.java">
+      <file leaf-file-name="PointController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/PointController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="986">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Log.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/entity/Log.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1292">
-              <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserRole.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/entity/UserRole.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="391">
-              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="11" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Point.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/entity/Point.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1055" max-vertical-offset="1649">
-              <caret line="122" column="18" selection-start-line="122" selection-start-column="18" selection-end-line="122" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/LogController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.79182154" vertical-offset="195" max-vertical-offset="1088">
-              <caret line="31" column="50" selection-start-line="31" selection-start-column="50" selection-end-line="31" selection-end-column="53" />
-              <folding />
+            <state vertical-scroll-proportion="0.6869245" vertical-offset="307" max-vertical-offset="1870">
+              <caret line="49" column="95" selection-start-line="49" selection-start-column="95" selection-end-line="49" selection-end-column="95" />
+              <folding>
+                <element signature="e#1655#1662#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -111,57 +77,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/SERV/dataBase/entity/Event.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/SERV/dataBase/DB_Conn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/SERV/dataBase/ComptrollerConnections.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/jdbsMS.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/SERVprog.iml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/context.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/SERV/dataBase/ConnectionPool.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/entity/UserRole.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/entity/Log.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/entity/Log_type.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfaceLog.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfaceChat.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/SERV/model/ProcessingChat.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/model/ProcessingLog.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/model/ProcessingUser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerLog.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfaceNews.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/SERV/dataBase/ControllerConnections.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/model/DataProcessing.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/model/ProcessingNews.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerChat.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerNews.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/entity/News.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/TestController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfaceUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/entity/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/dataBase/LogController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/SERV/dataBase/ChatController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/dataBase/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/entity/Message.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/entity/Events.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/model/ProcessingEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfaceEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/entity/Event.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/EventController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfacePoint.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerPoint.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/model/ProcessingPoint.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/SERV/dataBase/PointController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/entity/Maps.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/UrlController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfaceMaps.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/model/ProcessingMap.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/SERV/dataBase/MapsController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/MapsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/entity/Point.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/dataBase/EventController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/dataBase/NewsController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/entity/Message.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfaceChat.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SERV/model/ProcessingChat.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerLog.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerNews.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/EventController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/TestController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SERV/dataBase/ControllerConnections.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerChat.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SERV/dataBase/ConnectionPool.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfaceBusy.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerBusy.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfacePoint.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerPoint.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SERV/dataBase/PointController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SERV/dataBase/ChatController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfaceMaps.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/UrlController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/MapsController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SERV/dataBase/MapsController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/entity/Busy.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SERV/dataBase/BusyController.java" />
       </list>
     </option>
   </component>
@@ -185,8 +151,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -295,34 +261,6 @@
             <PATH_ELEMENT USER_OBJECT="src/main">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SERVprog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SERVprog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SERVprog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SERVprog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.SERV" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -453,36 +391,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SERVprog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SERVprog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SERV" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="interfaceAbility" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -519,6 +427,34 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SERVprog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SERVprog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SERVprog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SERVprog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.SERV" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -547,6 +483,8 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="dynamic.classpath" value="false" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="OverrideImplement.overriding.sorted" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -854,6 +792,7 @@
       <method />
     </configuration>
     <configuration default="false" name="Unnamed" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.9" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="">
+      <option name="OPEN_IN_BROWSER" value="false" />
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -1034,16 +973,23 @@
       <workItem from="1431262491335" duration="776000" />
       <workItem from="1431322398135" duration="8424000" />
       <workItem from="1431359391679" duration="645000" />
-      <workItem from="1431401385696" duration="544000" />
+      <workItem from="1431401385696" duration="1325000" />
+      <workItem from="1431439428263" duration="2239000" />
+      <workItem from="1431843395768" duration="5518000" />
+      <workItem from="1431927957009" duration="6990000" />
+      <workItem from="1432015585227" duration="4803000" />
+      <workItem from="1432054677486" duration="2705000" />
+      <workItem from="1432105287851" duration="5085000" />
+      <workItem from="1432187461229" duration="9316000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="223009000" />
+    <option name="totallyTimeSpent" value="260446000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1063,10 +1009,10 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4909688" sideWeight="0.50208336" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38002172" sideWeight="0.50208336" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24670571" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.196875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1127,7 +1073,21 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="36" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/SERV/view/entity/Message.java</url>
+          <line>64</line>
+          <properties class="com.SERV.view.entity.Message" method="getDate" />
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/SERV/view/EventController.java</url>
+          <line>2</line>
+          <properties />
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="41" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1136,52 +1096,47 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/model/ProcessingChat.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/UrlController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2959739" vertical-offset="0" max-vertical-offset="919">
-          <caret line="17" column="119" selection-start-line="17" selection-start-column="119" selection-end-line="17" selection-end-column="119" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="93" max-vertical-offset="1071">
+          <caret line="50" column="22" selection-start-line="50" selection-start-column="22" selection-end-line="50" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/model/ProcessingUser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerBusy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5907336" vertical-offset="0" max-vertical-offset="518">
-          <caret line="23" column="114" selection-start-line="23" selection-start-column="114" selection-end-line="23" selection-end-column="114" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="510">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1125#1126#0" expanded="false" />
+            <element signature="e#1199#1200#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfaceLog.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerChat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="59" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="680">
+          <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerLog.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/ChatController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56110156" vertical-offset="116" max-vertical-offset="697">
-          <caret line="26" column="64" selection-start-line="26" selection-start-column="64" selection-end-line="26" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/model/ProcessingLog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26333907" vertical-offset="0" max-vertical-offset="581">
-          <caret line="13" column="61" selection-start-line="13" selection-start-column="61" selection-end-line="13" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/model/DataProcessing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35111877" vertical-offset="0" max-vertical-offset="581">
-          <caret line="24" column="81" selection-start-line="24" selection-start-column="81" selection-end-line="24" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/model/ProcessingNews.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49741825" vertical-offset="0" max-vertical-offset="581">
-          <caret line="17" column="111" selection-start-line="17" selection-start-column="111" selection-end-line="17" selection-end-column="111" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="935" max-vertical-offset="1462">
+          <caret line="65" column="165" selection-start-line="65" selection-start-column="165" selection-end-line="65" selection-end-column="165" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1432119755460" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1432119755460" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..message..." />
+            <marker date="1432119755460" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..message..." />
+            <marker date="1432119755460" expanded="true" signature="-1:-1" placeholder="Select top(7..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1196,20 +1151,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33136094" vertical-offset="3441" max-vertical-offset="9129">
           <caret line="234" column="18" selection-start-line="234" selection-start-column="18" selection-end-line="234" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/ControllerConnections.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8987013" vertical-offset="0" max-vertical-offset="867">
-          <caret line="55" column="80" selection-start-line="55" selection-start-column="80" selection-end-line="55" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5052817" vertical-offset="444" max-vertical-offset="2108">
-          <caret line="51" column="9" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1234,80 +1175,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/model/ProcessingEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26333907" vertical-offset="0" max-vertical-offset="581">
-          <caret line="13" column="60" selection-start-line="13" selection-start-column="60" selection-end-line="13" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfaceEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29259896" vertical-offset="0" max-vertical-offset="581">
-          <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/entity/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57" vertical-offset="214" max-vertical-offset="1649">
-          <caret line="29" column="82" selection-start-line="29" selection-start-column="82" selection-end-line="29" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfaceUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34" vertical-offset="0" max-vertical-offset="400">
-          <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/EventController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22844344" vertical-offset="0" max-vertical-offset="893">
-          <caret line="21" column="69" selection-start-line="21" selection-start-column="69" selection-end-line="21" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/model/ProcessingPoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28555432" vertical-offset="0" max-vertical-offset="893">
-          <caret line="19" column="110" selection-start-line="19" selection-start-column="110" selection-end-line="19" selection-end-column="110" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfacePoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2094065" vertical-offset="0" max-vertical-offset="893">
-          <caret line="13" column="49" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/entity/Maps.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43784994" vertical-offset="0" max-vertical-offset="1717">
           <caret line="26" column="61" selection-start-line="26" selection-start-column="61" selection-end-line="26" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/TestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.232342" vertical-offset="0" max-vertical-offset="1326">
-          <caret line="49" column="58" selection-start-line="49" selection-start-column="58" selection-end-line="49" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/ConnectionPool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47397768" vertical-offset="102" max-vertical-offset="1207">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1332,20 +1203,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerChat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22934233" vertical-offset="0" max-vertical-offset="593">
-          <caret line="18" column="52" selection-start-line="18" selection-start-column="52" selection-end-line="18" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerNews.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3726813" vertical-offset="0" max-vertical-offset="593">
-          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_25/src.zip!/java/io/FileInputStream.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="4189" max-vertical-offset="6341">
@@ -1367,60 +1224,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfaceMaps.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22895622" vertical-offset="0" max-vertical-offset="594">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/model/ProcessingMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42929292" vertical-offset="0" max-vertical-offset="594">
-          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/UrlController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="346" max-vertical-offset="986">
-          <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/MapsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37205386" vertical-offset="102" max-vertical-offset="1156">
-          <caret line="28" column="46" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/MapsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8299663" vertical-offset="544" max-vertical-offset="3536">
-          <caret line="67" column="4" selection-start-line="67" selection-start-column="4" selection-end-line="67" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerPoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="612">
-          <caret line="21" column="74" selection-start-line="21" selection-start-column="69" selection-end-line="21" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/PointController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26651737" vertical-offset="0" max-vertical-offset="893">
-          <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/entity/Log.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1292">
           <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1428,7 +1235,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="11" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1436,27 +1242,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1055" max-vertical-offset="1649">
           <caret line="122" column="18" selection-start-line="122" selection-start-column="18" selection-end-line="122" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/entity/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="1071">
-          <caret line="75" column="21" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/ChatController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1241">
-          <caret line="23" column="142" selection-start-line="23" selection-start-column="133" selection-end-line="23" selection-end-column="142" />
-          <folding>
-            <marker date="1430812437367" expanded="true" signature="668:780" placeholder="insert into ..." />
-            <marker date="1430812437367" expanded="true" signature="1185:1225" placeholder="SELECT * FRO..message..." />
-            <marker date="1430812437367" expanded="true" signature="1994:2054" placeholder="Select top(7..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1467,21 +1252,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfaceChat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22895622" vertical-offset="0" max-vertical-offset="594">
-          <caret line="10" column="43" selection-start-line="10" selection-start-column="0" selection-end-line="12" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/entity/News.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="986">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/EventController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.45791245" vertical-offset="0" max-vertical-offset="1360">
@@ -1489,18 +1259,279 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/NewsController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/LogController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65656567" vertical-offset="596" max-vertical-offset="1394">
-          <caret line="68" column="60" selection-start-line="68" selection-start-column="60" selection-end-line="68" selection-end-column="60" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="1088">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/LogController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/NewsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.79182154" vertical-offset="195" max-vertical-offset="1088">
-          <caret line="31" column="50" selection-start-line="31" selection-start-column="50" selection-end-line="31" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="1309">
+          <caret line="65" column="13" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/entity/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7995521" vertical-offset="0" max-vertical-offset="1156">
+          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfaceLog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfaceChat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19036955" vertical-offset="0" max-vertical-offset="893">
+          <caret line="12" column="62" selection-start-line="12" selection-start-column="62" selection-end-line="12" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/entity/News.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.05592105" vertical-offset="153" max-vertical-offset="986">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfaceUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36348686" vertical-offset="0" max-vertical-offset="608">
+          <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7905935" vertical-offset="1215" max-vertical-offset="2108">
+          <caret line="121" column="20" selection-start-line="121" selection-start-column="20" selection-end-line="121" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerLog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07614782" vertical-offset="0" max-vertical-offset="893">
+          <caret line="4" column="45" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="45" />
+          <folding>
+            <element signature="method#getTreeLogs#1;class#ControllerLog#0" expanded="false" />
+            <element signature="method#getTreeLogs#2;class#ControllerLog#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerNews.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.57110864" vertical-offset="0" max-vertical-offset="893">
+          <caret line="30" column="73" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="73" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/EventController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4949608" vertical-offset="0" max-vertical-offset="893">
+          <caret line="26" column="62" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/TestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03807391" vertical-offset="0" max-vertical-offset="893">
+          <caret line="2" column="47" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/entity/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="756" max-vertical-offset="1649">
+          <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="111" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfaceEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="13" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2945129" vertical-offset="0" max-vertical-offset="1309">
+          <caret line="83" column="138" selection-start-line="83" selection-start-column="138" selection-end-line="83" selection-end-column="138" />
+          <folding>
+            <element signature="docComment;class#UserController#0" expanded="false" />
+            <element signature="e#624#635#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/ControllerConnections.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
+          <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerChat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.418813" vertical-offset="0" max-vertical-offset="893">
+          <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/ConnectionPool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13325869" vertical-offset="0" max-vertical-offset="1207">
+          <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfaceBusy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15229563" vertical-offset="0" max-vertical-offset="893">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="10" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerBusy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.57110864" vertical-offset="0" max-vertical-offset="893">
+          <caret line="30" column="15" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1125#1126#0" expanded="false" />
+            <element signature="e#1199#1200#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfacePoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+          <caret line="10" column="50" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/ChatController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61141807" vertical-offset="688" max-vertical-offset="1581">
+          <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1432119755460" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1432119755460" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..message..." />
+            <marker date="1432119755460" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..message..." />
+            <marker date="1432119755460" expanded="true" signature="-1:-1" placeholder="Select top(7..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27992633" vertical-offset="69" max-vertical-offset="612">
+          <caret line="23" column="69" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfaceMaps.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+          <caret line="19" column="23" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/UrlController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="69" max-vertical-offset="1088">
+          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/MapsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27992633" vertical-offset="2908" max-vertical-offset="3723">
+          <caret line="186" column="34" selection-start-line="186" selection-start-column="34" selection-end-line="186" selection-end-column="34" />
+          <folding>
+            <marker date="1432192887454" expanded="true" signature="-1:-1" placeholder="SELECT maps...maps..." />
+            <marker date="1432192887454" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..maps..." />
+            <marker date="1432192887454" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..maps..." />
+            <marker date="1432192887454" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..maps..." />
+            <marker date="1432192887454" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+            <marker date="1432192887454" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/MapsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06077348" vertical-offset="834" max-vertical-offset="1683">
+          <caret line="53" column="17" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#3350#3351#0" expanded="false" />
+            <element signature="e#3426#3427#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/entity/Busy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1088">
+          <caret line="54" column="24" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/BusyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1258">
+          <caret line="45" column="55" selection-start-line="45" selection-start-column="55" selection-end-line="45" selection-end-column="55" />
+          <folding>
+            <marker date="1432222926220" expanded="true" signature="594:958" placeholder="INSERT INTO ..." />
+            <marker date="1432222926220" expanded="true" signature="1362:1546" placeholder="SELECT [id] ..." />
+            <marker date="1432222926220" expanded="true" signature="1362:1583" placeholder="SELECT [id] ..." />
+            <marker date="1432222926220" expanded="true" signature="1362:1589" placeholder="SELECT [id] ..." />
+            <marker date="1432222926220" expanded="true" signature="1362:1606" placeholder="SELECT [id] ..." />
+            <marker date="1432222926220" expanded="true" signature="1362:1645" placeholder="SELECT [id] ..." />
+            <marker date="1432222926220" expanded="true" signature="2328:2399" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/PointController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6869245" vertical-offset="307" max-vertical-offset="1870">
+          <caret line="49" column="95" selection-start-line="49" selection-start-column="95" selection-end-line="49" selection-end-column="95" />
+          <folding>
+            <element signature="e#1655#1662#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

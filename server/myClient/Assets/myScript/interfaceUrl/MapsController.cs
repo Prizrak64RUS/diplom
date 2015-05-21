@@ -11,6 +11,21 @@ namespace Assets.myScript.interfaceUrl
     class MapsController
     {
 
+        public long mapSize(int id){
+            string url = Data.getDataClass().url + InterfaceUrl.mapSize_ + id;
+            var client = new RestClient(url);
+            var request = new RestRequest(Method.POST);
+            client.Timeout = 5000;
+            var response = client.Execute(request);
+            var content = response.Content;
+            try
+            {
+                var b = JsonConvert.DeserializeObject<long>(content);
+                return b;
+            }
+            catch (Exception e) { return -1; }
+        }
+
         public Maps getMap(int id)
         {
             string url = Data.getDataClass().url + InterfaceUrl.mapFromId_+id;

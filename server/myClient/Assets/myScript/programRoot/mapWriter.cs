@@ -237,7 +237,7 @@ public class mapWriter : MonoBehaviour {
         if (map != null) 
         {
             PointController pc = new PointController();
-            var list = pc.getPoints(map.id);
+            var list = pc.getPoints(UserRole.ADMIN, map.id);
             foreach (var pointObj in list)
             {
                 GameObject point = (GameObject)Instantiate(Resources.Load(("point")));

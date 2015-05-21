@@ -26,6 +26,11 @@ public class buttonSelectedMap : MonoBehaviour {
         mapController.CallMapBuildChanged(map);
     }
 
+    public void ButtonSelectedUser()
+    {
+        panelChat.CallUserSelectedChanged(text.text);
+        panelSelectedMap.CallMapNameSelectedChanged(false);
+    }
 
     //public void ButtonSelectedPanel()
     //{

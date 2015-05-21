@@ -19,17 +19,19 @@ public class panelNews : MonoBehaviour {
 	void Start () {
         objList = new List<GameObject>();
         nc = new NewsController();
-        var list = nc.getEndSevenNews();
-
+        List<News> list=null;
+        while(list==null)
+            list= nc.getEndSevenNews();
+        
         foreach (var el in list)
             addInContent(el);
 
         StartCoroutine("AutoNewsGet");
-        //if (!Data.getDataClass().user.role.Equals(UserRole.HEAD))
-        //{
-        //    add.gameObject.SetActive(false);
-        //    textAdd.gameObject.SetActive(false);
-        //}
+        if (!Data.getDataClass().user.role.Equals(UserRole.HEAD))
+        {
+            add.gameObject.SetActive(false);
+            textAdd.gameObject.SetActive(false);
+        }
 	}
 
     void addInContent(News news) 
@@ -46,7 +48,7 @@ public class panelNews : MonoBehaviour {
     public void ButtonAddText() 
     {
         if (textAdd.text.Equals("")) return;
-        var news = new News(Data.getDataClass().eventThis.id, textAdd.text, "-");
+        var news = new News(Data.getDataClass().getEventThis().id, textAdd.text, "-");
         var contr = new NewsController();
         contr.setNews(news);
         textAdd.text = "";
@@ -61,7 +63,7 @@ public class panelNews : MonoBehaviour {
             {
                 addInContent(el);
             }
-            //ClearNews();
+            ClearNews();
             yield return new WaitForSeconds(10);
         }
     }

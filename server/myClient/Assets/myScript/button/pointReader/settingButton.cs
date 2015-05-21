@@ -13,6 +13,7 @@ public class settingButton : MonoBehaviour {
     public RectTransform addData;
     PanelReadDataPoint scriptAddData;
 
+    public GameObject buttonSetting;
     public GameObject buttonAdd;
     public GameObject buttonRead;
     public GameObject buttonOk;
@@ -129,6 +130,7 @@ public class settingButton : MonoBehaviour {
 
     public void ButtonActivPoint(bool val) {
         mapWriter.CallActivJoystickChanged(val);
+        buttonSetting.SetActive(!val);
         buttonAdd.SetActive(!val);
         buttonRead.SetActive(!val);
         buttonOk.SetActive(val);
@@ -138,5 +140,10 @@ public class settingButton : MonoBehaviour {
         buttonUpVertikal.SetActive(val);
         buttonDownVertikal.SetActive(val);
         buttonAddData.SetActive(val);
+    }
+
+    public void ButtonEnd()
+    {
+        Application.Quit();
     }
 }

@@ -17,6 +17,7 @@ CREATE TABLE [dbo].[message](
 	[idUserTo] [int] NOT NULL,
 	[message] [nchar](100) NOT NULL,
 	[idUser] [int] NOT NULL,
+	[idEvent] [int] NOT NULL,
 	[Date] [datetime] NOT NULL
 ) ON [PRIMARY]
 

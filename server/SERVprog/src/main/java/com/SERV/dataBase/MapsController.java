@@ -178,7 +178,18 @@ public class MapsController implements InterfaceMaps{
         }
     }
 
-
+    public  long mapSize(int id){
+        String patch = System.getProperty("user.home");
+        patch+="\\sopg\\";
+        patch+=id;
+        try {
+            File f = new File(patch);
+            long len = f.length();
+            return len;
+        } catch (Exception e){
+            return 0;
+        }
+    }
 
     private  void saveFile(byte[] file, int id){
         String patch = System.getProperty("user.home");
@@ -202,7 +213,7 @@ public class MapsController implements InterfaceMaps{
             fin.read(buffer, 0, fin.available());
             fin.close();
             return buffer;
-        } catch (Exception e){e.printStackTrace();}
+        } catch (Exception e){}
         return new byte[0];
     }
 }

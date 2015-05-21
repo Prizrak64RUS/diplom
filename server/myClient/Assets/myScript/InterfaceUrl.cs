@@ -35,13 +35,14 @@ namespace Assets.myScript
         public static string mapsUpdate = "/maps/update";
         public static string mapsSendOut_ = "/maps/sendOut/";
         public static string mapsSendIn_ = "/maps/sendIn/";
+        public static string mapSize_ = "/maps/mapSize/";
 
         public static string eventGetActiv = "/event/getActiv";
         public static string eventInsert = "/event/insert";
         public static string eventAll = "/event/allEvent";
         public static string eventUpd = "/event/upd";
 
-        public static string pointFromMap_ = "/point/allPoint/";
+        public static string pointFromMap = "/point/allPoint/";
         public static string pointUpdate = "/point/update";
         public static string pointsInsert = "/point/inserts";
         public static string pointDelete = "/point/delete";
@@ -51,12 +52,15 @@ namespace Assets.myScript
         public static string logGetTreeLogByType = "/log/treeLogs";
 
         public static string chatInsert = "/chat/insert";
-        public static string chatGetOf_ = "/chat/getOf/";
+        public static string chatGetOf = "/chat/getOf/";
         public static string chatEndSevenMessage = "/chat/endSevenMessage";
 
         public static string newsInsert = "/news/insert";
         public static string newsGetOf_ = "/news/getOf/";
         public static string newsEndSeven = "/news/endSeven";
-        
+
+        public static string busyInsert = "/busy/insert";
+        public static string busyDel = "/busy/delete";
+        public static string busyIs = "/busy/is";
     }
 }

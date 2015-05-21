@@ -13,16 +13,18 @@ public class Message implements Serializable{
     String message;
     int idUser;
     int idUserTo;
+    int idEvent;
     String date;
 
     public Message(){}
 
-    public Message(int id, String message, int idUser, int idUserTo, String date){
+    public Message(int id, String message, int idUser, int idUserTo, String date, int idEvent){
         this.id=id;
         this.message=message;
         this.idUser=idUser;
         this.idUserTo=idUserTo;
         this.date=date;
+        this.idEvent=idEvent;
     }
 
     public int getId() {
@@ -44,6 +46,13 @@ public class Message implements Serializable{
     }
     public void setIdUser(int idUser) {
         this.idUser = idUser;
+    }
+
+    public int getIdEvent() {
+        return idEvent;
+    }
+    public void setIdEvent(int idEvent) {
+        this.idEvent = idEvent;
     }
 
     public int getIdUserTo() {

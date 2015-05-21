@@ -22,6 +22,7 @@ public interface UrlController {
     String mapsUpdate="update";
     String mapsSendOut="sendOut/{id}";
     String mapsSendIn="sendIn/{id}";
+    String mapSize="mapSize/{id}";
 
     String eventObj="/event/";
     String eventGetActiv="getActiv";
@@ -30,7 +31,7 @@ public interface UrlController {
     String eventAll="allEvent";
 
     String pointObj="/point/";
-    String pointFromMap="allPoint/{idMap}";
+    String pointFromMap="allPoint";
     String pointUpdate="update";
     String pointsInsert="inserts";
     String pointDelete="delete";
@@ -42,11 +43,16 @@ public interface UrlController {
 
     String chatObj="/chat/";
     String chatInsert="insert";
-    String chatGetOf="getOf/{id}";
+    String chatGetOf="getOf";
     String chatEndSevenMessage="endSevenMessage";
 
     String newsObj="/news/";
     String newsInsert="insert";
     String newsGetOf="getOf/{id}";
     String newsEndSeven="endSeven";
+
+    String busyObj="/busy/";
+    String busyInsert="insert";
+    String busyDel="delete";
+    String busyIs="is";
 }

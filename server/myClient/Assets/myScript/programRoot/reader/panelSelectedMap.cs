@@ -42,6 +42,11 @@ public class panelSelectedMap : MonoBehaviour {
 
         MapsController mc = new MapsController();
         List<Maps> mapsList = mc.getMaps();
+        if (mapsList == null || mapsList.Count == 0) 
+        {
+            gameObject.SetActive(false);
+            return;
+        }
         foreach (Assets.myScript.entity.Maps m in mapsList)
         {
             GameObject rows = (GameObject)Instantiate(Resources.Load(("selectedMap")));
@@ -64,6 +69,11 @@ public class panelSelectedMap : MonoBehaviour {
         if (dr.selectedMap == null) {gameObject.SetActive(false); return; }
         MapsController mc = new MapsController();
         List<Maps> mapsList = mc.getMaps(new Assets.myScript.entity.Event(dr.selectedMap.id_event));
+        if (mapsList == null || mapsList.Count == 0)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
         DataReader.GetDataReader().mapListFromEvent = mapsList;
         foreach (Assets.myScript.entity.Maps m in mapsList)
         {
@@ -88,17 +98,13 @@ public class panelSelectedMap : MonoBehaviour {
         }
         objMapList.Clear();
         var d = Data.getDataClass();
-        if (d.eventThis == null) 
-        { 
-            EventController ec = new EventController();
-            d.eventThis = ec.getEventActiv();
-        }
-        if (d.mapsList == null)
+        d.getEventThis();
+        List<Maps> mapsList = d.getMaps();
+        if (mapsList.Count == 0)
         {
-            MapsController mc = new MapsController();
-            d.mapsList = mc.getMapsFromActivEvent();
+            gameObject.SetActive(false);
+            return;
         }
-        List<Maps> mapsList = d.mapsList;
         try
         {
             foreach (Assets.myScript.entity.Maps m in mapsList)
@@ -119,4 +125,37 @@ public class panelSelectedMap : MonoBehaviour {
         }
     }
 
+    public void ButtonContentUser()
+    {
+        gameObject.SetActive(true);
+        if (objMapList.Count == 0)
+        {
+            var d = Data.getDataClass();
+            while (d.getUsers() == null)
+            {
+            }
+            List<User> list = d.getUsers();
+            if (list.Count == 0)
+            {
+                gameObject.SetActive(false);
+                return;
+            }
+            try
+            {
+                foreach (Assets.myScript.entity.User u in list)
+                {
+                    if (u.id == Data.getDataClass().user.id||u.role.Equals(UserRole.ADMIN)) continue;
+                    GameObject rows = (GameObject)Instantiate(Resources.Load(("selectedUser")));
+                    buttonSelectedMap script = rows.GetComponent<buttonSelectedMap>();
+                    script.text.text = u.name;
+                    rows.transform.parent = Content.transform;
+                    objMapList.Add(rows);
+                }
+            }
+            catch (Exception e)
+            {
+                gameObject.SetActive(false);
+            }
+        }
+    }
 }

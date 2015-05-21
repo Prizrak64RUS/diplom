@@ -4,10 +4,17 @@ using Assets.myScript.entity;
 using UnityEngine.UI;
 
 public class infoPanel : MonoBehaviour {
-
+    //стандартные
     public Text name;
     public Text description;
     public Button activ;
+    public Button deActiv;
+
+    //для групп
+    public InputField nameG;
+    public InputField descriptionG;
+
+    public Button activPorter;
 
     public RectTransform rootPanel;
     public RectTransform thisPanel;
@@ -19,16 +26,9 @@ public class infoPanel : MonoBehaviour {
     }
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+    {
         EventSelectedPoint += SelectedPoint;
-        switch (Data.getDataClass().user.role) 
-        {
-            case UserRole.HEAD:
-            case UserRole.PORTER:
-            case UserRole.WATCHING:
-                activ.gameObject.SetActive(false);
-                break;
-        }
 	}
 
 
@@ -47,14 +47,44 @@ public class infoPanel : MonoBehaviour {
     void SelectedPoint(Point point)
     {
         ButtonPanelActiv();
-        if (Data.getDataClass().user.role.Equals(UserRole.GUIDES)&&!Data.getDataClass().isBusy)
-            activ.gameObject.SetActive(true);
-        else
-            activ.gameObject.SetActive(false);
-
-        if (point.type.Equals(PointType.INFO))
-            activ.gameObject.SetActive(false);
-        name.text = point.name;
-        description.text = point.description;
+        deActiv.gameObject.SetActive(false);
+        activ.gameObject.SetActive(false);
+        switch (point.type) 
+        {
+            case PointType.ACTION:
+                {
+                    if (Data.getDataClass().user.role.Equals(UserRole.GUIDES) && !Data.getDataClass().isBusy) activ.gameObject.SetActive(true);
+                    else activ.gameObject.SetActive(false);
+                    name.text = point.name;
+                    description.text = point.description;
+                    break;
+                }
+            case PointType.NOT_ACTION:
+                {
+                    activ.gameObject.SetActive(false);
+                    if (Data.getDataClass().user.role.Equals(UserRole.GUIDES) && Data.getDataClass().getBusy().idPoint == point.id)
+                        deActiv.gameObject.SetActive(true);
+                    
+                    name.text = point.name;
+                    description.text = point.description;
+                    break;
+                }
+            case PointType.INFO:
+                {
+                    name.text = point.name;
+                    description.text = point.description;
+                    break;
+                }
+            case PointType.GROUP: 
+                {
+                    break;
+                }
+            case PointType.PORTER_POSITION:
+                {
+                    name.text = "Позиция встречающего";
+                    description.text = "";
+                    break;
+                }
+        }
     }
 }

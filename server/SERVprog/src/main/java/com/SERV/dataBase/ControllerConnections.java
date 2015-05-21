@@ -54,4 +54,6 @@ public class ControllerConnections {
     }
 
     public static InterfaceNews getNewsController(){return new NewsController();}
+
+    public static InterfaceBusy getBusyController(){return new BusyController();}
 }

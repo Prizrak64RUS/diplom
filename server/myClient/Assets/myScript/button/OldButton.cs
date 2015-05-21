@@ -46,16 +46,12 @@ public class OldButton : MonoBehaviour {
     private bool loadData() 
     {
         try
-        {
-            var ec = new EventController();
-            var ev = ec.getEventActiv();
-            if (ev == null) return false;
-            var mc = new MapsController();
-            List<Maps> mapList = mc.getMapsFromActivEvent();
+        { 
             var data = Data.getDataClass();
-            data.eventThis = ev;
-            data.mapsList = mapList;
-            data.selectedMap = mapList.ToArray()[0];
+            var ec = new EventController();
+            while (data.getEventThis() == null) { }
+            while (data.getMaps() == null) { }
+            data.selectedMap = data.getMaps().ToArray()[0];
             return true;
         }
         catch (Exception e) { return false; }

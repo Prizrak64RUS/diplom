@@ -17,6 +17,7 @@ public interface InterfaceMaps {
     public void setMap(ArrayList<Maps> map);
     public void sendMapIn(byte[] file, int id);
     public byte[] sendMapOUT(int id);
+    public long mapSize(int id);
     public void delMap(ArrayList<Maps> map);
     public void updMap(ArrayList<Maps> map);
 

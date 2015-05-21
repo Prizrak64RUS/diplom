@@ -1,9 +1,9 @@
 package com.SERV.view;
 
 
+import com.SERV.dataBase.ControllerConnections;
 import com.SERV.interfaceAbility.InterfaceUser;
 import com.SERV.interfaceAbility.UrlController;
-import com.SERV.model.DataProcessing;
 import com.SERV.view.entity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -47,40 +47,40 @@ public class  UserController implements InterfaceUser{
     @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.userInsert)
     @ResponseBody
     public void setUsers(@RequestBody final ArrayList<User> user){
-        DataProcessing.getProcessingUser().setUsers(user);
+        ControllerConnections.getUserController().setUsers(user);
     }
 
 
     @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.userUpdate)
     @ResponseBody
     public void updateUsers(@RequestBody final ArrayList<User> user){
-        DataProcessing.getProcessingUser().updateUsers(user);
+        ControllerConnections.getUserController().updateUsers(user);
     }
 
 
     @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.userDelete)
     @ResponseBody
     public void deleteUsers(@RequestBody final ArrayList<User> user){
-        DataProcessing.getProcessingUser().deleteUsers(user);
+        ControllerConnections.getUserController().deleteUsers(user);
     }
 
 
     @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.userAuth)
     @ResponseBody
     public User isAutch(@RequestBody final User user){
-        return  DataProcessing.getProcessingUser().isAutch(user);
+        return  ControllerConnections.getUserController().isAutch(user);
     }
 
 
     @RequestMapping(method = RequestMethod.POST, value=UrlController.userAll)
     @ResponseBody
     public ArrayList<User> getUsers(){
-        return DataProcessing.getProcessingUser().getUsers();
+        return ControllerConnections.getUserController().getUsers();
 }
 
 
     @RequestMapping(method = RequestMethod.POST, value = UrlController.usersFromEvent)
     @ResponseBody
-    public ArrayList<User> getUsers(@PathVariable int idEvent){return DataProcessing.getProcessingUser().getUsers(idEvent);}
+    public ArrayList<User> getUsers(@PathVariable int idEvent){System.out.println(idEvent); return ControllerConnections.getUserController().getUsers(idEvent);}
 
 }

@@ -19,11 +19,12 @@ namespace Assets.myScript.interfaceUrl
             client.Timeout = 5000;
             var response = client.Execute(request);
         }
-        public List<Message> getChatOf(int id)
+        public List<Message> getChatOf(Int32[] val)
         {
-            string url = Data.getDataClass().url + InterfaceUrl.chatGetOf_ + id;
+            string url = Data.getDataClass().url + InterfaceUrl.chatGetOf;
             var client = new RestClient(url);
             var request = new RestRequest(Method.POST);
+            request.AddJsonBody(val);
             client.Timeout = 5000;
             var response = client.Execute(request);
             var content = response.Content;
@@ -34,11 +35,12 @@ namespace Assets.myScript.interfaceUrl
             }
             catch (Exception e) { return null; }
         }
-        public List<Message> getEndSevenMessage()
+        public List<Message> getEndSevenMessage(Int32[] val)
         {
             string url = Data.getDataClass().url + InterfaceUrl.chatEndSevenMessage;
             var client = new RestClient(url);
             var request = new RestRequest(Method.POST);
+            request.AddJsonBody(val);
             client.Timeout = 5000;
             var response = client.Execute(request);
             var content = response.Content;

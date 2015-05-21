@@ -1,9 +1,9 @@
 package com.SERV.view;
 
+import com.SERV.dataBase.ControllerConnections;
 import com.SERV.view.entity.Log;
 import com.SERV.interfaceAbility.InterfaceLog;
 import com.SERV.interfaceAbility.UrlController;
-import com.SERV.model.DataProcessing;
 import com.SERV.view.entity.Log;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +26,7 @@ public class ControllerLog{// implements InterfaceLog{
 
     @RequestMapping(method = RequestMethod.POST, value = UrlController.logGetTreeLog)
     @ResponseBody
-    public ArrayList<Log> getTreeLogs(@PathVariable int idEvent){ return DataProcessing.getProcessingLog().getTreeLogs(idEvent);}
+    public ArrayList<Log> getTreeLogs(@PathVariable int idEvent){ return ControllerConnections.getLogController().getTreeLogs(idEvent);}
 
     @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.logGetTreeLogByType)
     @ResponseBody
@@ -34,6 +34,6 @@ public class ControllerLog{// implements InterfaceLog{
         return getTreeLogs(in.get(0), in.get(1));
     }
     public ArrayList<Log> getTreeLogs(int idEvent, int type){
-        return DataProcessing.getProcessingLog().getTreeLogs(idEvent, type);
+        return ControllerConnections.getLogController().getTreeLogs(idEvent, type);
     }
 }

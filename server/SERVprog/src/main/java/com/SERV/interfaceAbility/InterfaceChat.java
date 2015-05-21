@@ -9,6 +9,6 @@ import java.util.ArrayList;
  */
 public interface InterfaceChat {
     public void setChatMessage(Message ms);
-    public ArrayList<Message> getChatOf(int id);
-    public ArrayList<Message> getEndSevenMessage();
+    public ArrayList<Message> getChatOf(Integer[] val);
+    public ArrayList<Message> getEndSevenMessage(Integer[] val);
 }

@@ -20,8 +20,7 @@ public class NewsController implements InterfaceNews{
 
     public static Integer event;
     static Integer getActivEvent(){
-        if(event==null) event = new EventController().getEventActiv().getId();
-        return event;
+        return  new EventController().getEventActiv().getId();
     }
 
     public void setNews(News news){

@@ -1,8 +1,8 @@
 package com.SERV.view;
 
+import com.SERV.dataBase.ControllerConnections;
 import com.SERV.interfaceAbility.InterfacePoint;
 import com.SERV.interfaceAbility.UrlController;
-import com.SERV.model.DataProcessing;
 import com.SERV.view.entity.Point;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -21,20 +21,20 @@ public class ControllerPoint implements InterfacePoint{
 
     @RequestMapping(method = RequestMethod.POST, value=UrlController.pointFromMap)
     @ResponseBody
-    public ArrayList<Point> getPoints(@PathVariable int idMap){return DataProcessing.getProcessingPoint().getPoints(idMap);}
+    public ArrayList<Point> getPoints(@RequestBody final Object[] val){return ControllerConnections.getPointController().getPoints(val);}
 
 
     @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.pointUpdate)
     @ResponseBody
-    public void updPoint(@RequestBody final ArrayList<Point> points){DataProcessing.getProcessingPoint().updPoint(points);}
+    public void updPoint(@RequestBody final ArrayList<Point> points){ControllerConnections.getPointController().updPoint(points);}
 
 
     @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.pointsInsert)
     @ResponseBody
-    public void setPoints(@RequestBody final ArrayList<Point> points){DataProcessing.getProcessingPoint().setPoints(points);}
+    public void setPoints(@RequestBody final ArrayList<Point> points){ControllerConnections.getPointController().setPoints(points);}
 
 
     @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.pointDelete)
     @ResponseBody
-    public void delPoints(@RequestBody final ArrayList<Point> points){DataProcessing.getProcessingPoint().delPoints(points);}
+    public void delPoints(@RequestBody final ArrayList<Point> points){ControllerConnections.getPointController().delPoints(points);}
 }

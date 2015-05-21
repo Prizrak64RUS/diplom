@@ -15,6 +15,7 @@ public class pointObj : MonoBehaviour {
         var tex = Resources.Load<Texture2D>(type);
         if (material == null) { material = GetComponent<Renderer>().material;  }
         material.mainTexture = tex;
+        texturePrev = material.mainTexture;
     }
 
     public Point GetPoint()
@@ -44,15 +45,15 @@ public class pointObj : MonoBehaviour {
     {
         if (DataReader.GetDataReader().isRead) return;
         var tex = Resources.Load<Texture2D>("material/SELECTED");
-        texturePrev = material.mainTexture;
         material.mainTexture = tex;
         mapWriter.CallSelectedPointChanged(gameObject);
     }
 
     void OnMouseUp()
     {
-        if (DataReader.GetDataReader().isRead) return;
         material.mainTexture = texturePrev;
+        //if (DataReader.GetDataReader().isRead) return;
+        //material.mainTexture = texturePrev;
     }
 
 }

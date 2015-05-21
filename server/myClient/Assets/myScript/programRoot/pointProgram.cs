@@ -18,50 +18,50 @@ public class pointProgram : MonoBehaviour {
         var tex = Resources.Load<Texture2D>(type);
         if (material == null) { material = GetComponent<Renderer>().material;  }
         material.mainTexture = tex;
+        texturePrev = material.mainTexture;
     }
 
     public Point GetPoint()
     {
         return point;
     }
-    //bool isDown = false;
-	// Use this for initialization
 	void Start () {
         material = GetComponent<Renderer>().material;
 	}
-
-    void Update()
-    {
-        //if (isDown) 
-        //{
-        //   // Debug.Log("x = " + Input.mousePosition.x + " y = " + Input.mousePosition.y);
-        //    //this.gameObject.transform.position = Input.mousePosition; //new Vector3(Input.mousePosition.x/1000,Input.mousePosition.y/1000,-1);
-        //    //Input.
-        //}
-       // Camera.transform.position += Camera.transform.right * deltaX * Time.deltaTime * Camera.transform.position.z * -1 / 100;
-
-       // Camera.transform.position += Camera.transform.up * deltaY * Time.deltaTime * Camera.transform.position.z * -1 / 100;
-    }
 
     void OnMouseDown()
     {
         if (Data.getDataClass().isRead) return;
         var tex = Resources.Load<Texture2D>("material/"+PointType.SELECTED);
-        texturePrev = material.mainTexture;
         material.mainTexture = tex;
     }
 
 
     void OnMouseUp()
     {
-        if (DataReader.GetDataReader().isRead) return;
         material.mainTexture = texturePrev;
+        if (Data.getDataClass().isRead) return;
+        
         switch (point.type)
         {
             case PointType.INFO:
             case PointType.ACTION:
+            case PointType.NOT_ACTION:
+            case PointType.GROUP:
                 {
                     infoPanel.CallSelectedPointChanged(point);
+                    break;
+                }
+            case PointType.PORTER_POSITION:
+                {
+                    if (Data.getDataClass().user.role.Equals(UserRole.PORTER))
+                    {
+                        infoPanel.CallSelectedPointChanged(point);
+                    }
+                    else
+                    {
+                        mapController.CallAddPointMapChanged(this);
+                    }
                     break;
                 }
             case PointType.NEXT:

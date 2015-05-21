@@ -1,8 +1,8 @@
 package com.SERV.view;
 
+import com.SERV.dataBase.ControllerConnections;
 import com.SERV.interfaceAbility.InterfaceMaps;
 import com.SERV.interfaceAbility.UrlController;
-import com.SERV.model.DataProcessing;
 import com.SERV.view.entity.Event;
 import com.SERV.view.entity.Maps;
 import org.springframework.stereotype.Controller;
@@ -26,52 +26,58 @@ public class MapsController implements InterfaceMaps{
 
     @RequestMapping(method = RequestMethod.POST, value= UrlController.mapFromId_)
     @ResponseBody
-    public Maps getMap(@PathVariable  int id){return DataProcessing.getProcessingMap().getMap(id);}
+    public Maps getMap(@PathVariable  int id){return ControllerConnections.getMapsController().getMap(id);}
 
     @RequestMapping(method = RequestMethod.POST, value= UrlController.mapFromEventAll)
     @ResponseBody
     public ArrayList<Maps> getMaps(@RequestBody Event ev) {
-        return DataProcessing.getProcessingMap().getMaps(ev);
+        return ControllerConnections.getMapsController().getMaps(ev);
     }
 
     @RequestMapping(method = RequestMethod.POST, value= UrlController.mapActivEventAll)
     @ResponseBody
     public ArrayList<Maps> getMapsFromActivEvent(){
-        return DataProcessing.getProcessingMap().getMapsFromActivEvent();
+        return ControllerConnections.getMapsController().getMapsFromActivEvent();
     }
 
     @RequestMapping(method = RequestMethod.POST, value= UrlController.mapAll)
     @ResponseBody
     public ArrayList<Maps> getMaps() {
-        return DataProcessing.getProcessingMap().getMaps();
+        return ControllerConnections.getMapsController().getMaps();
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.mapsInsert)
     @ResponseBody
-    public void setMap(@RequestBody final ArrayList<Maps> map){DataProcessing.getProcessingMap().setMap(map);}
+    public void setMap(@RequestBody final ArrayList<Maps> map){ControllerConnections.getMapsController().setMap(map);}
 
     @RequestMapping(method = RequestMethod.POST, value= UrlController.mapsDelete)
     @ResponseBody
-    public void delMap(@RequestBody final ArrayList<Maps> map){DataProcessing.getProcessingMap().delMap(map);}
+    public void delMap(@RequestBody final ArrayList<Maps> map){ControllerConnections.getMapsController().delMap(map);}
 
     @RequestMapping(method = RequestMethod.POST, value= UrlController.mapsUpdate)
     @ResponseBody
-    public void updMap(@RequestBody final ArrayList<Maps> map){DataProcessing.getProcessingMap().updMap(map);}
+    public void updMap(@RequestBody final ArrayList<Maps> map){ControllerConnections.getMapsController().updMap(map);}
 
 
-    public void sendMapIn(byte[] file, int id){DataProcessing.getProcessingMap().sendMapIn(file, id);}
+    public void sendMapIn(byte[] file, int id){ControllerConnections.getMapsController().sendMapIn(file, id);}
 
     @RequestMapping(method = RequestMethod.POST, value= UrlController.mapsSendIn)
     @ResponseBody
-    public void sendMapInByte(@RequestBody final Byte[] file,@PathVariable  int id){DataProcessing.getProcessingMap().sendMapIn(byteReparser(file), id);}
+    public void sendMapInByte(@RequestBody final Byte[] file,@PathVariable  int id){ControllerConnections.getMapsController().sendMapIn(byteReparser(file), id);}
    // @RequestMapping(method = RequestMethod.GET, value= UrlController.mapsSendOut)
    // @ResponseBody
-    public byte[] sendMapOUT(int id){return DataProcessing.getProcessingMap().sendMapOUT(id);}
+    public byte[] sendMapOUT(int id){return ControllerConnections.getMapsController().sendMapOUT(id);}
 
     @RequestMapping(method = RequestMethod.POST, value= UrlController.mapsSendOut)
     @ResponseBody
     public Byte[] sendMapOUTByte(@PathVariable int id){
         return byteParser(sendMapOUT(id));
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value= UrlController.mapSize)
+    @ResponseBody
+    public  long mapSize(@PathVariable int id){
+        return ControllerConnections.getMapsController().mapSize(id);
     }
 
     private Byte[] byteParser(byte[] b){
