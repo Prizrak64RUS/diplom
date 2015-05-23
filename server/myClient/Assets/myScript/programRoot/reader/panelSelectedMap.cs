@@ -158,4 +158,39 @@ public class panelSelectedMap : MonoBehaviour {
             }
         }
     }
+
+    public void ButtonContentEvent()
+    {
+        gameObject.SetActive(true);
+        if (objMapList.Count == 0)
+        {
+            EventController ec = new EventController();
+            List<Assets.myScript.entity.Event> list = null;
+            while (list == null)
+            {
+                list = ec.getEvents();
+            }
+            if (list.Count == 0)
+            {
+                gameObject.SetActive(false);
+                return;
+            }
+            try
+            {
+                foreach (Assets.myScript.entity.Event u in list)
+                {
+                    GameObject rows = (GameObject)Instantiate(Resources.Load(("selectedEventFromGenerator")));
+                    buttonSelectedMap script = rows.GetComponent<buttonSelectedMap>();
+                    script.text.text = u.name;
+                    script.ev = u;
+                    rows.transform.parent = Content.transform;
+                    objMapList.Add(rows);
+                }
+            }
+            catch (Exception e)
+            {
+                gameObject.SetActive(false);
+            }
+        }
+    }
 }

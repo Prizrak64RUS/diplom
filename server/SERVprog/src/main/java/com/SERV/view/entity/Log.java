@@ -12,38 +12,52 @@ public class Log implements Serializable{
     private String description;
     private int id;
     private int id_user;
-    private int id_log_type;
+    private String log_type;
     private int id_events;
     private int id_point;
+    private int id_map;
     private String date;
 
    // private List<Maps> maps;
 
-    public Log(String description, int id, int id_user, int id_log_type, int id_events, int id_point, String date){
+    public Log(String description, int id, int id_user, String log_type, int id_events, int id_point, int id_map, String date){
         this.description=description;
         this.id=id;
         this.id_user=id_user;
-        this.id_log_type=id_log_type;
+        this.log_type=log_type;
         this.id_events=id_events;
         this.id_point=id_point;
+        this.id_map=id_map;
         this.date=date;
 
     }
 
+    public Log(String description, int id, int id_user, String log_type, int id_events, int id_point, int id_map){
+        this.description=description;
+        this.id=id;
+        this.id_user=id_user;
+        this.log_type=log_type;
+        this.id_events=id_events;
+        this.id_point=id_point;
+        this.id_map=id_map;
+
+    }
+
     public Log(){}
+
+    public int getId_map() {
+        return id_map;
+    }
+
+    public void setId_map(int id_map) {
+        this.id_map = id_map;
+    }
 
     public int getId_user() {
         return id_user;
     }
     public void setId_user(int id_user) {
         this.id_user = id_user;
-    }
-
-    public int getId_log_type() {
-        return id_log_type;
-    }
-    public void setId_log_type(int id_log_type) {
-        this.id_log_type = id_log_type;
     }
 
     public int getId_point() {
@@ -67,11 +81,20 @@ public class Log implements Serializable{
         this.date = date;
     }
 
-    public int getId_event() {
+    public int getId_events() {
         return id_events;
     }
-    public void setId_event(int id_events) {
+
+    public void setId_events(int id_events) {
         this.id_events = id_events;
+    }
+
+    public String getLog_type() {
+        return log_type;
+    }
+
+    public void setLog_type(String log_type) {
+        this.log_type = log_type;
     }
 
     @Override

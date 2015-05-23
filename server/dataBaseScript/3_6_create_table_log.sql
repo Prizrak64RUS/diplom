@@ -27,10 +27,11 @@ GO
 CREATE TABLE [dbo].[log](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[id_user] [int] NOT NULL,
-	[id_log_type] [int] NOT NULL,
+	[log_type] [nvarchar](100) NOT NULL,
 	[id_events] [int] NOT NULL,
 	[description] [nvarchar](500) NOT NULL,
 	[id_point] [int] NOT NULL,
+	[id_map] [int] NOT NULL,
 	[date] [datetime] NOT NULL,
  CONSTRAINT [PK_log] PRIMARY KEY CLUSTERED 
 (

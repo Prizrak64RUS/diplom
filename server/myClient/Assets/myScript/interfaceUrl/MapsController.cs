@@ -125,7 +125,7 @@ namespace Assets.myScript.interfaceUrl
                 }
                     return b;
             }
-            catch (Exception e) { test.Log(e.ToString()); return null; }
+            catch (Exception e) { return null; }
         }
         public void delMap(List<Maps> map) 
         {

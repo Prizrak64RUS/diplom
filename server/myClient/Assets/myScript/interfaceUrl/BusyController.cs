@@ -37,7 +37,7 @@ namespace Assets.myScript.interfaceUrl
         }
         public void delBusy(Busy b) 
         {
-            string url = Data.getDataClass().url + InterfaceUrl.busyInsert;
+            string url = Data.getDataClass().url + InterfaceUrl.busyDel;
             var client = new RestClient(url);
             var request = new RestRequest(Method.POST);
             request.AddJsonBody(b);

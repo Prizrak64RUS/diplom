@@ -5,6 +5,8 @@ import com.SERV.view.entity.Log;
 import com.SERV.interfaceAbility.InterfaceLog;
 import com.SERV.interfaceAbility.UrlController;
 import com.SERV.view.entity.Log;
+import com.SERV.view.entity.Message;
+import com.SERV.view.entity.News;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,11 +20,9 @@ import java.util.ArrayList;
  */
 @Controller
 @RequestMapping(UrlController.logObj)
-public class ControllerLog{// implements InterfaceLog{
+public class ControllerLog implements InterfaceLog{
 
-    @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.logInsert)
-    @ResponseBody
-    public void setLog(Log log){}
+   /*
 
     @RequestMapping(method = RequestMethod.POST, value = UrlController.logGetTreeLog)
     @ResponseBody
@@ -35,5 +35,28 @@ public class ControllerLog{// implements InterfaceLog{
     }
     public ArrayList<Log> getTreeLogs(int idEvent, int type){
         return ControllerConnections.getLogController().getTreeLogs(idEvent, type);
+    }
+    */
+
+    @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.logInsert)
+    @ResponseBody
+    public void setLog(Log log){
+        ControllerConnections.getLogController().setLog(log);
+    }
+
+   @RequestMapping(method = RequestMethod.POST, value = UrlController.logChat)
+   @ResponseBody
+    public ArrayList<Message> getTreeLogsChat(Integer[] val) {
+        return ControllerConnections.getLogController().getTreeLogsChat(val);
+    }
+    @RequestMapping(method = RequestMethod.POST, value = UrlController.logNews)
+    @ResponseBody
+    public ArrayList<News> getTreeLogsNews(Integer[] val) {
+        return ControllerConnections.getLogController().getTreeLogsNews(val);
+    }
+    @RequestMapping(method = RequestMethod.POST, value = UrlController.logPoint)
+    @ResponseBody
+    public ArrayList<Log> getTreeLogsPoint(Integer[] val) {
+        return ControllerConnections.getLogController().getTreeLogsPoint(val);
     }
 }

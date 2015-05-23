@@ -44,7 +44,7 @@ public class BusyController implements InterfaceBusy {
                     "      ,[idEvent]" +
                     "  FROM [SOPG].[dbo].[busy] " +
                     "  WHERE [idUser]=" +b.getIdUser()+
-                    "      ,[idEvent]=" +b.getIdEvent());
+                    "      AND [idEvent]=" +b.getIdEvent());
             Busy busy = new Busy();
             while (result.next()) {
                 busy = new Busy(result.getInt("id"), result.getInt("idUser"), result.getInt("idPoint"), result.getInt("idEvent"));
@@ -65,7 +65,7 @@ public class BusyController implements InterfaceBusy {
 
             Statement statement = conn.createStatement();
             statement.execute("DELETE FROM [SOPG].[dbo].[busy]" +
-                    "      WHERE id="+b.getId()+";");
+                    "      WHERE idPoint="+b.getIdPoint()+";");
             ConnectionPool.getConnectionPool().putback(conn);
         } catch (SQLException e) {
             e.printStackTrace();

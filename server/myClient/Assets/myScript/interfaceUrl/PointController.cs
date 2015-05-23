@@ -10,12 +10,11 @@ namespace Assets.myScript.interfaceUrl
 {
     class PointController
     {
-        public List<Point> getPoints(string role, int idMap) 
+        public List<Point> getPoints(Object[] arr) 
         {
             string url = Data.getDataClass().url + InterfaceUrl.pointFromMap;
             var client = new RestClient(url);
             var request = new RestRequest(Method.POST);
-            Object[] arr = { role, idMap };
             request.AddJsonBody(arr);
             client.Timeout = 5000;
             var response = client.Execute(request);
@@ -27,34 +26,6 @@ namespace Assets.myScript.interfaceUrl
             }
             catch (Exception e) { return null; }
         }
-
-        //public List<Point> getPointsFromUserRole(string role, int idMap)
-        //{
-        //    var list = getPoints(idMap);
-        //    if (list == null) return null;
-        //    if (UserRole.HEAD.Equals(role) || UserRole.PORTER.Equals(role)) return list;
-        //    List<Point> lp = new List<Point>();
-        //    foreach(var el in list)
-        //    {
-        //        switch (role) 
-        //        {
-        //            case UserRole.GUIDES:
-        //                {
-        //                if (PointType.isTypeGUIDES(el.type))
-        //                    lp.Add(el);
-        //                break;
-        //                }
-        //            case UserRole.WATCHING:
-        //                {
-        //                if(PointType.isTypeStandart(el.type)) 
-        //                    lp.Add(el);
-        //                break;
-        //                }
-        //        }
-        //    }
-        //    return lp;
-            
-        //}
 
         public void updPoint(List<Point> points) 
         {
@@ -84,6 +55,90 @@ namespace Assets.myScript.interfaceUrl
             request.AddJsonBody(points);
             client.Timeout = 5000;
             var response = client.Execute(request);
+        }
+
+
+        public bool busyPoint(Point point) 
+        {
+            string url = Data.getDataClass().url + InterfaceUrl.pointBusy;
+            var client = new RestClient(url);
+            var request = new RestRequest(Method.POST);
+            request.AddJsonBody(point);
+            client.Timeout = 5000;
+            var response = client.Execute(request);
+            var content = response.Content;
+            try
+            {
+                var b = JsonConvert.DeserializeObject<bool>(content);
+                return b;
+            }
+            catch (Exception e) { return false; }
+        }
+
+        public bool busyNotPoint(Point point)
+        {
+            string url = Data.getDataClass().url + InterfaceUrl.pointNotBusy;
+            var client = new RestClient(url);
+            var request = new RestRequest(Method.POST);
+            request.AddJsonBody(point);
+            client.Timeout = 5000;
+            var response = client.Execute(request);
+            var content = response.Content;
+            try
+            {
+                var b = JsonConvert.DeserializeObject<bool>(content);
+                return b;
+            }
+            catch (Exception e) { return false; }
+        }
+        public bool updateBusyPoint(Point point)
+        {
+            string url = Data.getDataClass().url + InterfaceUrl.pointsBusyUpdate;
+            var client = new RestClient(url);
+            var request = new RestRequest(Method.POST);
+            request.AddJsonBody(point);
+            client.Timeout = 5000;
+            var response = client.Execute(request);
+            var content = response.Content;
+            try
+            {
+                var b = JsonConvert.DeserializeObject<bool>(content);
+                return b;
+            }
+            catch (Exception e) { return false; }
+        }
+        public bool delBusyPoint(Point point)
+        {
+            string url = Data.getDataClass().url + InterfaceUrl.pointBusyDelete;
+            var client = new RestClient(url);
+            var request = new RestRequest(Method.POST);
+            request.AddJsonBody(point);
+            client.Timeout = 5000;
+            var response = client.Execute(request);
+            var content = response.Content;
+            try
+            {
+                var b = JsonConvert.DeserializeObject<bool>(content);
+                return b;
+            }
+            catch (Exception e) { return false; }
+        }
+
+        public bool setBusyPoint(Point point)
+        {
+            string url = Data.getDataClass().url + InterfaceUrl.pointBusyInsert;
+            var client = new RestClient(url);
+            var request = new RestRequest(Method.POST);
+            request.AddJsonBody(point);
+            client.Timeout = 5000;
+            var response = client.Execute(request);
+            var content = response.Content;
+            try
+            {
+                var b = JsonConvert.DeserializeObject<bool>(content);
+                return b;
+            }
+            catch (Exception e) { return false; }
         }
     }
 }

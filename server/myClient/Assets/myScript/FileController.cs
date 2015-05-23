@@ -9,7 +9,12 @@ namespace Assets.myScript
 {
     public class FileController
     {
-        static string patch = Directory.GetCurrentDirectory() + "/sopg/";
+#if UNITY_STANDALONE_WIN
+        public static string patch = Directory.GetCurrentDirectory() + "/sopg/";
+#endif
+#if UNITY_ANDROID
+        public static string patch = "/sdcard/sopg/";
+#endif
         public static bool fileExist(int id) 
         {
             Directory.CreateDirectory(patch);

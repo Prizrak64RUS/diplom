@@ -13,7 +13,11 @@ public class mapWriter : MonoBehaviour {
     List<GameObject> objList;
     List<Point> delList;
 
+    System.Object[] pointGet = new System.Object[3];
+
     static GameObject selectedObj;
+
+
 
 	void Start () {
         DataReader.Clear();
@@ -27,6 +31,10 @@ public class mapWriter : MonoBehaviour {
         EventUpOrDownSizePointMap += UpOrDownSizePoint;
         EventActivJoystick += ActivJoystick;
         EventActivField += ActivField;
+
+        pointGet[0] = Data.getDataClass().user.role;
+        pointGet[1] = 0;
+        pointGet[2] = Data.getDataClass().user.id;
 	}
 
     public GameObject joystick;
@@ -212,6 +220,8 @@ public class mapWriter : MonoBehaviour {
 
     void CreateField(string patch, Maps map)
     {
+        pointGet[1] = map.id;
+
         var tex = new Texture2D(2, 2);
 
         byte[] pngBytes;
@@ -237,7 +247,7 @@ public class mapWriter : MonoBehaviour {
         if (map != null) 
         {
             PointController pc = new PointController();
-            var list = pc.getPoints(UserRole.ADMIN, map.id);
+            var list = pc.getPoints(pointGet);
             foreach (var pointObj in list)
             {
                 GameObject point = (GameObject)Instantiate(Resources.Load(("point")));

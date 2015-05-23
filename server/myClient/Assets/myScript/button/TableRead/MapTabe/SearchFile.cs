@@ -35,9 +35,6 @@ public class SearchFile : MonoBehaviour {
         }
     }
 
-
-
-
     void Start()
     {
         MapFileNextDelete += ButtonNext;
@@ -102,7 +99,12 @@ public class SearchFile : MonoBehaviour {
     public void ButtonOK(string val)
     {
         string p = getPatch();
-        val=p + val;
+#if UNITY_STANDALONE_WIN  
+        val = p + val;
+#endif
+#if UNITY_ANDROID
+        val = p +separator[0]+ val;
+#endif
         ButtonDestroyThis();
         mapWriter.CallMapBuildChanged(val, null);
     }

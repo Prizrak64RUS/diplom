@@ -17,11 +17,11 @@ public class Point implements Serializable{
     private double size_h;
     private String description;
     private int id_map;
-    private int isBusy;
+    private int busy;
     private int id_user_Busy;
     private int id;
 
-    public Point(String name,String type, double x, double y, double size_w, double size_h, String description, int id_map, int isBusy, int id_user_Busy, int id){
+    public Point(String name,String type, double x, double y, double size_w, double size_h, String description, int id_map, int busy, int id_user_Busy, int id){
         this.name=name;
         this.type=type;
         this.description=description;
@@ -29,7 +29,7 @@ public class Point implements Serializable{
         this.id_map=id_map;
         this.id=id;
         this.y=y;
-        this.isBusy=isBusy;
+        this.busy=busy;
         this.id_user_Busy=id_user_Busy;
         this.size_w=size_w;
         this.size_h=size_h;
@@ -95,9 +95,9 @@ public class Point implements Serializable{
         this.size_h = size_h;
     }
 
-    public int getBusy() {return isBusy;}
-    public void setIsBusy(int isBusy) {
-        this.isBusy=isBusy;
+    public int getBusy() {return busy;}
+    public void setIsBusy(int busy) {
+        this.busy=busy;
     }
 
     public int getId_user_Busy() {

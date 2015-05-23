@@ -36,10 +36,21 @@ public interface UrlController {
     String pointsInsert="inserts";
     String pointDelete="delete";
 
+    String pointBusy="busy/busy";
+    String pointNotBusy="busy/notbusy";
+    String pointBusyUpdate="busy/update";
+    String pointBusyDelete="busy/delete";
+    String pointBusyInsert="busy/insert";
+
     String logObj="/log/";
+    String logNews="news";
+    String logPoint="point";
+    String logChat="chat";
+
     String logInsert="insert";
+  /*
     String logGetTreeLog="treeLogs/{idEvent}";
-    String logGetTreeLogByType="treeLogs";
+    String logGetTreeLogByType="treeLogs";*/
 
     String chatObj="/chat/";
     String chatInsert="insert";

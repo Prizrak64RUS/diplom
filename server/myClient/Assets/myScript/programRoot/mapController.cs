@@ -7,7 +7,8 @@ using System.Collections.Generic;
 using Assets.myScript;
 using System;
 
-public class mapController : MonoBehaviour {
+public class mapController : MonoBehaviour
+{
 
 
     List<GameObject> objList;
@@ -15,6 +16,7 @@ public class mapController : MonoBehaviour {
     GameObject selectedObj;
     pointProgram selectedObjScript;
     public GameObject PointYoystick;
+    System.Object[] pointGet = new System.Object[3];
 
     void Start()
     {
@@ -28,7 +30,11 @@ public class mapController : MonoBehaviour {
         EventAddPointMap += AddPointMap;
         EventOkOrCancelPointMap += OkPointMap;
         EventUpOrDownSizePointMap += UpOrDownSizePoint;
-        if (Data.getDataClass().selectedMap != null) 
+        pointGet[0] = Data.getDataClass().user.role;
+        pointGet[1] = 0;
+        pointGet[2] = Data.getDataClass().user.id;
+
+        if (Data.getDataClass().selectedMap != null)
         {
             CreateField(Data.getDataClass().selectedMap);
         }
@@ -93,7 +99,9 @@ public class mapController : MonoBehaviour {
 
     void ActivField()
     {
+
         gameObject.SetActive(!gameObject.activeSelf);
+        if (gameObject.activeSelf) StartCoroutine("AutoPointGet");
     }
 
     void UpOrDownSizePoint(bool isUp, bool isHorizontal)
@@ -135,15 +143,13 @@ public class mapController : MonoBehaviour {
 
     }
 
-    void OkPointMap(bool isOk) 
+    void OkPointMap(bool isOk)
     {
         Data.getDataClass().isRead = false;
+        ActivJoystick(false);
         if (isOk)
         {
-            ActivJoystick(false);
-            var list = new List<Point>();
             int mapId = Data.getDataClass().selectedMap.id;
-
             var point = selectedObjScript.GetPoint();
             point.id_map = mapId;
             point.size_h = selectedObj.transform.localScale.y;
@@ -151,25 +157,51 @@ public class mapController : MonoBehaviour {
             point.x = selectedObj.transform.localPosition.x;
             point.y = selectedObj.transform.localPosition.y;
 
-            list.Add(point);
-            PointController pc = new PointController();
-            pc.setPoints(list);
+            selectedObjScript.GetPoint().id_user_Busy = Data.getDataClass().user.id;
 
-            Destroy(selectedObj);
-            selectedObj = null;
-            selectedObjScript = null;
+            PointController pc = new PointController();
+            if (point.id == 0)
+            {
+
+
+                pc.setBusyPoint(point);
+
+                Destroy(selectedObj);
+                selectedObj = null;
+                selectedObjScript = null;
+            }
+            else
+            {
+                pc.updateBusyPoint(point);
+                selectedObj = null;
+                selectedObjScript = null;
+            }
         }
         else
         {
-            Destroy(selectedObj);
-            selectedObj = null;
-            selectedObjScript = null;
-            ActivJoystick(false);
+            if (selectedObjScript.GetPoint().id == 0)
+            {
+                Destroy(selectedObj);
+                selectedObj = null;
+                selectedObjScript = null;
+            }
+            else
+            {
+                PointController pc = new PointController();
+                selectedObjScript.GetPoint().id_user_Busy = Data.getDataClass().user.id;
+                pc.delBusyPoint(selectedObjScript.GetPoint());
+                selectedObj = null;
+                selectedObjScript = null;
+            }
         }
+
+        StartCoroutine("AutoPointGet");
     }
 
     void CreateField(Maps map)
     {
+        pointGet[1] = map.id;
+
         StopCoroutine("AutoPointGet");
         var tex = new Texture2D(2, 2);
         byte[] pngBytes = FileController.getFile(map.id);
@@ -187,7 +219,7 @@ public class mapController : MonoBehaviour {
         if (map != null)
         {
             PointController pc = new PointController();
-            var list = pc.getPoints(Data.getDataClass().user.role, map.id);
+            var list = pc.getPoints(pointGet);
             foreach (var pointObj in list)
             {
                 GameObject point = (GameObject)Instantiate(Resources.Load(("point")));
@@ -210,6 +242,8 @@ public class mapController : MonoBehaviour {
     void AddPointMap(pointProgram src)
     {
         Data.getDataClass().isRead = true;
+        StopCoroutine("AutoPointGet");
+
         if (src == null)
         {
             GameObject point = (GameObject)Instantiate(Resources.Load(("point")));
@@ -232,25 +266,15 @@ public class mapController : MonoBehaviour {
             point.transform.localScale = new Vector3((float)0.02, (float)0.02, (float)2);
             point.transform.localPosition = Vector3.zero;
             SelectedPoint(point, script);
+
+            if (Data.getDataClass().user.role.Equals(UserRole.PORTER))
+                infoPanel.CallSelectedPointChanged(p);
         }
-        else 
+        else
         {
-            StopCoroutine("AutoPointGet");
-            GameObject point = src.gameObject;
-            var list = new List<Point>();
-
-            list.Add(src.GetPoint());
-            PointController pc = new PointController();
-            pc.delPoints(list);
-
-            objList.Remove(src.gameObject);
-            pointList.Remove(src);
-
             ActivJoystick(true);
             programButtomReaderSetting.CallButtonActivChanged(true);
-
             SelectedPoint(src.gameObject, src);
-            StartCoroutine("AutoPointGet");
         }
     }
 
@@ -270,68 +294,69 @@ public class mapController : MonoBehaviour {
     WaitForSeconds ws = new WaitForSeconds(2);
     private IEnumerator AutoPointGet()
     {
-            while (true)
+        while (true)
+        {
+            PointController pc = new PointController();
+            var list = pc.getPoints(pointGet);
+            foreach (var point in list)
             {
-                PointController pc = new PointController();
-                var list = pc.getPoints(Data.getDataClass().user.role, Data.getDataClass().selectedMap.id);
-                foreach (var point in list)
+                bool isOk = false;
+                foreach (var pointObj in pointList)
                 {
-                    bool isOk = false;
-                    foreach (var pointObj in pointList)
-                    {
-                        if (pointObj.GetPoint().Equals(point))
-                        {
-                            isOk = true;
-                            break;
-                        }
 
-                        if (pointObj.GetPoint().id == point.id)
-                        {
-                            isOk = true;
-                            pointObj.SetPoint(point);
-                            break;
-                        }
+                    if (pointObj.GetPoint().Equals(point))
+                    {
+                        isOk = true;
+                        break;
                     }
-                    if (!isOk)
-                    {
-                        GameObject pointAdd = (GameObject)Instantiate(Resources.Load(("point")));
-                        pointAdd.AddComponent<pointProgram>();
-                        pointProgram script = pointAdd.GetComponent<pointProgram>();
-                        pointList.Add(script);
-                        script.SetPoint(point);
-                        objList.Add(pointAdd);
 
-                        pointAdd.transform.parent = this.gameObject.transform;
-                        pointAdd.transform.localScale = new Vector3(point.size_w, point.size_h, (float)2);
-                        pointAdd.transform.localPosition = new Vector3(point.x, point.y, (float)0);
+                    if (pointObj.GetPoint().id == point.id)
+                    {
+                        isOk = true;
+                        pointObj.SetPoint(point);
+                        break;
                     }
                 }
+                if (!isOk)
+                {
+                    GameObject pointAdd = (GameObject)Instantiate(Resources.Load(("point")));
+                    pointAdd.AddComponent<pointProgram>();
+                    pointProgram script = pointAdd.GetComponent<pointProgram>();
+                    pointList.Add(script);
+                    script.SetPoint(point);
+                    objList.Add(pointAdd);
 
-                List<pointProgram> p = new List<pointProgram>();
-                foreach (var point in pointList)
-                {
-                    bool isOkP = false;
-                    foreach (var pointObj in list)
-                    {
-                        if (pointObj.id == point.GetPoint().id)
-                        {
-                            isOkP = true;
-                            break;
-                        }
-                    }
-                    if (!isOkP)
-                    {
-                        p.Add(point);
-                    }
+                    pointAdd.transform.parent = this.gameObject.transform;
+                    pointAdd.transform.localScale = new Vector3(point.size_w, point.size_h, (float)2);
+                    pointAdd.transform.localPosition = new Vector3(point.x, point.y, (float)0);
                 }
-                foreach (var point in p)
-                {
-                    objList.Remove(point.gameObject);
-                    pointList.Remove(point);
-                    Destroy(point.gameObject);
-                }
-				yield return ws;
             }
+
+            List<pointProgram> p = new List<pointProgram>();
+            foreach (var point in pointList)
+            {
+                bool isOkP = false;
+                foreach (var pointObj in list)
+                {
+                    if (pointObj.id == point.GetPoint().id)
+                    {
+                        isOkP = true;
+                        break;
+                    }
+                }
+                if (!isOkP)
+                {
+                    p.Add(point);
+                }
+            }
+            foreach (var point in p)
+            {
+                objList.Remove(point.gameObject);
+                pointList.Remove(point);
+                Destroy(point.gameObject);
+            }
+            yield return ws;
+        }
     }
 
     private void DestroyThisData()

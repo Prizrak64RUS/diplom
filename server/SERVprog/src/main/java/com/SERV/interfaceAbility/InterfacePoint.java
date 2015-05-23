@@ -13,4 +13,10 @@ public interface InterfacePoint {
     public void setPoints(ArrayList<Point> points);
     public void delPoints(ArrayList<Point> points);
 
+    public boolean busyPoint(Point point);
+    public boolean busyNotPoint(Point point);
+    public boolean updateBusyPoint(Point point);
+    public boolean delBusyPoint(Point point);
+    public boolean setBusyPoint(Point point);
+
 }

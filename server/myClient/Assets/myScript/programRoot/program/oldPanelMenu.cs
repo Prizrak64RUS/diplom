@@ -13,12 +13,18 @@ public class oldPanelMenu : MonoBehaviour {
 
     public Button chat;
     public Button addP;
-    //public GameObject addPoint;
 
+    public Button generator;
+    //public GameObject addPoint;
    public void ButtonEnd()
     {
         Application.Quit();
-    } 
+    }
+
+   public void ButtonGenerator()
+   {
+       Application.LoadLevel("generator");
+   } 
 
     public void ButtonNewsPanel() {
         ButtonClass.exchange(newsPanel, oldMenu);
@@ -47,6 +53,8 @@ public class oldPanelMenu : MonoBehaviour {
             chat.gameObject.SetActive(false);
         if (Data.getDataClass().user.role.Equals(UserRole.WATCHING) || Data.getDataClass().user.role.Equals(UserRole.GUIDES))
             addP.gameObject.SetActive(false);
+        if (Data.getDataClass().user.role.Equals(UserRole.HEAD)) generator.gameObject.SetActive(true);
+        else generator.gameObject.SetActive(false);
 	}
 	
 	// Update is called once per frame

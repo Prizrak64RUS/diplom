@@ -14,7 +14,48 @@ public class pointProgram : MonoBehaviour {
 
     public void SetPoint(Point point) {
         this.point = point;
-        string type = "material/" +point.type;
+        string type = null; ;
+        switch (point.type)
+        {
+            case PointType.INFO:
+            case PointType.NOT_ACTION:
+            case PointType.NEXT:
+                {
+                    type = "material/" + point.type;
+                    break;
+                }
+            case PointType.ACTION:
+                {
+                    type = "material/" + point.type;
+                    if (point.busy == 1) type += "Z";
+                    break;
+                }
+            case PointType.GROUP:
+                {
+                    type = "material/" + point.type;
+                    if (point.busy == 1) type += "Z";
+                    break;
+                }
+            case PointType.PORTER_POSITION:
+                {
+                    type = "material/" + point.type;
+                    if (point.busy == 1) type += "Z";
+                    break;
+                }
+
+        }
+
+        if (gameObject.transform.localPosition.x != point.x || gameObject.transform.localPosition.y != point.y) 
+        {
+
+            gameObject.transform.localPosition = new Vector3(point.x, point.y, (float)0);
+        }
+
+        if (gameObject.transform.localScale.x != point.size_w || gameObject.transform.localScale.y != point.size_h)
+        {
+            gameObject.transform.localScale = new Vector3(point.size_w, point.size_h, (float)2);
+        }
+
         var tex = Resources.Load<Texture2D>(type);
         if (material == null) { material = GetComponent<Renderer>().material;  }
         material.mainTexture = tex;
@@ -47,9 +88,24 @@ public class pointProgram : MonoBehaviour {
             case PointType.INFO:
             case PointType.ACTION:
             case PointType.NOT_ACTION:
-            case PointType.GROUP:
                 {
                     infoPanel.CallSelectedPointChanged(point);
+                    break;
+                }
+            case PointType.GROUP:
+                {
+                    if (Data.getDataClass().user.role.Equals(UserRole.GUIDES) || Data.getDataClass().user.role.Equals(UserRole.HEAD))
+                    {
+                        infoPanel.CallSelectedPointChanged(point);
+                    }
+                    else
+                    {
+                        if (point.id_user_Busy == Data.getDataClass().user.id)
+                        {
+                            mapController.CallAddPointMapChanged(this);
+                            infoPanel.CallSelectedPointChanged(point);
+                        }
+                    }
                     break;
                 }
             case PointType.PORTER_POSITION:

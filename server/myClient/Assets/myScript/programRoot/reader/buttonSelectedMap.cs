@@ -7,6 +7,8 @@ public class buttonSelectedMap : MonoBehaviour {
     public UnityEngine.UI.Text text;
     public Maps map;
 
+    public Assets.myScript.entity.Event ev;
+
     public void ButtonUnSelectedPanel()
     {
         panelSelectedMap.CallMapNameSelectedChanged(false);
@@ -29,6 +31,13 @@ public class buttonSelectedMap : MonoBehaviour {
     public void ButtonSelectedUser()
     {
         panelChat.CallUserSelectedChanged(text.text);
+        panelSelectedMap.CallMapNameSelectedChanged(false);
+    }
+
+    public void ButtonSelectedEvent()
+    {
+        //panelChat.CallUserSelectedChanged(text.text);
+        generator.CallOkSelectedChanged(ev);
         panelSelectedMap.CallMapNameSelectedChanged(false);
     }
 
