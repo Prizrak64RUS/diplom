@@ -182,10 +182,10 @@ public class PointController implements InterfacePoint {
             Connection conn =  ConnectionPool.getConnectionPool().retrieve();
             Statement statement = conn.createStatement();
             statement.execute("UPDATE SOPG.[dbo].[point]" +
-                    "   SET [type] = " +"'"+point.getType()+"'"+
+                    "   SET [type] = '"+point.getType()+"'"+
 
-                    "      ,[name] = " + point.getName() +
-                    "      ,[description] = " + point.getDescription() +
+                    "      ,[name] = '" + point.getName() +"'"+
+                    "      ,[description] = '" + point.getDescription() +"'"+
 
                     "      ,[x] = " + point.getX() +
                     "      ,[y] = " + point.getY() +

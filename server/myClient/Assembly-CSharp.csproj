@@ -79,7 +79,6 @@
      <Compile Include="Assets\myScript\entity\Busy.cs" />
      <Compile Include="Assets\myScript\entity\Event.cs" />
      <Compile Include="Assets\myScript\entity\Log.cs" />
-     <Compile Include="Assets\myScript\entity\Log_type.cs" />
      <Compile Include="Assets\myScript\entity\Maps.cs" />
      <Compile Include="Assets\myScript\entity\Message.cs" />
      <Compile Include="Assets\myScript\entity\News.cs" />
@@ -88,6 +87,7 @@
      <Compile Include="Assets\myScript\entity\UserRole.cs" />
      <Compile Include="Assets\myScript\interfaceUrl\BusyController.cs" />
      <Compile Include="Assets\myScript\interfaceUrl\EventController.cs" />
+     <Compile Include="Assets\myScript\interfaceUrl\LogController.cs" />
      <Compile Include="Assets\myScript\interfaceUrl\MapsController.cs" />
      <Compile Include="Assets\myScript\interfaceUrl\MessageController.cs" />
      <Compile Include="Assets\myScript\interfaceUrl\NewsController.cs" />
@@ -109,6 +109,7 @@
      <Compile Include="Assets\myScript\programRoot\program\programButtomReaderSetting.cs" />
      <Compile Include="Assets\myScript\programRoot\reader\buttonSelectedMap.cs" />
      <Compile Include="Assets\myScript\programRoot\reader\panelSelectedMap.cs" />
+     <Compile Include="Assets\myScript\reportEXCELFile.cs" />
      <Compile Include="Assets\myScript\test.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

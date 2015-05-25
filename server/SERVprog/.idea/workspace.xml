@@ -35,12 +35,11 @@
       <file leaf-file-name="LogController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/LogController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1055" max-vertical-offset="1955">
+            <state vertical-scroll-proportion="0.0" vertical-offset="239" max-vertical-offset="1955">
               <caret line="109" column="46" selection-start-line="109" selection-start-column="46" selection-end-line="109" selection-end-column="46" />
               <folding>
                 <element signature="method#getTreeLogsChat#0;class#LogController#0" expanded="false" />
                 <element signature="method#getTreeLogsNews#0;class#LogController#0" expanded="false" />
-                <element signature="e#2360#2366#0" expanded="true" />
                 <marker date="1432388931283" expanded="true" signature="688:793" placeholder="SELECT top(2..." />
                 <marker date="1432388931283" expanded="true" signature="688:909" placeholder="SELECT top(2..." />
                 <marker date="1432388931283" expanded="true" signature="688:912" placeholder="SELECT top(2..." />
@@ -61,63 +60,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NewsController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/NewsController.java">
+      <file leaf-file-name="ControllerChat.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerChat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="1309">
-              <caret line="30" column="162" selection-start-line="30" selection-start-column="162" selection-end-line="30" selection-end-column="162" />
-              <folding>
-                <marker date="1431403508712" expanded="true" signature="885:1018" placeholder="insert into ..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PointController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/PointController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.049723756" vertical-offset="1387" max-vertical-offset="2567">
-              <caret line="188" column="0" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#updPoint#0;class#PointController#0" expanded="false" />
-                <element signature="method#setPoints#0;class#PointController#0" expanded="false" />
-                <element signature="method#delPoints#0;class#PointController#0" expanded="false" />
-                <element signature="method#busyNotPoint#0;class#PointController#0" expanded="false" />
-                <element signature="method#busyPoint#0;class#PointController#0" expanded="false" />
-                <element signature="method#setBusyPoint#0;class#PointController#0" expanded="false" />
-                <marker date="1432391142182" expanded="true" signature="1016:1058" placeholder="SELECT * FRO..point..." />
-                <marker date="1432391142182" expanded="true" signature="2856:3600" placeholder="UPDATE SOPG...." />
-                <marker date="1432391142182" expanded="true" signature="4068:4408" placeholder="insert into ..." />
-                <marker date="1432391142182" expanded="true" signature="4865:4901" placeholder="DELETE FROM ..." />
-                <marker date="1432391142182" expanded="true" signature="5320:5472" placeholder="UPDATE SOPG...." />
-                <marker date="1432391142182" expanded="true" signature="6509:6547" placeholder="SELECT * FRO..point..." />
-                <marker date="1432391142182" expanded="true" signature="6817:7013" placeholder="UPDATE SOPG...." />
-                <marker date="1432391142182" expanded="true" signature="8046:8178" placeholder="UPDATE SOPG...." />
-                <marker date="1432391142182" expanded="true" signature="8046:8537" placeholder="UPDATE SOPG...." />
-                <marker date="1432391142182" expanded="true" signature="9677:9713" placeholder="DELETE FROM ..." />
-                <marker date="1432391142182" expanded="true" signature="9818:9894" placeholder="DELETE FROM ..." />
-                <marker date="1432391142182" expanded="true" signature="11278:11314" placeholder="insert into ..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InterfaceLog.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfaceLog.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-              <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UrlController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ControllerLog.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerLog.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="901">
+              <caret line="51" column="135" selection-start-line="51" selection-start-column="135" selection-end-line="51" selection-end-column="135" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UrlController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/UrlController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1275">
-              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.33142856" vertical-offset="632" max-vertical-offset="1275">
+              <caret line="44" column="26" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -173,12 +140,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/dataBase/BusyController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerPoint.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfaceLog.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/UrlController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerLog.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/entity/Log.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfacePoint.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/dataBase/LogController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/SERV/dataBase/PointController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerLog.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/UrlController.java" />
       </list>
     </option>
   </component>
@@ -202,8 +169,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -230,6 +197,34 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SERVprog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SERVprog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SERVprog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SERVprog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.SERV" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -474,34 +469,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="dataBase" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SERVprog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SERVprog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SERVprog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SERVprog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.SERV" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -1035,15 +1002,16 @@
       <workItem from="1432187461229" duration="9316000" />
       <workItem from="1432277007276" duration="12979000" />
       <workItem from="1432360022137" duration="11760000" />
+      <workItem from="1432523374094" duration="5474000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="285185000" />
+    <option name="totallyTimeSpent" value="290659000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1063,10 +1031,10 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38002172" sideWeight="0.50208336" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37931034" sideWeight="0.50208336" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1984375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19838946" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1141,7 +1109,7 @@
           <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="51" />
+      <option name="time" value="52" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1150,6 +1118,14 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/UrlController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="1275">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/UrlController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="93" max-vertical-offset="1071">
@@ -1191,13 +1167,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33136094" vertical-offset="3441" max-vertical-offset="9129">
           <caret line="234" column="18" selection-start-line="234" selection-start-column="18" selection-end-line="234" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2225131" vertical-offset="145" max-vertical-offset="782">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1278,14 +1247,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/entity/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7995521" vertical-offset="0" max-vertical-offset="1156">
-          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfaceChat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19036955" vertical-offset="0" max-vertical-offset="893">
@@ -1343,16 +1304,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
           <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerChat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.418813" vertical-offset="0" max-vertical-offset="893">
-          <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1424,7 +1375,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.1896869" vertical-offset="0" max-vertical-offset="1088">
           <caret line="54" column="24" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1440,11 +1390,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9373849" vertical-offset="562" max-vertical-offset="1258">
           <caret line="69" column="34" selection-start-line="69" selection-start-column="34" selection-end-line="69" selection-end-column="34" />
-          <folding>
-            <marker date="1432299772062" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1432299772062" expanded="true" signature="-1:-1" placeholder="SELECT [id] ..." />
-            <marker date="1432299772062" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1460,14 +1405,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="5.6353593" vertical-offset="0" max-vertical-offset="3723">
           <caret line="186" column="34" selection-start-line="186" selection-start-column="34" selection-end-line="186" selection-end-column="34" />
-          <folding>
-            <marker date="1432192887454" expanded="true" signature="-1:-1" placeholder="SELECT maps...maps..." />
-            <marker date="1432192887454" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..maps..." />
-            <marker date="1432192887454" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..maps..." />
-            <marker date="1432192887454" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..maps..." />
-            <marker date="1432192887454" expanded="true" signature="-1:-1" placeholder="insert into ..." />
-            <marker date="1432192887454" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1475,33 +1412,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="307" max-vertical-offset="1428">
           <caret line="55" column="20" selection-start-line="40" selection-start-column="8" selection-end-line="55" selection-end-column="20" />
-          <folding>
-            <marker date="1432119755460" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1432119755460" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..message..." />
-            <marker date="1432119755460" expanded="true" signature="-1:-1" placeholder="Select top(7..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerLog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59300184" vertical-offset="375" max-vertical-offset="1156">
-          <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1729#1730#0" expanded="true" />
-            <element signature="e#1797#1798#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/entity/Log.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65561694" vertical-offset="188" max-vertical-offset="1428">
-          <caret line="34" column="112" selection-start-line="34" selection-start-column="112" selection-end-line="34" selection-end-column="112" />
-          <folding>
-            <element signature="method#equals#0;class#Log#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1525,48 +1436,35 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.4714549" vertical-offset="409" max-vertical-offset="1360">
           <caret line="16" column="50" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
-          <folding>
-            <marker date="1431351906011" expanded="true" signature="-1:-1" placeholder="insert into ..." />
-            <marker date="1431351906011" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..event..." />
-            <marker date="1431351906011" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..event..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/InterfaceLog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/UrlController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1275">
-          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.51428574" vertical-offset="75" max-vertical-offset="425">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="21" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/NewsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="1309">
+        <state vertical-scroll-proportion="-0.60534126" vertical-offset="510" max-vertical-offset="1309">
           <caret line="30" column="162" selection-start-line="30" selection-start-column="162" selection-end-line="30" selection-end-column="162" />
           <folding>
-            <marker date="1431403508712" expanded="true" signature="885:1018" placeholder="insert into ..." />
+            <marker date="1431403508712" expanded="true" signature="-1:-1" placeholder="insert into ..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/LogController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1055" max-vertical-offset="1955">
+        <state vertical-scroll-proportion="0.0" vertical-offset="239" max-vertical-offset="1955">
           <caret line="109" column="46" selection-start-line="109" selection-start-column="46" selection-end-line="109" selection-end-column="46" />
           <folding>
             <element signature="method#getTreeLogsChat#0;class#LogController#0" expanded="false" />
             <element signature="method#getTreeLogsNews#0;class#LogController#0" expanded="false" />
-            <element signature="e#2360#2366#0" expanded="true" />
             <marker date="1432388931283" expanded="true" signature="688:793" placeholder="SELECT top(2..." />
             <marker date="1432388931283" expanded="true" signature="688:909" placeholder="SELECT top(2..." />
             <marker date="1432388931283" expanded="true" signature="688:912" placeholder="SELECT top(2..." />
@@ -1588,29 +1486,83 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/dataBase/PointController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.049723756" vertical-offset="1387" max-vertical-offset="2567">
-          <caret line="188" column="0" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1554" max-vertical-offset="3162">
+          <caret line="184" column="37" selection-start-line="184" selection-start-column="37" selection-end-line="184" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#updPoint#0;class#PointController#0" expanded="false" />
             <element signature="method#setPoints#0;class#PointController#0" expanded="false" />
             <element signature="method#delPoints#0;class#PointController#0" expanded="false" />
             <element signature="method#busyNotPoint#0;class#PointController#0" expanded="false" />
-            <element signature="method#busyPoint#0;class#PointController#0" expanded="false" />
             <element signature="method#setBusyPoint#0;class#PointController#0" expanded="false" />
-            <marker date="1432391142182" expanded="true" signature="1016:1058" placeholder="SELECT * FRO..point..." />
-            <marker date="1432391142182" expanded="true" signature="2856:3600" placeholder="UPDATE SOPG...." />
-            <marker date="1432391142182" expanded="true" signature="4068:4408" placeholder="insert into ..." />
-            <marker date="1432391142182" expanded="true" signature="4865:4901" placeholder="DELETE FROM ..." />
-            <marker date="1432391142182" expanded="true" signature="5320:5472" placeholder="UPDATE SOPG...." />
-            <marker date="1432391142182" expanded="true" signature="6509:6547" placeholder="SELECT * FRO..point..." />
-            <marker date="1432391142182" expanded="true" signature="6817:7013" placeholder="UPDATE SOPG...." />
-            <marker date="1432391142182" expanded="true" signature="8046:8178" placeholder="UPDATE SOPG...." />
-            <marker date="1432391142182" expanded="true" signature="8046:8537" placeholder="UPDATE SOPG...." />
-            <marker date="1432391142182" expanded="true" signature="9677:9713" placeholder="DELETE FROM ..." />
-            <marker date="1432391142182" expanded="true" signature="9818:9894" placeholder="DELETE FROM ..." />
-            <marker date="1432391142182" expanded="true" signature="11278:11314" placeholder="insert into ..." />
+            <marker date="1432544753319" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..point..." />
+            <marker date="1432544753319" expanded="true" signature="-1:-1" placeholder="UPDATE SOPG...." />
+            <marker date="1432544753319" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+            <marker date="1432544753319" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1432544753319" expanded="true" signature="-1:-1" placeholder="UPDATE SOPG...." />
+            <marker date="1432544753319" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..point..." />
+            <marker date="1432544753319" expanded="true" signature="-1:-1" placeholder="UPDATE SOPG...." />
+            <marker date="1432544753319" expanded="true" signature="-1:-1" placeholder="UPDATE SOPG...." />
+            <marker date="1432544753319" expanded="true" signature="-1:-1" placeholder="UPDATE SOPG...." />
+            <marker date="1432544753319" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1432544753319" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1432544753319" expanded="true" signature="-1:-1" placeholder="insert into ..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/entity/Log.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="1428">
+          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#equals#0;class#Log#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/entity/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.0514286" vertical-offset="30" max-vertical-offset="1224">
+          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1326#1327#0" expanded="true" />
+            <element signature="e#1353#1354#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerChat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="62" max-vertical-offset="510">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61142856" vertical-offset="432" max-vertical-offset="782">
+          <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/view/ControllerLog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="901">
+          <caret line="51" column="135" selection-start-line="51" selection-start-column="135" selection-end-line="51" selection-end-column="135" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SERV/interfaceAbility/UrlController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33142856" vertical-offset="632" max-vertical-offset="1275">
+          <caret line="44" column="26" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>

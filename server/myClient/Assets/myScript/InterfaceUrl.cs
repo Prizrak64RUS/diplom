@@ -53,9 +53,12 @@ namespace Assets.myScript
         public static string pointBusyDelete = "/point/busy/delete";
         public static string pointBusyInsert = "/point/busy/insert";
 
-        public static string logInsert = "/log/insert";
-        public static string logGetTreeLog_ = "/log/treeLogs/";
-        public static string logGetTreeLogByType = "/log/treeLogs";
+        //public static string logInsert = "/log/insert";
+        //public static string logGetTreeLog_ = "/log/treeLogs/";
+        //public static string logGetTreeLogByType = "/log/treeLogs";
+        public static string logNews = "/log/news";
+        public static string logPoint = "/log/point";
+        public static string logChat = "/log/chat";
 
         public static string chatInsert = "/chat/insert";
         public static string chatGetOf = "/chat/getOf/";

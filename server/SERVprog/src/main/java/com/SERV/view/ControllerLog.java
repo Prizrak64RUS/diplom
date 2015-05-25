@@ -40,23 +40,23 @@ public class ControllerLog implements InterfaceLog{
 
     @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.logInsert)
     @ResponseBody
-    public void setLog(Log log){
+    public void setLog(@RequestBody final Log log){
         ControllerConnections.getLogController().setLog(log);
     }
 
-   @RequestMapping(method = RequestMethod.POST, value = UrlController.logChat)
+   @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json",  value = UrlController.logChat)
    @ResponseBody
-    public ArrayList<Message> getTreeLogsChat(Integer[] val) {
+    public ArrayList<Message> getTreeLogsChat(@RequestBody final Integer[] val) {
         return ControllerConnections.getLogController().getTreeLogsChat(val);
     }
-    @RequestMapping(method = RequestMethod.POST, value = UrlController.logNews)
+    @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value = UrlController.logNews)
     @ResponseBody
-    public ArrayList<News> getTreeLogsNews(Integer[] val) {
+    public ArrayList<News> getTreeLogsNews(@RequestBody final Integer[] val) {
         return ControllerConnections.getLogController().getTreeLogsNews(val);
     }
-    @RequestMapping(method = RequestMethod.POST, value = UrlController.logPoint)
+    @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value = UrlController.logPoint)
     @ResponseBody
-    public ArrayList<Log> getTreeLogsPoint(Integer[] val) {
+    public ArrayList<Log> getTreeLogsPoint(@RequestBody final Integer[] val) {
         return ControllerConnections.getLogController().getTreeLogsPoint(val);
     }
 }

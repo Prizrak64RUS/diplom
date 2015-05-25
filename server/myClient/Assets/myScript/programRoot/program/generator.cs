@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using Assets.myScript;
 
 public class generator : MonoBehaviour {
 
@@ -23,6 +24,44 @@ public class generator : MonoBehaviour {
     public void ButtonBreak()
     {
         exchange(selectedPanel, generatorPanel);
+    }
+
+
+    public void ButtonNews()
+    {
+        var type ="NEWS";
+        if (reportEXCELFile.fileCreate(type, ev))
+        {
+            name.text = "Файл отчёта \"" + ev.name + "_" + type + ".html\" созранён";
+        }
+        else 
+        {
+            name.text = "Файл отчёта \"" + ev.name + "_" + type + ".html\" не сохранён";
+        }
+    }
+    public void ButtonChat()
+    {
+        var type = "CHAT";
+        if (reportEXCELFile.fileCreate(type, ev))
+        {
+            name.text = "Файл отчёта \"" + ev.name + "_" + type + ".html\" созранён";
+        }
+        else
+        {
+            name.text = "Файл отчёта \"" + ev.name + "_" + type + ".html\" не сохранён";
+        }
+    }
+    public void ButtonPoint()
+    {
+        var type = "POINT";
+        if (reportEXCELFile.fileCreate(type, ev))
+        {
+            name.text = "Файл отчёта \"" + ev.name + "_" + type + ".html\" созранён";
+        }
+        else
+        {
+            name.text = "Файл отчёта \"" + ev.name + "_" + type + ".html\" не сохранён";
+        }
     }
 
     void Start() 
