@@ -53,12 +53,15 @@ namespace Assets.myScript
         public static string pointBusyDelete = "/point/busy/delete";
         public static string pointBusyInsert = "/point/busy/insert";
 
+        public static string pointGetPoint_ = "/point/gp/";
+
         //public static string logInsert = "/log/insert";
         //public static string logGetTreeLog_ = "/log/treeLogs/";
         //public static string logGetTreeLogByType = "/log/treeLogs";
         public static string logNews = "/log/news";
         public static string logPoint = "/log/point";
         public static string logChat = "/log/chat";
+        public static string logGroup = "/log/group";
 
         public static string chatInsert = "/chat/insert";
         public static string chatGetOf = "/chat/getOf/";
@@ -71,5 +74,8 @@ namespace Assets.myScript
         public static string busyInsert = "/busy/insert";
         public static string busyDel = "/busy/delete";
         public static string busyIs = "/busy/is";
+
+        public static string groupUpdate = "/group/update";
+        public static string groupInsert = "/group/inserts";
     }
 }

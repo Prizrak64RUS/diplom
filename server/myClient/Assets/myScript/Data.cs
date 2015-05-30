@@ -22,8 +22,8 @@ using System.Text;
             url = "http://localhost:8080";
             //user = new User("Управляющий Антон", "HEAD", "NONE", "NONE", 2006, 2, "NONE");
             //user = new User("Игорь Сергеев", "GUIDES", "NONE", "NONE", 2017, 12, "NONE");
-            //user = new User("Сергей Петров", "PORTER", "NONE", "NONE", 2018, 14, "NONE");
-            user = new User("testUsr", "WATCHING", "NONE", "NONE", 0, "NONE");
+            user = new User("Сергей Петров", "PORTER", "NONE", "NONE", 2018, 14, "NONE");
+            //user = new User("testUsr", "WATCHING", "NONE", "NONE", 0, "NONE");
         }
 
         public List<User> getUsers() 

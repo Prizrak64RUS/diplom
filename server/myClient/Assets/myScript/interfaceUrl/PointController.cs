@@ -140,5 +140,21 @@ namespace Assets.myScript.interfaceUrl
             }
             catch (Exception e) { return false; }
         }
+
+        public Point getPoint(int id)
+        {
+            string url = Data.getDataClass().url + InterfaceUrl.pointGetPoint_+id;
+            var client = new RestClient(url);
+            var request = new RestRequest(Method.POST);
+            client.Timeout = 5000;
+            var response = client.Execute(request);
+            var content = response.Content;
+            try
+            {
+                var b = JsonConvert.DeserializeObject<Point>(content);
+                return b;
+            }
+            catch (Exception e) { return null; }
+        }
     }
 }

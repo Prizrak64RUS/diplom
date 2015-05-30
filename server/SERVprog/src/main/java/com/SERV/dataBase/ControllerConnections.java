@@ -41,6 +41,10 @@ public class ControllerConnections {
         return new ChatController();
     }
 
+    public static InterfaceGroup getGroupController(){
+        return new GroupController();
+    }
+
     public static InterfaceLog getLogController(){
         return new LogController();
     }

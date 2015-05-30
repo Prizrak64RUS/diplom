@@ -94,18 +94,18 @@ public class pointProgram : MonoBehaviour {
                 }
             case PointType.GROUP:
                 {
-                    if (Data.getDataClass().user.role.Equals(UserRole.GUIDES) || Data.getDataClass().user.role.Equals(UserRole.HEAD))
-                    {
+                    //if (Data.getDataClass().user.role.Equals(UserRole.GUIDES) || Data.getDataClass().user.role.Equals(UserRole.HEAD))
+                    //{
                         infoPanel.CallSelectedPointChanged(point);
-                    }
-                    else
-                    {
-                        if (point.id_user_Busy == Data.getDataClass().user.id)
-                        {
-                            mapController.CallAddPointMapChanged(this);
-                            infoPanel.CallSelectedPointChanged(point);
-                        }
-                    }
+                    //}
+                    //else
+                    //{
+                    //    if (point.id_user_Busy == Data.getDataClass().user.id)
+                    //    {
+                    //        mapController.CallAddPointMapChanged(this);
+                    //        infoPanel.CallSelectedPointChanged(point);
+                    //    }
+                    //}
                     break;
                 }
             case PointType.PORTER_POSITION:

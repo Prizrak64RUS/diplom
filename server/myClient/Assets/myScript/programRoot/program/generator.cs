@@ -30,38 +30,24 @@ public class generator : MonoBehaviour {
     public void ButtonNews()
     {
         var type ="NEWS";
-        if (reportEXCELFile.fileCreate(type, ev))
-        {
-            name.text = "Файл отчёта \"" + ev.name + "_" + type + ".html\" созранён";
-        }
-        else 
-        {
-            name.text = "Файл отчёта \"" + ev.name + "_" + type + ".html\" не сохранён";
-        }
+        name.text ="Файл сохранён "+  reportEXCELFile.fileCreate(type, ev);
+
     }
     public void ButtonChat()
     {
         var type = "CHAT";
-        if (reportEXCELFile.fileCreate(type, ev))
-        {
-            name.text = "Файл отчёта \"" + ev.name + "_" + type + ".html\" созранён";
-        }
-        else
-        {
-            name.text = "Файл отчёта \"" + ev.name + "_" + type + ".html\" не сохранён";
-        }
+        name.text = "Файл сохранён " + reportEXCELFile.fileCreate(type, ev);
     }
     public void ButtonPoint()
     {
         var type = "POINT";
-        if (reportEXCELFile.fileCreate(type, ev))
-        {
-            name.text = "Файл отчёта \"" + ev.name + "_" + type + ".html\" созранён";
-        }
-        else
-        {
-            name.text = "Файл отчёта \"" + ev.name + "_" + type + ".html\" не сохранён";
-        }
+        name.text = "Файл сохранён " + reportEXCELFile.fileCreate(type, ev);
+    }
+
+    public void ButtonGroup()
+    {
+        var type = "GROUP";
+        name.text = "Файл сохранён " + reportEXCELFile.fileCreate(type, ev);
     }
 
     void Start() 

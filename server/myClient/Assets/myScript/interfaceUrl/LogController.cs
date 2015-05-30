@@ -60,5 +60,23 @@ namespace Assets.myScript.interfaceUrl
             }
             catch (Exception e) { return null; }
         }
+
+        public List<Group> getTreeLogsGroup(Int32[] val)
+        {
+            string url = Data.getDataClass().url + InterfaceUrl.logGroup;
+            var client = new RestClient(url);
+            var request = new RestRequest(Method.POST);
+            request.AddJsonBody(val);
+            client.Timeout = 5000;
+            var response = client.Execute(request);
+            var content = response.Content;
+            try
+            {
+                test.Log(content);
+                var b = JsonConvert.DeserializeObject<List<Group>>(content);
+                return b;
+            }
+            catch (Exception e) { return null; }
+        }
     }
 }

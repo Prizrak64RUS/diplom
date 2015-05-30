@@ -21,20 +21,20 @@ public class ControllerBusy implements InterfaceBusy{
 
     @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.busyInsert)
     @ResponseBody
-    public void setBusy(@RequestBody Busy b) {
+    public void setBusy(@RequestBody final Busy b) {
         ControllerConnections.getBusyController().setBusy(b);
 
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.busyIs)
     @ResponseBody
-    public Busy isBusy(@RequestBody Busy b) {
+    public Busy isBusy(@RequestBody final Busy b) {
         return ControllerConnections.getBusyController().isBusy(b);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.busyDel)
     @ResponseBody
-    public void delBusy(@RequestBody Busy b) {
+    public void delBusy(@RequestBody final Busy b) {
         ControllerConnections.getBusyController().delBusy(b);
     }
 }

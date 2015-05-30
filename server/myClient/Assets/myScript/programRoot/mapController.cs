@@ -218,21 +218,21 @@ public class mapController : MonoBehaviour
         var maps = DataReader.GetDataReader().selectedMap;
         if (map != null)
         {
-            PointController pc = new PointController();
-            var list = pc.getPoints(pointGet);
-            foreach (var pointObj in list)
-            {
-                GameObject point = (GameObject)Instantiate(Resources.Load(("point")));
-                point.AddComponent<pointProgram>();
-                pointProgram script = point.GetComponent<pointProgram>();
-                pointList.Add(script);
-                script.SetPoint(pointObj);
-                objList.Add(point);
+            //PointController pc = new PointController();
+            //var list = pc.getPoints(pointGet);
+            //foreach (var pointObj in list)
+            //{
+            //    GameObject point = (GameObject)Instantiate(Resources.Load(("point")));
+            //    point.AddComponent<pointProgram>();
+            //    pointProgram script = point.GetComponent<pointProgram>();
+            //    pointList.Add(script);
+            //    script.SetPoint(pointObj);
+            //    objList.Add(point);
 
-                point.transform.parent = this.gameObject.transform;
-                point.transform.localScale = new Vector3(pointObj.size_w, pointObj.size_h, (float)2);
-                point.transform.localPosition = new Vector3(pointObj.x, pointObj.y, (float)0);
-            }
+            //    point.transform.parent = this.gameObject.transform;
+            //    point.transform.localScale = new Vector3(pointObj.size_w, pointObj.size_h, (float)2);
+            //    point.transform.localPosition = new Vector3(pointObj.x, pointObj.y, (float)0);
+            //}
             StartCoroutine("AutoPointGet");
 
         }

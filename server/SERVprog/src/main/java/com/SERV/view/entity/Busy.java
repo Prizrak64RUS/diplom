@@ -1,9 +1,11 @@
 package com.SERV.view.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by prizrak on 19.05.2015.
  */
-public class Busy {
+public class Busy implements Serializable {
     public int getId() {
         return id;
     }

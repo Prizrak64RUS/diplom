@@ -280,4 +280,25 @@ public class PointController implements InterfacePoint {
         }
         return true;
     }
+
+    public Point getPoint(int id) {
+        try {
+            Connection conn =  ConnectionPool.getConnectionPool().retrieve();
+
+            Statement statement = conn.createStatement();
+            ResultSet result = statement.executeQuery("SELECT * FROM SOPG.dbo.point where id="+id+";");
+            ArrayList<Point> pointList = new ArrayList<Point>();
+            if (result.next()) {
+                Point point = new Point(result.getString("name"), result.getString("type"), result.getFloat("x"), result.getFloat("y"),
+                        result.getFloat("size_w"), result.getFloat("size_h"),  result.getString("description"),
+                        result.getInt("id_map"), result.getInt("isBusy"), result.getInt("id_user_Busy"), result.getInt("id"));
+                ConnectionPool.getConnectionPool().putback(conn);
+                return point;
+            }
+            ConnectionPool.getConnectionPool().putback(conn);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

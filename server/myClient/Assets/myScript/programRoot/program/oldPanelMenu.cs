@@ -2,6 +2,8 @@
 using System.Collections;
 using Assets.myScript.button;
 using UnityEngine.UI;
+using Assets.myScript.interfaceUrl;
+using Assets.myScript.entity;
 
 public class oldPanelMenu : MonoBehaviour {
 
@@ -14,12 +16,23 @@ public class oldPanelMenu : MonoBehaviour {
     public Button chat;
     public Button addP;
 
+    public Button getPos;
+
     public Button generator;
     //public GameObject addPoint;
    public void ButtonEnd()
     {
         Application.Quit();
     }
+
+   public void ButtonGetPos()
+   {
+       ButtonRootAndOld();
+       var pc = new PointController();
+       var p = pc.getPoint(Data.getDataClass().getBusy().idPoint);
+       var map = new Maps(p.id_map);
+       mapController.CallMapBuildChanged(map);
+   }
 
    public void ButtonGenerator()
    {
@@ -45,6 +58,23 @@ public class oldPanelMenu : MonoBehaviour {
     public void ButtonRootAndOld() {
         mapController.CallActivFieldChanged();
         ButtonClass.exchange(rootMenu, oldMenu);
+
+        if (!Data.getDataClass().user.role.Equals(UserRole.PORTER) && !Data.getDataClass().user.role.Equals(UserRole.GUIDES))
+        {
+            getPos.gameObject.SetActive(false);
+        }
+        else
+        {
+            var b = Data.getDataClass().getBusy();
+            if (b == null || b.idPoint == 0)
+            {
+                getPos.gameObject.SetActive(false);
+            }
+            else
+            {
+                getPos.gameObject.SetActive(true);
+            }
+        }
     }
 
 	// Use this for initialization

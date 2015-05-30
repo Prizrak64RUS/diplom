@@ -19,4 +19,6 @@ public interface InterfacePoint {
     public boolean delBusyPoint(Point point);
     public boolean setBusyPoint(Point point);
 
+    public Point getPoint(int id);
+
 }

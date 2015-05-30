@@ -3,6 +3,7 @@ using System.Collections;
 using Assets.myScript.entity;
 using UnityEngine.UI;
 using Assets.myScript.interfaceUrl;
+using System;
 
 public class infoPanel : MonoBehaviour {
     //стандартные
@@ -15,8 +16,15 @@ public class infoPanel : MonoBehaviour {
 
     public Button breakB;
     //для групп
+    public GameObject Scrol;
     public InputField nameG;
     public InputField descriptionG;
+
+    public InputField numberСhild;
+    public InputField numberResponsible;
+    public InputField responsible;
+    public InputField school;
+    public InputField location;
 
     Point thisPoint;
 
@@ -99,8 +107,7 @@ public class infoPanel : MonoBehaviour {
         name.gameObject.SetActive(false);
         description.gameObject.SetActive(false);
 
-        nameG.gameObject.SetActive(false);
-        descriptionG.gameObject.SetActive(false);
+        Scrol.SetActive(false);
         save.gameObject.SetActive(false);
         groupGet.gameObject.SetActive(false);
         //activPorter.gameObject.SetActive(false);
@@ -164,6 +171,7 @@ public class infoPanel : MonoBehaviour {
                                 groupGet.gameObject.SetActive(true);
                                 break; 
                             }
+                        case UserRole.PORTER:
                         case UserRole.HEAD: 
                             { 
                                 name.gameObject.SetActive(true);
@@ -172,16 +180,15 @@ public class infoPanel : MonoBehaviour {
                                 description.text = point.description;
                                 break; 
                             }
-                        case UserRole.PORTER: 
-                            {
-                                nameG.gameObject.SetActive(true);
-                                descriptionG.gameObject.SetActive(true);
-                                save.gameObject.SetActive(true);
-                                nameG.text = point.name;
-                                descriptionG.text = point.description;
-                                breakB.gameObject.SetActive(false);
-                                break; 
-                            }
+                        //case UserRole.PORTER: 
+                        //    {
+                        //        Scrol.SetActive(true);
+                        //        save.gameObject.SetActive(true);
+                        //        nameG.text = point.name;
+                        //        descriptionG.text = point.description;
+                        //        breakB.gameObject.SetActive(false);
+                        //        break; 
+                        //    }
                     }
                     break;
                 }
@@ -209,10 +216,25 @@ public class infoPanel : MonoBehaviour {
 
     public void ButtonSave() 
     {
-        if (nameG.text.Equals("") || descriptionG.text.Equals("")) return;
+        if (nameG.text.Equals("") || descriptionG.text.Equals("") || school.text.Equals("")
+            || responsible.text.Equals("") || location.text.Equals("") || numberСhild.text.Equals("")
+            || numberResponsible.text.Equals("")) return;
         thisPoint.name = nameG.text;
         thisPoint.description = descriptionG.text;
         thisPoint.id_user_Busy = Data.getDataClass().user.id;
+
+        var Сhild = Int32.Parse(numberСhild.text);
+        var Responsible =Int32.Parse(numberResponsible.text);
+        var g = new Group(Data.getDataClass().getEventThis().id, Сhild, Responsible, Сhild + Responsible, responsible.text, school.text, location.text, "", 1);
+        var gc = new GroupController();
+        gc.setGroup(g);
+
+        school.text = "";
+        responsible.text = "";
+        location.text = "";
+        numberСhild.text = "";
+        numberResponsible.text = "";
+        //while (!gc.setGroup(g)) { }
         ButtonPanelActiv();
     }
 

@@ -1,6 +1,7 @@
 package com.SERV.dataBase;
 
 import com.SERV.interfaceAbility.InterfaceLog;
+import com.SERV.view.entity.Group;
 import com.SERV.view.entity.Log;
 import com.SERV.view.entity.Message;
 import com.SERV.view.entity.News;
@@ -126,6 +127,41 @@ public class LogController implements InterfaceLog {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public ArrayList<Group> getTreeLogsGroup(Integer[] val) {
+        try {
+            Connection conn =  ConnectionPool.getConnectionPool().retrieve();
+
+            Statement statement = conn.createStatement();
+            ResultSet result = statement.executeQuery("SELECT [id]" +
+                    "      ,[idEvent]" +
+                    "      ,[number_child]" +
+                    "      ,[numberResponsible]" +
+                    "      ,[numberOverall]" +
+                    "      ,[responsible]" +
+                    "      ,[school]" +
+                    "      ,[location]" +
+                    "      ,[date]" +
+                    "      ,[groupExist]" +
+                    "   FROM [SOPG].[dbo].[group]" +
+                    "  WHERE [idEvent]=" +val[0]+
+                    "  ORDER BY [location];");
+            ArrayList<Group> logs = new ArrayList<Group>();
+            while (result.next()) {
+                Group g= new Group(result.getInt("id"),val[0],result.getInt("number_child"),result.getInt("numberResponsible"),
+                        result.getInt("numberOverall"),result.getString("responsible"),result.getString("school"),result.getString("location"),
+                        result.getString("date"),result.getInt("groupExist"));
+                logs.add(g);
+            }
+            ConnectionPool.getConnectionPool().putback(conn);
+            return logs;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     /*
     public ArrayList<Log> getTreeLogs(int idEvent){
         try {

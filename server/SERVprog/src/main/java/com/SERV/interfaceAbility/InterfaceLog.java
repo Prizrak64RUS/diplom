@@ -1,5 +1,6 @@
 package com.SERV.interfaceAbility;
 
+import com.SERV.view.entity.Group;
 import com.SERV.view.entity.Log;
 import com.SERV.view.entity.Message;
 import com.SERV.view.entity.News;
@@ -20,4 +21,5 @@ public interface InterfaceLog {
     public ArrayList<Message> getTreeLogsChat(Integer[] val);
     public ArrayList<News> getTreeLogsNews(Integer[] val);
     public ArrayList<Log> getTreeLogsPoint(Integer[] val);
+    public ArrayList<Group> getTreeLogsGroup(Integer[] val);
 }

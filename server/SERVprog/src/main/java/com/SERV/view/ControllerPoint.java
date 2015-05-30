@@ -65,4 +65,10 @@ public class ControllerPoint implements InterfacePoint{
     public boolean busyNotPoint(@RequestBody Point point) {
         return ControllerConnections.getPointController().busyNotPoint(point);
     }
+
+    @RequestMapping(method = RequestMethod.POST, value= UrlController.pointGetPoint_)
+    @ResponseBody
+    public Point getPoint(@PathVariable  int id) {
+        return ControllerConnections.getPointController().getPoint(id);
+    }
 }

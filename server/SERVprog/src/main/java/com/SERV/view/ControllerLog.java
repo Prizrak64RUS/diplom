@@ -1,12 +1,10 @@
 package com.SERV.view;
 
 import com.SERV.dataBase.ControllerConnections;
-import com.SERV.view.entity.Log;
+import com.SERV.view.entity.*;
 import com.SERV.interfaceAbility.InterfaceLog;
 import com.SERV.interfaceAbility.UrlController;
 import com.SERV.view.entity.Log;
-import com.SERV.view.entity.Message;
-import com.SERV.view.entity.News;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -58,5 +56,11 @@ public class ControllerLog implements InterfaceLog{
     @ResponseBody
     public ArrayList<Log> getTreeLogsPoint(@RequestBody final Integer[] val) {
         return ControllerConnections.getLogController().getTreeLogsPoint(val);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value = UrlController.logGroup)
+    @ResponseBody
+    public ArrayList<Group> getTreeLogsGroup(@RequestBody final Integer[] val) {
+        return ControllerConnections.getLogController().getTreeLogsGroup(val);
     }
 }

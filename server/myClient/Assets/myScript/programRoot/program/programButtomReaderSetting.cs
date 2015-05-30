@@ -65,7 +65,10 @@ public class programButtomReaderSetting : MonoBehaviour {
         buttonOldPanel.SetActive(!val);
         buttonoMapSelected.SetActive(!val);
         buttonOk.SetActive(val);
-        buttonBreak.SetActive(val);
+        if (!Data.getDataClass().user.role.Equals(UserRole.PORTER))
+        {
+            buttonBreak.SetActive(val);
+        }
         buttonUpHorizontal.SetActive(val);
         buttonDownHorizontal.SetActive(val);
         buttonUpVertikal.SetActive(val);

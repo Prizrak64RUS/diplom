@@ -42,10 +42,13 @@ public interface UrlController {
     String pointBusyDelete="busy/delete";
     String pointBusyInsert="busy/insert";
 
+    String pointGetPoint_="gp/{id}";
+
     String logObj="/log/";
     String logNews="news";
     String logPoint="point";
     String logChat="chat";
+    String logGroup="group";
 
     String logInsert="insert";
   /*
@@ -66,4 +69,8 @@ public interface UrlController {
     String busyInsert="insert";
     String busyDel="delete";
     String busyIs="is";
+
+    String groupObj="/group/";
+    String groupUpdate="update";
+    String groupInsert="inserts";
 }
