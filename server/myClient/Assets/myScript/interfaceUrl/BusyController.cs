@@ -19,7 +19,7 @@ namespace Assets.myScript.interfaceUrl
             client.Timeout = 5000;
             var response = client.Execute(request);
         }
-        public Busy isBusy(Busy b) 
+        public Busy[] isBusy(Busy b) 
         {
             string url = Data.getDataClass().url + InterfaceUrl.busyIs;
             var client = new RestClient(url);
@@ -30,7 +30,7 @@ namespace Assets.myScript.interfaceUrl
             var content = response.Content;
             try
             {
-                var obj = JsonConvert.DeserializeObject<Busy>(content);
+                var obj = JsonConvert.DeserializeObject<Busy[]>(content);
                 return obj;
             }
             catch (Exception e) { return null; }

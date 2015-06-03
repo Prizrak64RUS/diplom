@@ -45,10 +45,10 @@ public class MapsRoot : MonoBehaviour {
         ButtonClass.exchange(mapsPanel, mapsTablePanel);
     }
 
-    public void ButtonPointRead()
-    {
-        Application.LoadLevel("pointReader");
-    }
+    //public void ButtonPointRead()
+    //{
+    //    Application.LoadLevel("pointReader");
+    //}
 
     public void ButtonAdd() {
         GameObject rows = (GameObject)Instantiate(Resources.Load(("rowsMap")));

@@ -6,7 +6,7 @@ using System.Text;
 
     public class UserRole
     {
-        public const string PORTER = "PORTER";
+     //   public const string PORTER = "PORTER";
         public const string GUIDES = "GUIDES";
         public const string HEAD = "HEAD";
         public const string ADMIN = "ADMIN";

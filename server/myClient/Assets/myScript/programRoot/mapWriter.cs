@@ -29,7 +29,6 @@ public class mapWriter : MonoBehaviour {
         EventSelectedPoint += SelectedPoint;
         EventOkOrCancelPointMap += OkOrCancelPoint;
         EventUpOrDownSizePointMap += UpOrDownSizePoint;
-        EventActivJoystick += ActivJoystick;
         EventActivField += ActivField;
 
         pointGet[0] = Data.getDataClass().user.role;
@@ -38,7 +37,6 @@ public class mapWriter : MonoBehaviour {
 	}
 
     public GameObject joystick;
-    public GameObject PointYoystick;
     
 
     public static bool isSelectedObj() { if (selectedObj == null) return false; else return true; }
@@ -111,17 +109,6 @@ public class mapWriter : MonoBehaviour {
         }
     }
 
-    public delegate void activJoystickDelegate(bool val);
-    public static event activJoystickDelegate EventActivJoystick;
-    public static void CallActivJoystickChanged(bool val)
-    {
-        var handler = EventActivJoystick;
-        if (EventActivJoystick != null) // если есть подписчики
-        {
-            EventActivJoystick(val);
-        }
-    }
-
     public delegate void activFieldDelegate();
     public static event activFieldDelegate EventActivField;
     public static void CallActivFieldChanged()
@@ -177,10 +164,6 @@ public class mapWriter : MonoBehaviour {
 
     }
 
-    void ActivJoystick(bool val) {
-        PointYoystick.SetActive(val);
-    }
-
     void OkOrCancelPoint(bool isOk)
     {
         if (selectedObj == null) return;
@@ -213,19 +196,16 @@ public class mapWriter : MonoBehaviour {
     void SelectedPoint(GameObject obj) 
     {
         selectedObj = obj;
-        Joy2.point = selectedObj;
-        ActivJoystick(true);
     }
 
 
     void CreateField(string patch, Maps map)
     {
-        pointGet[1] = map.id;
-
         var tex = new Texture2D(2, 2);
 
         byte[] pngBytes;
         if(patch==null){
+            pointGet[1] = map.id;
             DestroyThisData();
             pngBytes = getMap(map.id);
             DataReader.GetDataReader().patch = null;
@@ -233,6 +213,7 @@ public class mapWriter : MonoBehaviour {
         }
         else
         {
+            
             pngBytes = File.ReadAllBytes(patch);
             DataReader.GetDataReader().patch = patch;
         }
@@ -282,7 +263,6 @@ public class mapWriter : MonoBehaviour {
             sendMap(pngBytes, mapId);
         }
         List<Point> listPointUpd = new List<Point>();
-        List<Point> listPointSet = new List<Point>();
         foreach (GameObject obj in objList) { 
             var p = obj.GetComponent<pointObj>();
             var point = p.GetPoint();
@@ -291,11 +271,10 @@ public class mapWriter : MonoBehaviour {
             point.size_w = obj.transform.localScale.x;
             point.x = obj.transform.localPosition.x;
             point.y = obj.transform.localPosition.y;
-            if (point.id == 0) { listPointSet.Add(point); } else { listPointUpd.Add(point); }
+            listPointUpd.Add(point);
         }
         PointController pc = new PointController();
         pc.delPoints(delList);
-        pc.setPoints(listPointSet);
         pc.updPoint(listPointUpd);
         CreateField(null, DataReader.GetDataReader().selectedMap);
     }

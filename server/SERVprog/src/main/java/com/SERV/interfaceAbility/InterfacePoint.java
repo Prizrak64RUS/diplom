@@ -19,6 +19,10 @@ public interface InterfacePoint {
     public boolean delBusyPoint(Point point);
     public boolean setBusyPoint(Point point);
 
+    public boolean updFree_space(Object[] val);
+
     public Point getPoint(int id);
+    public Point setPoints(Point point);
+    public boolean delPoints(Point point);
 
 }

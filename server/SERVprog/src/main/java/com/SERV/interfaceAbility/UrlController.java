@@ -43,6 +43,11 @@ public interface UrlController {
     String pointBusyInsert="busy/insert";
 
     String pointGetPoint_="gp/{id}";
+    String pointSetPoint="sp";
+    String pointDelPoint="dp";
+
+
+    String pointUpdFree_space="updfreespace";
 
     String logObj="/log/";
     String logNews="news";
@@ -73,4 +78,24 @@ public interface UrlController {
     String groupObj="/group/";
     String groupUpdate="update";
     String groupInsert="inserts";
+    String groupGet="get";
+
+    String schedulepointObj = "/schedulepoint/";
+    String schedulepointGetOne = "getone";
+    String schedulepointIns = "insert";
+    String schedulepointDel = "delete";
+    String schedulepointUpd = "update";
+    String schedulepointGet = "get";
+    String schedulepointGetFrom = "getfrom";
+
+    String masterclassObj = "/masterclass/";
+    String masterclassGetOne = "getone";
+    String masterclassIns = "insert";
+    String masterclassDel = "delete";
+    String masterclassUpd = "update";
+    String masterclassGet = "get";
+    String masterclassGetFrom = "getfrom";
+
+
+
 }

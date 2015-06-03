@@ -156,5 +156,56 @@ namespace Assets.myScript.interfaceUrl
             }
             catch (Exception e) { return null; }
         }
+
+        public Point setPoint(Point point)
+        {
+            string url = Data.getDataClass().url + InterfaceUrl.pointSetPoint;
+            var client = new RestClient(url);
+            var request = new RestRequest(Method.POST);
+            request.AddJsonBody(point);
+            client.Timeout = 5000;
+            var response = client.Execute(request);
+            var content = response.Content;
+            try
+            {
+                var b = JsonConvert.DeserializeObject<Point>(content);
+                return b;
+            }
+            catch (Exception e) { return null; }
+        }
+
+        public bool delPoint(Point point)
+        {
+            string url = Data.getDataClass().url + InterfaceUrl.pointDelPoint;
+            var client = new RestClient(url);
+            var request = new RestRequest(Method.POST);
+            request.AddJsonBody(point);
+            client.Timeout = 5000;
+            var response = client.Execute(request);
+            var content = response.Content;
+            try
+            {
+                var b = JsonConvert.DeserializeObject<bool>(content);
+                return b;
+            }
+            catch (Exception e) { return false; }
+        }
+
+        public bool updFree_space(Object[] val)
+        {
+            string url = Data.getDataClass().url + InterfaceUrl.pointBusyInsert;
+            var client = new RestClient(url);
+            var request = new RestRequest(Method.POST);
+            request.AddJsonBody(val);
+            client.Timeout = 5000;
+            var response = client.Execute(request);
+            var content = response.Content;
+            try
+            {
+                var b = JsonConvert.DeserializeObject<bool>(content);
+                return b;
+            }
+            catch (Exception e) { return false; }
+        }
     }
 }

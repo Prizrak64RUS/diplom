@@ -18,6 +18,8 @@ namespace Assets.myScript.entity
         public int busy { get; set; }
         public int id_user_Busy { get; set; }
         public int id { get; set; }
+        public int all_space { get; set; }
+        public int free_space { get; set; }
 
         public Point(string name, string type, float x, float y, float size_w, float size_h, string description, int id_map, int busy, int id_user_Busy, int id)
         {
@@ -32,11 +34,12 @@ namespace Assets.myScript.entity
             this.id_user_Busy = id_user_Busy;
             this.size_w = size_w;
             this.size_h = size_h;
-
+            all_space = 0;
         }
 
-        public Point(string name, string type,  string description, int id, int id_user_Busy)
+        public Point(string name, string type, string description, int id, int id_user_Busy, int all_space)
         {
+            this.all_space = all_space;
             this.name = name;
             this.type = type;
             this.description = description;
@@ -64,6 +67,7 @@ namespace Assets.myScript.entity
             this.busy = busy;
             this.size_w = 0;
             this.size_h = 0;
+            all_space = 0;
 
         }
 
@@ -80,6 +84,7 @@ namespace Assets.myScript.entity
             this.id_user_Busy = 0;
             this.size_w = 0;
             this.size_h = 0;
+            all_space = 0;
 
         }
 
@@ -96,6 +101,7 @@ namespace Assets.myScript.entity
             this.id_user_Busy = 0;
             this.size_w = 0;
             this.size_h = 0;
+            all_space = 0;
 
         }
 

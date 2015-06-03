@@ -8,4 +8,6 @@ import com.SERV.view.entity.Group;
 public interface InterfaceGroup {
     public boolean setGroup(Group g);
     public boolean updGroup(Group g);
+
+    public Group getGroup(Integer val);
 }

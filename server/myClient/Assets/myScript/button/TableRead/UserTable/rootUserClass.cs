@@ -116,6 +116,7 @@ public class rootUserClass : MonoBehaviour {
              return;
          }
          foreach (User usr in usrList) {
+             if (usr.id == Data.getDataClass().user.id) continue;
              GameObject rows = (GameObject)Instantiate(Resources.Load(("rowsUser")));
              rowsUser script = rows.GetComponent<rowsUser>();
              script.greadebook.text =""+ usr.gradebook;
@@ -204,9 +205,12 @@ public class rootUserClass : MonoBehaviour {
         {
             Destroy(o);
         }
-        objList.Clear();
-        rowsList.Clear();
-        delList.Clear();
+        if(objList!=null&&objList.Count>0)
+            objList.Clear();
+        if (rowsList != null && rowsList.Count > 0)
+            rowsList.Clear();
+        if (delList != null && delList.Count > 0)
+            delList.Clear();
 
     }
 

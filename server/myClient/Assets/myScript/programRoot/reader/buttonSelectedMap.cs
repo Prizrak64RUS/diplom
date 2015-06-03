@@ -8,6 +8,7 @@ public class buttonSelectedMap : MonoBehaviour {
     public Maps map;
 
     public Assets.myScript.entity.Event ev;
+    public Masterclass mc;
 
     public void ButtonUnSelectedPanel()
     {
@@ -41,6 +42,18 @@ public class buttonSelectedMap : MonoBehaviour {
         panelSelectedMap.CallMapNameSelectedChanged(false);
     }
 
+    public void ButtonSelectedEvent1()
+    {
+        rootMCClass.CallSetEvChanged(ev.id);
+        adminButton.CallAdminAndMCChanged();
+        panelSelectedMap.CallMapNameSelectedChanged(false);
+    }
+
+    public void ButtonSelectedEvent2()
+    {
+        DataReader.GetDataReader().thisEv = ev;
+        Application.LoadLevel("pointReader");
+    }
     //public void ButtonSelectedPanel()
     //{
     //    textSelectedView = text;

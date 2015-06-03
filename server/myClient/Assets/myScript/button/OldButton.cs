@@ -19,7 +19,10 @@ public class OldButton : MonoBehaviour {
     public void ButtonAuth() {
         User user = new User(login.text, password.text);
         UserController uc = new UserController();
-        user = uc.isAutch(user);
+        User autch=null;
+        while (autch == null)
+            autch = uc.isAutch(user);
+        user = autch;
         if (!user.role.Equals("NONE")) 
         {
             Data.getDataClass().user = user;

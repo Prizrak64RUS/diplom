@@ -8,7 +8,6 @@ public class pointObj : MonoBehaviour {
     Material material;
     Texture texturePrev;
     Point point { get; set; }
-
     public void SetPoint(Point point) {
         this.point = point;
         string type = "material/" +point.type;
@@ -22,7 +21,7 @@ public class pointObj : MonoBehaviour {
     {
         return point;
     }
-    //bool isDown = false;
+    bool isDown = false;
 	// Use this for initialization
 	void Start () {
         material = GetComponent<Renderer>().material;
@@ -30,19 +29,24 @@ public class pointObj : MonoBehaviour {
 
     void Update()
     {
-        //if (isDown) 
-        //{
-        //   // Debug.Log("x = " + Input.mousePosition.x + " y = " + Input.mousePosition.y);
-        //    //this.gameObject.transform.position = Input.mousePosition; //new Vector3(Input.mousePosition.x/1000,Input.mousePosition.y/1000,-1);
-        //    //Input.
-        //}
-       // Camera.transform.position += Camera.transform.right * deltaX * Time.deltaTime * Camera.transform.position.z * -1 / 100;
+        if (isDown && DataReader.GetDataReader().isRead)
+        {
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-       // Camera.transform.position += Camera.transform.up * deltaY * Time.deltaTime * Camera.transform.position.z * -1 / 100;
+                    RaycastHit hit;
+
+                    if (Physics.Raycast(ray, out hit))
+                    {
+                            Vector3 point = new Vector3(hit.point.x, hit.point.y, -2);
+                            transform.position = point;                                //      Передаю новые координаты объекту
+                    }
+
+        }
     }
 
     void OnMouseDown()
     {
+        isDown = true;
         if (DataReader.GetDataReader().isRead) return;
         var tex = Resources.Load<Texture2D>("material/SELECTED");
         material.mainTexture = tex;
@@ -51,6 +55,7 @@ public class pointObj : MonoBehaviour {
 
     void OnMouseUp()
     {
+        isDown = false;
         material.mainTexture = texturePrev;
         //if (DataReader.GetDataReader().isRead) return;
         //material.mainTexture = texturePrev;

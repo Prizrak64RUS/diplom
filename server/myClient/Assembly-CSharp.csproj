@@ -65,6 +65,8 @@
      <Compile Include="Assets\myScript\button\TableRead\EnumType.cs" />
      <Compile Include="Assets\myScript\button\TableRead\EventTable\rootEventClass.cs" />
      <Compile Include="Assets\myScript\button\TableRead\EventTable\rowsEvent.cs" />
+     <Compile Include="Assets\myScript\button\TableRead\MCTable\rootMCClass.cs" />
+     <Compile Include="Assets\myScript\button\TableRead\MCTable\rowsMC.cs" />
      <Compile Include="Assets\myScript\button\TableRead\MapTabe\ElementFile.cs" />
      <Compile Include="Assets\myScript\button\TableRead\MapTabe\MapsRoot.cs" />
      <Compile Include="Assets\myScript\button\TableRead\MapTabe\SearchFile.cs" />
@@ -73,7 +75,11 @@
      <Compile Include="Assets\myScript\button\TableRead\MapTabe\rowsMaps.cs" />
      <Compile Include="Assets\myScript\button\TableRead\UserTable\rootUserClass.cs" />
      <Compile Include="Assets\myScript\button\TableRead\UserTable\rowsUser.cs" />
+     <Compile Include="Assets\myScript\button\TableRead\raspTaple\buttonMCFromRasp.cs" />
+     <Compile Include="Assets\myScript\button\TableRead\raspTaple\rootRaspClass.cs" />
+     <Compile Include="Assets\myScript\button\TableRead\raspTaple\rowsRasp.cs" />
      <Compile Include="Assets\myScript\button\adminButton.cs" />
+     <Compile Include="Assets\myScript\button\cameraMoveSrc.cs" />
      <Compile Include="Assets\myScript\button\pointReader\PanelReadDataPoint.cs" />
      <Compile Include="Assets\myScript\button\pointReader\settingButton.cs" />
      <Compile Include="Assets\myScript\entity\Busy.cs" />
@@ -81,9 +87,11 @@
      <Compile Include="Assets\myScript\entity\Group.cs" />
      <Compile Include="Assets\myScript\entity\Log.cs" />
      <Compile Include="Assets\myScript\entity\Maps.cs" />
+     <Compile Include="Assets\myScript\entity\Masterclass.cs" />
      <Compile Include="Assets\myScript\entity\Message.cs" />
      <Compile Include="Assets\myScript\entity\News.cs" />
      <Compile Include="Assets\myScript\entity\Point.cs" />
+     <Compile Include="Assets\myScript\entity\Schedulepoint.cs" />
      <Compile Include="Assets\myScript\entity\User.cs" />
      <Compile Include="Assets\myScript\entity\UserRole.cs" />
      <Compile Include="Assets\myScript\interfaceUrl\BusyController.cs" />
@@ -91,9 +99,11 @@
      <Compile Include="Assets\myScript\interfaceUrl\GroupController.cs" />
      <Compile Include="Assets\myScript\interfaceUrl\LogController.cs" />
      <Compile Include="Assets\myScript\interfaceUrl\MapsController.cs" />
+     <Compile Include="Assets\myScript\interfaceUrl\MasterclassController.cs" />
      <Compile Include="Assets\myScript\interfaceUrl\MessageController.cs" />
      <Compile Include="Assets\myScript\interfaceUrl\NewsController.cs" />
      <Compile Include="Assets\myScript\interfaceUrl\PointController.cs" />
+     <Compile Include="Assets\myScript\interfaceUrl\SchedulepointController.cs" />
      <Compile Include="Assets\myScript\interfaceUrl\TestController.cs" />
      <Compile Include="Assets\myScript\interfaceUrl\UserController.cs" />
      <Compile Include="Assets\myScript\notEnableField.cs" />

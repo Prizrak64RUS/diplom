@@ -28,7 +28,7 @@ public class ControllerBusy implements InterfaceBusy{
 
     @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.busyIs)
     @ResponseBody
-    public Busy isBusy(@RequestBody final Busy b) {
+    public Busy[] isBusy(@RequestBody final Busy b) {
         return ControllerConnections.getBusyController().isBusy(b);
     }
 

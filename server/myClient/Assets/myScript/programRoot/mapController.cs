@@ -13,9 +13,8 @@ public class mapController : MonoBehaviour
 
     List<GameObject> objList;
     List<pointProgram> pointList;
-    GameObject selectedObj;
+    static public GameObject selectedObj;
     pointProgram selectedObjScript;
-    public GameObject PointYoystick;
     System.Object[] pointGet = new System.Object[3];
 
     void Start()
@@ -101,7 +100,14 @@ public class mapController : MonoBehaviour
     {
 
         gameObject.SetActive(!gameObject.activeSelf);
-        if (gameObject.activeSelf) StartCoroutine("AutoPointGet");
+        if (gameObject.activeSelf) { 
+            StartCoroutine("AutoPointGet");
+            foreach (var pointObj in pointList)
+            {
+
+                pointObj.StartCoroutine("AutoTextureRefresh");
+            }
+        }
     }
 
     void UpOrDownSizePoint(bool isUp, bool isHorizontal)
@@ -146,7 +152,6 @@ public class mapController : MonoBehaviour
     void OkPointMap(bool isOk)
     {
         Data.getDataClass().isRead = false;
-        ActivJoystick(false);
         if (isOk)
         {
             int mapId = Data.getDataClass().selectedMap.id;
@@ -255,9 +260,6 @@ public class mapController : MonoBehaviour
                 case UserRole.HEAD:
                     p = new Point(PointType.PORTER_POSITION);
                     break;
-                case UserRole.PORTER:
-                    p = new Point(PointType.GROUP);
-                    break;
             }
             script.SetPoint(p);
 
@@ -266,13 +268,9 @@ public class mapController : MonoBehaviour
             point.transform.localScale = new Vector3((float)0.02, (float)0.02, (float)2);
             point.transform.localPosition = Vector3.zero;
             SelectedPoint(point, script);
-
-            if (Data.getDataClass().user.role.Equals(UserRole.PORTER))
-                infoPanel.CallSelectedPointChanged(p);
         }
         else
         {
-            ActivJoystick(true);
             programButtomReaderSetting.CallButtonActivChanged(true);
             SelectedPoint(src.gameObject, src);
         }
@@ -282,13 +280,6 @@ public class mapController : MonoBehaviour
     {
         selectedObjScript = script;
         selectedObj = obj;
-        Joy2.point = selectedObj;
-        ActivJoystick(true);
-    }
-
-    void ActivJoystick(bool val)
-    {
-        PointYoystick.SetActive(val);
     }
 
     WaitForSeconds ws = new WaitForSeconds(2);

@@ -54,6 +54,10 @@ namespace Assets.myScript
         public static string pointBusyInsert = "/point/busy/insert";
 
         public static string pointGetPoint_ = "/point/gp/";
+        public static string pointSetPoint = "/point/sp";
+        public static string pointDelPoint = "/point/dp";
+
+        public static string pointUpdFree_space = "updfreespace";
 
         //public static string logInsert = "/log/insert";
         //public static string logGetTreeLog_ = "/log/treeLogs/";
@@ -77,5 +81,21 @@ namespace Assets.myScript
 
         public static string groupUpdate = "/group/update";
         public static string groupInsert = "/group/inserts";
+        public static string groupGet = "/group/get";
+
+
+        public static string schedulepointGetOne = "/schedulepoint/getone";
+        public static string schedulepointIns = "/schedulepoint/insert";
+        public static string schedulepointDel = "/schedulepoint/delete";
+        public static string schedulepointUpd = "/schedulepoint/update";
+        public static string schedulepointGet = "/schedulepoint/get";
+        public static string schedulepointGetFrom = "/schedulepoint/getfrom";
+
+        public static string masterclassGetOne = "/masterclass/getone";
+        public static string masterclassIns = "/masterclass/insert";
+        public static string masterclassDel = "/masterclass/delete";
+        public static string masterclassUpd = "/masterclass/update";
+        public static string masterclassGet = "/masterclass/get";
+        public static string masterclassGetFrom = "/masterclass/getfrom";
     }
 }

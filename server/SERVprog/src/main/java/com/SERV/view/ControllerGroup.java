@@ -28,4 +28,10 @@ public class ControllerGroup implements InterfaceGroup {
     public boolean updGroup(@RequestBody final Group g) {
         return ControllerConnections.getGroupController().updGroup(g);
     }
+
+    @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces ="application/json", value=UrlController.groupGet)
+    @ResponseBody
+    public Group getGroup(@RequestBody final Integer val) {
+        return ControllerConnections.getGroupController().getGroup(val);
+    }
 }

@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  * Created by prizrak on 19.05.2015.
@@ -21,11 +22,11 @@ public class BusyController implements InterfaceBusy {
             statement.execute("INSERT INTO [SOPG].[dbo].[busy]" +
                     "           ([idUser]" +
                     "           ,[idPoint]" +
-                    "           ,[idEvent])" +
+                    "           ,[idGroup])" +
                     "     VALUES" +
                     "           (" +b.getIdUser()+
                     "           ," +b.getIdPoint()+
-                    "           ,"+b.getIdEvent()+")");
+                    "           ,"+b.getIdGroup()+")");
             ConnectionPool.getConnectionPool().putback(conn);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -33,25 +34,29 @@ public class BusyController implements InterfaceBusy {
     }
 
     @Override
-    public Busy isBusy(Busy b) {
+    public Busy[] isBusy(Busy b) {
         try {
             Connection conn =  ConnectionPool.getConnectionPool().retrieve();
 
             Statement statement = conn.createStatement();
-            ResultSet result = statement.executeQuery("SELECT [id]" +
+            String query ="SELECT [id]" +
                     "      ,[idUser]" +
                     "      ,[idPoint]" +
-                    "      ,[idEvent]" +
-                    "  FROM [SOPG].[dbo].[busy] " +
-                    "  WHERE [idUser]=" +b.getIdUser()+
-                    "      AND [idEvent]=" +b.getIdEvent());
-            Busy busy = new Busy();
+                    "      ,[idGroup]" +
+                    "  FROM [SOPG].[dbo].[busy] ";
+            if(b.getIdUser()==0){
+                query+=" WHERE idGroup="+b.getIdGroup()+";";
+            }else {
+                query+=" WHERE idUser="+b.getIdUser()+";";
+            }
+            ResultSet result = statement.executeQuery(query);
+            ArrayList<Busy> arr= new ArrayList<Busy>();
             while (result.next()) {
-                busy = new Busy(result.getInt("id"), result.getInt("idUser"), result.getInt("idPoint"), result.getInt("idEvent"));
-                break;
+                Busy busy = new Busy(result.getInt("id"), result.getInt("idUser"), result.getInt("idPoint"), result.getInt("idGroup"));
+                arr.add(busy);
             }
             ConnectionPool.getConnectionPool().putback(conn);
-            return busy;
+            return ((Busy[])arr.toArray());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -63,9 +68,14 @@ public class BusyController implements InterfaceBusy {
         try {
             Connection conn =  ConnectionPool.getConnectionPool().retrieve();
 
+            String query = "DELETE FROM [SOPG].[dbo].[busy]";
+            if(b.getIdPoint()==0){
+                query+=" WHERE idGroup="+b.getIdGroup()+";";
+            }else {
+                query+=" WHERE idPoint="+b.getIdPoint()+";";
+            }
             Statement statement = conn.createStatement();
-            statement.execute("DELETE FROM [SOPG].[dbo].[busy]" +
-                    "      WHERE idPoint="+b.getIdPoint()+";");
+            statement.execute(query);
             ConnectionPool.getConnectionPool().putback(conn);
         } catch (SQLException e) {
             e.printStackTrace();

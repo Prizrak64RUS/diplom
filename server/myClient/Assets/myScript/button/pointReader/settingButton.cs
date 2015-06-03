@@ -40,8 +40,29 @@ public class settingButton : MonoBehaviour {
     public void ButtonPanelReadUnActiv() 
     {
         Point point = scriptAddData.getPoint();
-        if(point==null) return;
-        mapWriter.GetSelectedObj().GetComponent<pointObj>().SetPoint(point);
+        point.id_map=DataReader.GetDataReader().selectedMap.id;
+        if (point == null) return;
+        Point p = null;
+        if (point.id != 0) 
+        {
+            p = point;
+        }
+        else
+        {
+
+            PointController pc = new PointController();
+            while (p == null)
+                p = pc.setPoint(point);
+            Debug.Log(p.id);
+        }
+        if (p.type != PointType.ACTION) { scriptAddData.rrc.AllDelete(); }
+        else
+        {
+            scriptAddData.rrc.ButtonSend(p.id);
+        }
+
+
+        mapWriter.GetSelectedObj().GetComponent<pointObj>().SetPoint(p);
         ReadDataPoint();
     }
 
@@ -115,6 +136,7 @@ public class settingButton : MonoBehaviour {
 
     public void ButtonAddPoint()
     {
+        if (DataReader.GetDataReader().selectedMap == null) return;
         DataReader.GetDataReader().isRead = true;
         mapWriter.CallAddPointMapChanged();
         ButtonPanelReadActiv();
@@ -129,7 +151,7 @@ public class settingButton : MonoBehaviour {
     }
 
     public void ButtonActivPoint(bool val) {
-        mapWriter.CallActivJoystickChanged(val);
+        if (DataReader.GetDataReader().selectedMap == null) return;
         buttonSetting.SetActive(!val);
         buttonAdd.SetActive(!val);
         buttonRead.SetActive(!val);

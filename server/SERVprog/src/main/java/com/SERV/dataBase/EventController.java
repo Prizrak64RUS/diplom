@@ -14,12 +14,21 @@ import java.util.ArrayList;
  */
 
 public class EventController implements InterfaceEvent{
+
+    public static String removeChar(String s, char c) {
+        String r = "";
+        for (int i = 0; i < s.length(); i ++) {
+            if (s.charAt(i) != c) r += s.charAt(i);
+        }
+        return r;
+    }
+
     public void setEvents(ArrayList<Event> event){
         for(Event ev: event){
             try {
                 Connection conn =  ConnectionPool.getConnectionPool().retrieve();
                 Statement statement = conn.createStatement();
-                statement.execute("insert into SOPG.dbo.event values ('"+ev.getName()+"', '"+ev.getDescription()+"', '"+ev.getDate()+"', "
+                statement.execute("insert into SOPG.dbo.event values ('"+ev.getName()+"', '"+ev.getDescription()+"', '"+removeChar(ev.getDate(),'-')+"', "
                         +ev.getIsActiv()+","+ev.getIsDelete()+");");
                 ConnectionPool.getConnectionPool().putback(conn);
             } catch (SQLException e) {

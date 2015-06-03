@@ -21,7 +21,8 @@ CREATE TABLE [dbo].[group](
 	[responsible] [nchar](150) NOT NULL,
 	[school] [nchar](50) NOT NULL,
 	[location] [nchar](50) NOT NULL,
-	[date] [datetime] NOT NULL,
+	[date_start] [datetime] NOT NULL,
+	[date_end] [datetime] NULL,
 	[groupExist] [int] NOT NULL,
  CONSTRAINT [PK_group] PRIMARY KEY CLUSTERED 
 (

@@ -60,4 +60,8 @@ public class ControllerConnections {
     public static InterfaceNews getNewsController(){return new NewsController();}
 
     public static InterfaceBusy getBusyController(){return new BusyController();}
+
+    public static InterfaceSchedulepoint getSchedulepointController(){return new SchedulepointController();}
+
+    public static InterfaceMasterclass getMasterclassController(){return new MasterclassController();}
 }

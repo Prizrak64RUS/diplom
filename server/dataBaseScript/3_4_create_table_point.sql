@@ -30,6 +30,8 @@ CREATE TABLE [dbo].[point](
 	[id_map] [int] NOT NULL,
 	[isBusy] [int] NOT NULL,
 	[id_user_Busy] [int] NULL,
+	[all_space] [int] NULL,
+	[free_space] [int] NULL,
  CONSTRAINT [PK_point] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC

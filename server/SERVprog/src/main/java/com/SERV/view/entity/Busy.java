@@ -6,6 +6,23 @@ import java.io.Serializable;
  * Created by prizrak on 19.05.2015.
  */
 public class Busy implements Serializable {
+
+
+    private int id;
+    private int idUser;
+    private int idPoint;
+    private int idGroup;
+
+    public Busy(int id, int idGroup, int idPoint, int idUser) {
+        this.id = id;
+        this.idGroup = idGroup;
+        this.idPoint = idPoint;
+        this.idUser = idUser;
+    }
+
+    public Busy() {
+    }
+
     public int getId() {
         return id;
     }
@@ -30,31 +47,12 @@ public class Busy implements Serializable {
         this.idPoint = idPoint;
     }
 
-    public int getIdEvent() {
-        return idEvent;
+    public int getIdGroup() {
+        return idGroup;
     }
 
-    public void setIdEvent(int idEvent) {
-        this.idEvent = idEvent;
-    }
-
-    private int id;
-    private int idUser;
-    private int idPoint;
-    private int idEvent;
-
-    public Busy(int id, int idUser, int idPoint, int idEvent) {
-        this.id = id;
-        this.idUser = idUser;
-        this.idPoint = idPoint;
-        this.idEvent = idEvent;
-    }
-
-    public Busy() {
-        this.id = 0;
-        this.idUser = 0;
-        this.idPoint = 0;
-        this.idEvent = 0;
+    public void setIdGroup(int idGroup) {
+        this.idGroup = idGroup;
     }
 
     @Override

@@ -59,7 +59,7 @@ public class oldPanelMenu : MonoBehaviour {
         mapController.CallActivFieldChanged();
         ButtonClass.exchange(rootMenu, oldMenu);
 
-        if (!Data.getDataClass().user.role.Equals(UserRole.PORTER) && !Data.getDataClass().user.role.Equals(UserRole.GUIDES))
+        if (!Data.getDataClass().user.role.Equals(UserRole.GUIDES))
         {
             getPos.gameObject.SetActive(false);
         }

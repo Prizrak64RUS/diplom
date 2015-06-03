@@ -10,7 +10,11 @@ public class pointProgram : MonoBehaviour {
 
     Material material;
     Texture texturePrev;
+    Texture textureThis;
     Point point { get; set; }
+    bool isDown = false;
+    bool isThisObj = false;
+    bool isCS=false;
 
     public void SetPoint(Point point) {
         this.point = point;
@@ -27,19 +31,19 @@ public class pointProgram : MonoBehaviour {
             case PointType.ACTION:
                 {
                     type = "material/" + point.type;
-                    if (point.busy == 1) type += "Z";
+                   // if (point.busy == 1) type += "Z";
                     break;
                 }
             case PointType.GROUP:
                 {
                     type = "material/" + point.type;
-                    if (point.busy == 1) type += "Z";
+                   // if (point.busy == 1) type += "Z";
                     break;
                 }
             case PointType.PORTER_POSITION:
                 {
                     type = "material/" + point.type;
-                    if (point.busy == 1) type += "Z";
+                  //  if (point.busy == 1) type += "Z";
                     break;
                 }
 
@@ -57,9 +61,13 @@ public class pointProgram : MonoBehaviour {
         }
 
         var tex = Resources.Load<Texture2D>(type);
+        var tex2 = Resources.Load<Texture2D>("material/" + point.type + "Z");
         if (material == null) { material = GetComponent<Renderer>().material;  }
         material.mainTexture = tex;
-        texturePrev = material.mainTexture;
+        textureThis = tex;
+        texturePrev = tex2;
+
+        if (!isCS) { StartCoroutine("AutoTextureRefresh"); isCS = true; }
     }
 
     public Point GetPoint()
@@ -69,9 +77,29 @@ public class pointProgram : MonoBehaviour {
 	void Start () {
         material = GetComponent<Renderer>().material;
 	}
+    WaitForSeconds ws = new WaitForSeconds((float)1.5);
+    private IEnumerator AutoTextureRefresh()
+    {
+        bool isOn=false;
+        while (true)
+        {
+            if (isOn)
+            {
+                material.mainTexture = textureThis;
+            }
+            else
+            {
+                material.mainTexture = texturePrev;
+            }
+            isOn = !isOn;
+            yield return ws;
+        }
+    }
 
     void OnMouseDown()
     {
+        isDown = true;
+        isThisObj=gameObject.Equals(mapController.selectedObj);
         if (Data.getDataClass().isRead) return;
         var tex = Resources.Load<Texture2D>("material/"+PointType.SELECTED);
         material.mainTexture = tex;
@@ -80,6 +108,8 @@ public class pointProgram : MonoBehaviour {
 
     void OnMouseUp()
     {
+        isDown = false;
+        isThisObj = false;
         material.mainTexture = texturePrev;
         if (Data.getDataClass().isRead) return;
         
@@ -110,7 +140,7 @@ public class pointProgram : MonoBehaviour {
                 }
             case PointType.PORTER_POSITION:
                 {
-                    if (Data.getDataClass().user.role.Equals(UserRole.PORTER))
+                    if (Data.getDataClass().user.role.Equals(UserRole.GUIDES))
                     {
                         infoPanel.CallSelectedPointChanged(point);
                     }
@@ -128,5 +158,22 @@ public class pointProgram : MonoBehaviour {
         }
     }
 
+
+    void Update()
+    {
+        if (isThisObj && isDown && Data.getDataClass().isRead)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                Vector3 point = new Vector3(hit.point.x, hit.point.y, -2);
+                transform.position = point;                                //      Передаю новые координаты объекту
+            }
+
+        }
+    }
 }
 

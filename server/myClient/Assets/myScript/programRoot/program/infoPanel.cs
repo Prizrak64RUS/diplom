@@ -127,28 +127,10 @@ public class infoPanel : MonoBehaviour {
                         if (Data.getDataClass().user.role.Equals(UserRole.GUIDES) && Data.getDataClass().getBusy().idPoint == 0)
                             activ.gameObject.SetActive(true);
                     }
-                    //name.gameObject.SetActive(true);
-                    //description.gameObject.SetActive(true);
-
-                    //if (Data.getDataClass().user.role.Equals(UserRole.GUIDES) && !Data.getDataClass().isBusy) 
-                    //    activ.gameObject.SetActive(true);
                     name.text = point.name;
                     description.text = point.description;
                     break;
                 }
-            //case PointType.NOT_ACTION:
-            //    {
-            //        name.gameObject.SetActive(true);
-            //        description.gameObject.SetActive(true);
-
-            //        activ.gameObject.SetActive(false);
-            //        if (Data.getDataClass().user.role.Equals(UserRole.GUIDES) && Data.getDataClass().getBusy().idPoint == point.id)
-            //            deActiv.gameObject.SetActive(true);
-                    
-            //        name.text = point.name;
-            //        description.text = point.description;
-            //        break;
-            //    }
             case PointType.INFO:
                 {
                     name.gameObject.SetActive(true);
@@ -158,40 +140,6 @@ public class infoPanel : MonoBehaviour {
                     description.text = point.description;
                     break;
                 }
-            case PointType.GROUP: 
-                {
-                    switch (Data.getDataClass().user.role)
-                    {
-                        case UserRole.GUIDES: 
-                            {
-                                name.gameObject.SetActive(true);
-                                description.gameObject.SetActive(true);
-                                name.text = point.name;
-                                description.text = point.description;
-                                groupGet.gameObject.SetActive(true);
-                                break; 
-                            }
-                        case UserRole.PORTER:
-                        case UserRole.HEAD: 
-                            { 
-                                name.gameObject.SetActive(true);
-                                description.gameObject.SetActive(true);
-                                name.text = point.name;
-                                description.text = point.description;
-                                break; 
-                            }
-                        //case UserRole.PORTER: 
-                        //    {
-                        //        Scrol.SetActive(true);
-                        //        save.gameObject.SetActive(true);
-                        //        nameG.text = point.name;
-                        //        descriptionG.text = point.description;
-                        //        breakB.gameObject.SetActive(false);
-                        //        break; 
-                        //    }
-                    }
-                    break;
-                }
             case PointType.PORTER_POSITION:
                 {
                     name.gameObject.SetActive(true);
@@ -199,12 +147,12 @@ public class infoPanel : MonoBehaviour {
 
                     if (point.busy==1)
                     {
-                        if (Data.getDataClass().user.role.Equals(UserRole.PORTER) && Data.getDataClass().getBusy().idPoint == point.id)
+                        if (Data.getDataClass().user.role.Equals(UserRole.GUIDES) && Data.getDataClass().getBusy().idPoint == point.id)
                             deActiv.gameObject.SetActive(true);
                     }
                     else
                     {
-                        if (Data.getDataClass().user.role.Equals(UserRole.PORTER) && Data.getDataClass().getBusy().idPoint==0)
+                        if (Data.getDataClass().user.role.Equals(UserRole.GUIDES) && Data.getDataClass().getBusy().idPoint==0)
                             activ.gameObject.SetActive(true);
                     }
                     name.text = "Позиция встречающего";

@@ -71,4 +71,22 @@ public class ControllerPoint implements InterfacePoint{
     public Point getPoint(@PathVariable  int id) {
         return ControllerConnections.getPointController().getPoint(id);
     }
+
+    @RequestMapping(method = RequestMethod.POST, value= UrlController.pointSetPoint)
+    @ResponseBody
+    public Point setPoints(@RequestBody Point point){
+        return ControllerConnections.getPointController().setPoints(point);
+    }
+    @RequestMapping(method = RequestMethod.POST, value= UrlController.pointDelPoint)
+    @ResponseBody
+    public boolean delPoints(@RequestBody Point point) {
+        return  ControllerConnections.getPointController().delPoints(point);
+    }
+
+
+    @RequestMapping(method = RequestMethod.POST, value= UrlController.pointUpdFree_space)
+    @ResponseBody
+    public boolean updFree_space(@RequestBody Object[] val) {
+        return ControllerConnections.getPointController().updFree_space(val);
+    }
 }

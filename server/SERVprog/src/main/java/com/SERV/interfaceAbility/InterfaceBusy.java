@@ -7,6 +7,6 @@ import com.SERV.view.entity.Busy;
  */
 public interface InterfaceBusy {
     public void setBusy(Busy b);
-    public Busy isBusy(Busy b);
+    public Busy[] isBusy(Busy b);
     public void delBusy(Busy b);
 }

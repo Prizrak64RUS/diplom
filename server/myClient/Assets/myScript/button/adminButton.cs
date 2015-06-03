@@ -7,6 +7,23 @@ public class adminButton : MonoBehaviour {
     public RectTransform userTablePanel;
     public RectTransform eventTablePanel;
     public RectTransform mapsPanel;
+    public RectTransform MCPanel;
+
+    public delegate void AdminAndMCDelegate();
+    public static event AdminAndMCDelegate EventAdminAndMC;
+    public static void CallAdminAndMCChanged()
+    {
+        var handler = EventAdminAndMC;
+        if (EventAdminAndMC != null) // если есть подписчики
+        {
+            EventAdminAndMC();
+        }
+    }
+
+    void Start() 
+    {
+        EventAdminAndMC += ButtonAdminAndMC;
+    }
 
     public void ButtonAdminAndUser()
     {
@@ -22,6 +39,12 @@ public class adminButton : MonoBehaviour {
     {
         ButtonClass.exchange(adminPanel, mapsPanel);
     }
+
+    public void ButtonAdminAndMC()
+    {
+        ButtonClass.exchange(adminPanel, MCPanel);
+    }
+
 
     public void ButtonExit()
     {

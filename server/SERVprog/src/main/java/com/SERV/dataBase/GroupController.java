@@ -2,7 +2,6 @@ package com.SERV.dataBase;
 
 import com.SERV.dataBase.ConnectionPool;
 import com.SERV.interfaceAbility.InterfaceGroup;
-import com.SERV.view.entity.Busy;
 import com.SERV.view.entity.Group;
 
 import java.sql.Connection;
@@ -83,5 +82,37 @@ public class GroupController implements InterfaceGroup {
             return false;
         }
         return  true;
+    }
+
+    @Override
+    public Group getGroup(Integer val) {
+        try {
+            Connection conn =  ConnectionPool.getConnectionPool().retrieve();
+
+            Statement statement = conn.createStatement();
+            ResultSet result = statement.executeQuery("SELECT [id]" +
+                    "      ,[idEvent]" +
+                    "      ,[number_child]" +
+                    "      ,[numberResponsible]" +
+                    "      ,[numberOverall]" +
+                    "      ,[responsible]" +
+                    "      ,[school]" +
+                    "      ,[location]" +
+                    "      ,[date]" +
+                    "      ,[groupExist]" +
+                    "   FROM [SOPG].[dbo].[group]" +
+                    "  WHERE [id]=" +val);
+            if (result.next()) {
+                Group g= new Group(result.getInt("id"),result.getInt("idEvent"),result.getInt("number_child"),result.getInt("numberResponsible"),
+                        result.getInt("numberOverall"),result.getString("responsible"),result.getString("school"),result.getString("location"),
+                        result.getString("date"),result.getInt("groupExist"));
+                ConnectionPool.getConnectionPool().putback(conn);
+                return g;
+            }
+            ConnectionPool.getConnectionPool().putback(conn);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

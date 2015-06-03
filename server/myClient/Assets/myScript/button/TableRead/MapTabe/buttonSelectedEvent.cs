@@ -16,6 +16,9 @@ public class buttonSelectedEvent : MonoBehaviour {
         textSelectedView = text;
         panelSelectedEvent.CallmapTypeEventSelectedChanged(true);
     }
+
+
+
     public void ButtonSetName()
     {
         textSelectedView.text = text.text;

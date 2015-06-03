@@ -20,24 +20,58 @@ public class Point implements Serializable{
     private int busy;
     private int id_user_Busy;
     private int id;
+    private int all_space;
+    private int free_space;
 
-    public Point(String name,String type, double x, double y, double size_w, double size_h, String description, int id_map, int busy, int id_user_Busy, int id){
-        this.name=name;
-        this.type=type;
-        this.description=description;
-        this.x=x;
-        this.id_map=id_map;
-        this.id=id;
-        this.y=y;
-        this.busy=busy;
-        this.id_user_Busy=id_user_Busy;
-        this.size_w=size_w;
-        this.size_h=size_h;
+    public Point(String name, String type, double x, double y, double size_w, double size_h, String description, int id_map, int busy, int id_user_Busy, int all_space, int id, int free_space) {
+        this.name = name;
+        this.type = type;
+        this.x = x;
+        this.y = y;
+        this.size_w = size_w;
+        this.size_h = size_h;
+        this.description = description;
+        this.id_map = id_map;
+        this.busy = busy;
+        this.id_user_Busy = id_user_Busy;
+        this.all_space = all_space;
+        this.id = id;
+        this.free_space = free_space;
+    }
 
+    public Point(String name, String type, double x, double y, double size_w, double size_h, String description, int id_map, int busy, int id_user_Busy, int all_space, int id) {
+        this.name = name;
+        this.type = type;
+        this.x = x;
+        this.y = y;
+        this.size_w = size_w;
+        this.size_h = size_h;
+        this.description = description;
+        this.id_map = id_map;
+        this.busy = busy;
+        this.id_user_Busy = id_user_Busy;
+        this.all_space = all_space;
+        this.id = id;
+        this.free_space = 0;
     }
 
     public Point(){}
 
+    public int getAll_space() {
+        return all_space;
+    }
+
+    public void setAll_space(int all_space) {
+        this.all_space = all_space;
+    }
+
+    public int getFree_space() {
+        return free_space;
+    }
+
+    public void setFree_space(int free_space) {
+        this.free_space = free_space;
+    }
 
     public String getName() {
         return name;
@@ -98,6 +132,10 @@ public class Point implements Serializable{
     public int getBusy() {return busy;}
     public void setIsBusy(int busy) {
         this.busy=busy;
+    }
+
+    public void setBusy(int busy) {
+        this.busy = busy;
     }
 
     public int getId_user_Busy() {
