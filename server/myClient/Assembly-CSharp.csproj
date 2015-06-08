@@ -78,6 +78,7 @@
      <Compile Include="Assets\myScript\button\TableRead\raspTaple\buttonMCFromRasp.cs" />
      <Compile Include="Assets\myScript\button\TableRead\raspTaple\rootRaspClass.cs" />
      <Compile Include="Assets\myScript\button\TableRead\raspTaple\rowsRasp.cs" />
+     <Compile Include="Assets\myScript\button\TableRead\raspTaple\rowsRaspWrite.cs" />
      <Compile Include="Assets\myScript\button\adminButton.cs" />
      <Compile Include="Assets\myScript\button\cameraMoveSrc.cs" />
      <Compile Include="Assets\myScript\button\pointReader\PanelReadDataPoint.cs" />
