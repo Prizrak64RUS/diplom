@@ -72,7 +72,6 @@ namespace Assets.myScript.interfaceUrl
             var content = response.Content;
             try
             {
-                test.Log(content);
                 var b = JsonConvert.DeserializeObject<List<Group>>(content);
                 return b;
             }

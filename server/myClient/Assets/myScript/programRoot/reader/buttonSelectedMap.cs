@@ -24,8 +24,9 @@ public class buttonSelectedMap : MonoBehaviour {
 
     public void ButtonSelectedMapOkInProgram()
     {
+        panelSelectedMap.CallMapNameSelectedChanged3(false);
+       
         mapController.CallActivFieldChanged();
-        panelSelectedMap.CallMapNameSelectedChanged(false);
         mapController.CallMapBuildChanged(map);
     }
 

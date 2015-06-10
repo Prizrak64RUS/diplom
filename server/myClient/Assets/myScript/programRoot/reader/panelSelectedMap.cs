@@ -34,13 +34,31 @@ public class panelSelectedMap : MonoBehaviour {
             EventMapmapNameSelected2(val);
         }
     }
+
+    public delegate void mapNameSelectedDelegate3(bool val);
+    public static event mapNameSelectedDelegate3 EventMapmapNameSelected3;
+    public static void CallMapNameSelectedChanged3(bool val)
+    {
+        var handler = EventMapmapNameSelected3;
+        if (EventMapmapNameSelected3 != null) // если есть подписчики
+        {
+            EventMapmapNameSelected3(val);
+        }
+    }
     void Start()
     {
         objMapList = new List<GameObject>();
-        gameObject.SetActive(false);
+        
+        EventMapmapNameSelected = null;
+        EventMapmapNameSelected2 = null;
+      //  EventMapmapNameSelected3 = null;
+
         EventMapmapNameSelected2 += SelectedPanel;
         EventMapmapNameSelected2 += ButtonContentMasterClassFromRead;
         EventMapmapNameSelected += SelectedPanel;
+        EventMapmapNameSelected3 += SelectedPanel;
+
+        gameObject.SetActive(false);
     }
     public void SelectedPanel(bool val)
     {

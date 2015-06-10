@@ -14,7 +14,7 @@ public class test : MonoBehaviour {
     //        Debug.Log(s);
     //}
 
-    public static void Log(string s)
+    public static void Logs(string s)
     {
         Debug.Log(s);
     }

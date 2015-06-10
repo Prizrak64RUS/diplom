@@ -42,7 +42,7 @@ namespace Assets.myScript.interfaceUrl
                 var b = JsonConvert.DeserializeObject<int>(content);
                 return b;
             }
-            catch (Exception e) { test.Log(e.ToString()); return 0; }
+            catch (Exception e) { return 0; }
         }
         public Group getGroup(Int32 g)
         {

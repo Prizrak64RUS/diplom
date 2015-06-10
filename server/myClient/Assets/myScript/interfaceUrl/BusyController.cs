@@ -30,7 +30,6 @@ namespace Assets.myScript.interfaceUrl
             var content = response.Content;
             try
             {
-                test.Log(content);
                 var obj = JsonConvert.DeserializeObject<Busy>(content);
                 return obj;
             }
@@ -48,7 +47,6 @@ namespace Assets.myScript.interfaceUrl
             var content = response.Content;
             try
             {
-                test.Log(content);
                 var obj = JsonConvert.DeserializeObject<List<Busy>>(content);
                 return obj;
             }
