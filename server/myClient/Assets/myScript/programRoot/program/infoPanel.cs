@@ -207,7 +207,7 @@ public class infoPanel : MonoBehaviour {
 
         var Сhild = Int32.Parse(numberСhild.text);
         var Responsible =Int32.Parse(numberResponsible.text);
-        var g = new Group(Data.getDataClass().getEventThis().id, Сhild, Responsible, Сhild + Responsible, responsible.text, school.text, location.text, "", 1);
+        var g = new Group(Data.getDataClass().getEventThis().id, Сhild, Responsible, Сhild + Responsible, responsible.text, school.text, location.text, "","", 1);
         var gc = new GroupController();
         int sv = gc.setGroup(g);
         if (sv != 0)

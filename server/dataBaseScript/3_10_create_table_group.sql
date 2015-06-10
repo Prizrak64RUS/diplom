@@ -12,7 +12,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[group](
+CREATE TABLE [SOPG].[dbo].[group](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[idEvent] [int] NOT NULL,
 	[number_child] [int] NOT NULL,
@@ -21,8 +21,8 @@ CREATE TABLE [dbo].[group](
 	[responsible] [nchar](150) NOT NULL,
 	[school] [nchar](50) NOT NULL,
 	[location] [nchar](50) NOT NULL,
-	[date_start] [datetime] NOT NULL,
-	[date_end] [datetime] NULL,
+	[date_start] [time] NOT NULL,
+	[date_end] [time] NULL,
 	[groupExist] [int] NOT NULL,
  CONSTRAINT [PK_group] PRIMARY KEY CLUSTERED 
 (

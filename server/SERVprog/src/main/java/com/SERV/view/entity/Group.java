@@ -14,11 +14,12 @@ public class Group implements Serializable {
     private String responsible;
     private String school;
     private String location;
-    private String date;
+    private String date_start;
+    private String date_end;
     private int groupExist;
 
 
-    public Group(int id, int idEvent, int number_child, int numberResponsible, int numberOverall, String responsible, String school, String location, String date, int groupExist) {
+    public Group(int id, int idEvent, int number_child, int numberResponsible, int numberOverall, String responsible, String school, String location, String date_start, String date_end, int groupExist) {
         this.id = id;
         this.idEvent = idEvent;
         this.number_child = number_child;
@@ -27,7 +28,8 @@ public class Group implements Serializable {
         this.responsible = responsible;
         this.school = school;
         this.location = location;
-        this.date = date;
+        this.date_start = date_start;
+        this.date_end = date_end;
         this.groupExist=groupExist;
     }
 
@@ -42,12 +44,20 @@ public class Group implements Serializable {
         this.groupExist = groupExist;
     }
 
-    public String getDate() {
-        return date;
+    public String getDate_start() {
+        return date_start;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDate_start(String date_start) {
+        this.date_start = date_start;
+    }
+
+    public String getDate_end() {
+        return date_end;
+    }
+
+    public void setDate_end(String date_end) {
+        this.date_end = date_end;
     }
 
     public String getLocation() {

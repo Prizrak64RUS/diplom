@@ -64,15 +64,15 @@ public class GroupController implements InterfaceGroup {
             Statement statement = conn.createStatement();
             ResultSet result = statement.executeQuery("SELECT [id]" +
                     "  FROM [SOPG].[dbo].[group]" +
-                    "  WHERE idEvent=" +g.getIdEvent()+
-                    "  AND groupExist="+g.getGroupExist()+";");
+                    "  WHERE idEvent=" + g.getIdEvent() +
+                    "  AND groupExist=" + g.getGroupExist() + ";");
             int id=0;
             if(result.next())
             {
                 id = result.getInt("id");
             }
             if(id!=0){
-                setGroup(new Group(0,g.getIdEvent(),0,0,0,"","","","",0));
+                setGroup(new Group(0,g.getIdEvent(),0,0,0,"","","","","",0));
                 updGroup(g);
                 return true;
             }
@@ -105,13 +105,14 @@ public class GroupController implements InterfaceGroup {
                     "      ,[school]" +
                     "      ,[location]" +
                     "      ,[date_start]" +
+                    "      ,[date_end]" +
                     "      ,[groupExist]" +
                     "   FROM [SOPG].[dbo].[group]" +
                     "  WHERE [id]=" +val);
             if (result.next()) {
                 Group g= new Group(result.getInt("id"),result.getInt("idEvent"),result.getInt("number_child"),result.getInt("numberResponsible"),
                         result.getInt("numberOverall"),result.getString("responsible"),result.getString("school"),result.getString("location"),
-                        result.getString("date"),result.getInt("groupExist"));
+                        result.getString("date_start"),"",result.getInt("groupExist"));
                 ConnectionPool.getConnectionPool().putback(conn);
                 return g;
             }

@@ -218,7 +218,8 @@ namespace Assets.myScript
 
             fnew.WriteLine("<table border=1>");
             fnew.WriteLine("<thead>");
-            fnew.WriteLine("<th>Дата прихода</th>");
+            fnew.WriteLine("<th>Времмя прихода</th>");
+            fnew.WriteLine("<th>Времмя ухода</th>");
             fnew.WriteLine("<th>Город</th>");
             fnew.WriteLine("<th>Учебное заведение</th>");
             fnew.WriteLine("<th>Ответственный</th>");
@@ -235,7 +236,8 @@ namespace Assets.myScript
                     continue;
 
                 fnew.WriteLine("<tr>");
-                fnew.WriteLine("<td>" + g.date + "</td>");
+                fnew.WriteLine("<td>" + g.date_start + "</td>");
+                fnew.WriteLine("<td>" + g.date_end + "</td>");
                 fnew.WriteLine("<td>" + g.location + "</td>");
                 fnew.WriteLine("<td>" + g.school + "</td>");
                 fnew.WriteLine("<td>" + g.responsible + "</td>");

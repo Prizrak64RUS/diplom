@@ -142,7 +142,8 @@ public class LogController implements InterfaceLog {
                     "      ,[responsible]" +
                     "      ,[school]" +
                     "      ,[location]" +
-                    "      ,[date]" +
+                    "      ,[date_start]" +
+                    "      ,[date_end]" +
                     "      ,[groupExist]" +
                     "   FROM [SOPG].[dbo].[group]" +
                     "  WHERE [idEvent]=" +val[0]+
@@ -151,7 +152,7 @@ public class LogController implements InterfaceLog {
             while (result.next()) {
                 Group g= new Group(result.getInt("id"),val[0],result.getInt("number_child"),result.getInt("numberResponsible"),
                         result.getInt("numberOverall"),result.getString("responsible"),result.getString("school"),result.getString("location"),
-                        result.getString("date"),result.getInt("groupExist"));
+                        result.getString("date_start").substring(0, 5),result.getString("date_end").substring(0,5),result.getInt("groupExist"));
                 logs.add(g);
             }
             ConnectionPool.getConnectionPool().putback(conn);
