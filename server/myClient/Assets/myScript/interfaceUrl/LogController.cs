@@ -72,10 +72,11 @@ namespace Assets.myScript.interfaceUrl
             var content = response.Content;
             try
             {
+                test.Logs(content);
                 var b = JsonConvert.DeserializeObject<List<Group>>(content);
                 return b;
             }
-            catch (Exception e) { return null; }
+            catch (Exception e) { test.Logs(e.StackTrace); return null; }
         }
     }
 }

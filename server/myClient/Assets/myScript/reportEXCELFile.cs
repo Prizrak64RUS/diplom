@@ -236,8 +236,8 @@ namespace Assets.myScript
                     continue;
 
                 fnew.WriteLine("<tr>");
-                fnew.WriteLine("<td>" + g.date_start + "</td>");
-                fnew.WriteLine("<td>" + g.date_end + "</td>");
+                fnew.WriteLine("<td>" + g.ds + "</td>");
+                fnew.WriteLine("<td>" + g.de + "</td>");
                 fnew.WriteLine("<td>" + g.location + "</td>");
                 fnew.WriteLine("<td>" + g.school + "</td>");
                 fnew.WriteLine("<td>" + g.responsible + "</td>");

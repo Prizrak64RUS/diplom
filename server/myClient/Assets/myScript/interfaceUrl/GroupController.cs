@@ -22,6 +22,7 @@ namespace Assets.myScript.interfaceUrl
             var content = response.Content;
             try
             {
+             //   test.Logs(content);
                 var b = JsonConvert.DeserializeObject<bool>(content);
                 return b;
             }

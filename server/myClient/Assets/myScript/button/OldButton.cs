@@ -64,6 +64,8 @@ public class OldButton : MonoBehaviour {
     {
         if (loadData())
         {
+            GroupController gc = new GroupController();
+            gc.updGroup(new Group(Data.getDataClass().getEventThis().id));
             Application.LoadLevel("program");
 
         }

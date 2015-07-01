@@ -150,9 +150,22 @@ public class LogController implements InterfaceLog {
                     "  ORDER BY [location];");
             ArrayList<Group> logs = new ArrayList<Group>();
             while (result.next()) {
+                String ds, de;
+             //   System.out.println("1");
+                ds=result.getString("date_start");
+                de=result.getString("date_end");
+                if(ds==null) ds=" ";
+                if(de==null) de=" ";
+           //     System.out.println("11");
+                if(ds.length()>6)
+                    ds=ds.substring(0, 5);
+           //     System.out.println("12");
+                if(de.length()>6)
+                    de=de.substring(0, 5);
+          //      System.out.println("2");
                 Group g= new Group(result.getInt("id"),val[0],result.getInt("number_child"),result.getInt("numberResponsible"),
                         result.getInt("numberOverall"),result.getString("responsible"),result.getString("school"),result.getString("location"),
-                        result.getString("date_start").substring(0, 5),result.getString("date_end").substring(0,5),result.getInt("groupExist"));
+                        ds,de,result.getInt("groupExist"));
                 logs.add(g);
             }
             ConnectionPool.getConnectionPool().putback(conn);

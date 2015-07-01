@@ -80,10 +80,11 @@ public class oldPanelMenu : MonoBehaviour {
 
         if (Data.getDataClass().user.role.Equals(UserRole.GUIDES))
         {
-            if (Data.getDataClass().getBusy().idGroup == 0) { GroupEnd.gameObject.SetActive(false); }
+            if (Data.getDataClass().getBusy().idGroup == 0) { GroupEnd.gameObject.SetActive(false); GroupGet.gameObject.SetActive(true); }
             else
             {
                 GroupGet.gameObject.SetActive(false);
+                GroupEnd.gameObject.SetActive(true); 
             }
         }
         else

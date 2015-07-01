@@ -20,8 +20,10 @@ public class GroupController implements InterfaceGroup {
             Connection conn =  ConnectionPool.getConnectionPool().retrieve();
             Statement statement = conn.createStatement();
             String loc = g.getLocation();
-            loc=loc.toLowerCase();
-            loc = loc.substring(0, 1).toUpperCase() + loc.substring(1);
+            if(!loc.equals("")) {
+                loc = loc.toLowerCase();
+                loc = loc.substring(0, 1).toUpperCase() + loc.substring(1);
+            }
 
             statement.execute("INSERT INTO [SOPG].[dbo].[group]" +
                     "           ([idEvent]" +
@@ -65,16 +67,14 @@ public class GroupController implements InterfaceGroup {
             ResultSet result = statement.executeQuery("SELECT [id]" +
                     "  FROM [SOPG].[dbo].[group]" +
                     "  WHERE idEvent=" + g.getIdEvent() +
-                    "  AND groupExist=" + g.getGroupExist() + ";");
+                    "  AND groupExist=0;");
             int id=0;
             if(result.next())
             {
                 id = result.getInt("id");
             }
-            if(id!=0){
-                setGroup(new Group(0,g.getIdEvent(),0,0,0,"","","","","",0));
-                updGroup(g);
-                return true;
+            if(id==0){
+                setGroup(g);
             }
             statement = conn.createStatement();
             statement.execute("UPDATE [dbo].[group]" +
